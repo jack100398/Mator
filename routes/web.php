@@ -11,6 +11,21 @@
 |
 */
 
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
+
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
+})->name('home');
+
+
+Route::get('/commodity', function () {
+    return view('commodity');
+})->name('commodity');
+
+
+Route::post('/upload', function () {
+    $imageURL = request()->file('img')->store('public');
+    return 'storage/' .substr($imageURL, 7);
 });
