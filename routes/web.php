@@ -20,12 +20,16 @@ Route::get('/', function () {
 })->name('home');
 
 
-Route::get('/commodity', function () {
-    return view('commodity');
-})->name('commodity');
+// Route::get('/commodity', function () {
+//     return view('commodity');
+// })->name('commodity');
 
 
 Route::post('/upload', function () {
     $imageURL = request()->file('img')->store('public');
     return 'storage/' .substr($imageURL, 7);
 });
+
+Route::apiResource('/commodity', 'CommodityController', ['names' => ['index' => 'commodity']]);
+
+Route::get('commodities', 'CommodityController@getCommodities');

@@ -114,11 +114,15 @@
                     </div>
 
                     <!-- Content Row -->
-                    <div class="row">
-                        @include('component.card')
-                        @include('component.card')
-                        @include('component.card')
-                        @include('component.card')
+                    <div class="row" id = "commodity_cards">
+                        @include('component.card',['name' => 'abc'])
+                        @include('component.card',['name' => 'abc'])
+                        @include('component.card',['name' => 'abc'])
+                        @include('component.card',['name' => 'abc'])
+                        @include('component.card',['name' => 'abc'])
+                        @include('component.card',['name' => 'abc'])
+                        @include('component.card',['name' => 'abc'])
+                        @include('component.card',['name' => 'abc'])
                     </div>
 
                 </div>
