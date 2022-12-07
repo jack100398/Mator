@@ -49,38 +49,95 @@
                                     </div>
 
                                     <div class="input-group mb-3">
-                                      <div class="input-group-prepend">
-                                        <span class="input-group-text" id="basic-addon1">額定動力</span>
-                                      </div>
-                                      <input type="text" id="commodity-power" class="form-control" placeholder="請輸入額定動力" aria-label="power" aria-describedby="basic-addon1">
+                                        <div class="input-group-prepend">
+                                          <span class="input-group-text" id="basic-addon1">額定推力</span>
+                                        </div>
+                                        <input type="text" id="commodity-power" class="form-control" placeholder="請輸入額定動力" aria-label="power" aria-describedby="basic-addon1">
+                                        <div class="input-group-prepend">
+                                          <span class="input-group-text" id="basic-addon1">加速推力</span>
+                                        </div>
+                                        <input type="text" id="commodity-power" class="form-control" placeholder="請輸入加速推力" aria-label="power" aria-describedby="basic-addon1">
+                                    
                                     </div>
 
                                     <div class="input-group mb-3">
                                       <div class="input-group-prepend">
-                                        <span class="input-group-text" id="basic-addon1">暫代</span>
+                                        <span class="input-group-text" id="basic-addon1">額定電流</span>
                                       </div>
-                                      <input type="text" class="form-control" placeholder="請輸入暫代" aria-label="power" aria-describedby="basic-addon1">
+                                      <input type="text" id="commodity-power" class="form-control" placeholder="請輸入額定電流" aria-label="power" aria-describedby="basic-addon1">
+                                                                            <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon1">加速電流</span>
+                                      </div>
+                                      <input type="text" id="commodity-power" class="form-control" placeholder="請輸入加速電流" aria-label="power" aria-describedby="basic-addon1">
                                     </div>
 
                                     <div class="input-group mb-3">
                                       <div class="input-group-prepend">
-                                        <span class="input-group-text" id="basic-addon1">暫代</span>
+                                        <span class="input-group-text" id="basic-addon1">最大加速度</span>
                                       </div>
-                                      <input type="text" class="form-control" placeholder="請輸入暫代" aria-label="power" aria-describedby="basic-addon1">
+                                      <input type="text" id="commodity-power" class="form-control" placeholder="請輸入最大加速度" aria-label="power" aria-describedby="basic-addon1">
+                                                                            <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon1">最大速度</span>
+                                      </div>
+                                      <input type="text" id="commodity-power" class="form-control" placeholder="請輸入最大速度" aria-label="power" aria-describedby="basic-addon1">
                                     </div>
 
                                     <div class="input-group mb-3">
                                       <div class="input-group-prepend">
-                                        <span class="input-group-text" id="basic-addon1">暫代</span>
+                                        <span class="input-group-text" id="basic-addon1">重複定位精準度</span>
                                       </div>
-                                      <input type="text" class="form-control" placeholder="請輸入暫代" aria-label="power" aria-describedby="basic-addon1">
+                                      <input type="text" id="commodity-power" class="form-control" placeholder="請輸入重複定位精準度" aria-label="power" aria-describedby="basic-addon1">
                                     </div>
 
                                     <div class="input-group mb-3">
                                       <div class="input-group-prepend">
-                                        <span class="input-group-text" id="basic-addon1">暫代</span>
+                                        <span class="input-group-text" id="basic-addon1">水平最大荷重</span>
                                       </div>
-                                      <input type="text" class="form-control" placeholder="請輸入暫代" aria-label="power" aria-describedby="basic-addon1">
+                                      <input type="text" id="commodity-power" class="form-control" placeholder="請輸入水平最大荷重" aria-label="power" aria-describedby="basic-addon1">
+                                      <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon1">壁掛最大荷重</span>
+                                      </div>
+                                      <input type="text" id="commodity-power" class="form-control" placeholder="請輸入壁掛最大荷重" aria-label="power" aria-describedby="basic-addon1">
+                                    </div>
+
+                                    <div class="input-group mb-3">
+                                      <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon1">行程(雙滑軌)</span>
+                                      </div>
+                                      <input type="text" id="commodity-power" class="form-control" placeholder="請輸入行程" aria-label="power" aria-describedby="basic-addon1">
+                                    </div>
+
+
+                                    <div class="input-group mb-3">
+                                      <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon1">電源電壓</span>
+                                      </div>
+                                      <input type="text" id="commodity-power" class="form-control" placeholder="請輸入電源電壓" aria-label="power" aria-describedby="basic-addon1">
+                                    </div>
+
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon1">使用環境溫度</span>
+                                        </div>
+                                        <input type="text" id="commodity-power" class="form-control" placeholder="請輸入使用環境溫度" aria-label="power" aria-describedby="basic-addon1">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon1">使用環境濕度</span>
+                                        </div>
+                                        <input type="text" id="commodity-power" class="form-control" placeholder="請輸入使用環境濕度" aria-label="power" aria-describedby="basic-addon1">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon1">保存溫度</span>
+                                        </div>
+                                        <input type="text" id="commodity-power" class="form-control" placeholder="請輸入使用保存溫度" aria-label="power" aria-describedby="basic-addon1">
+                                    </div>
+
+
+
+
+
+
+                                    <div class="form-group">
+                                        <label for="exampleFormControlTextarea1">備註</label>
+                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
                                     </div>
 
                                 </div>
