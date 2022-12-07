@@ -33,3 +33,7 @@ Route::post('/upload', function () {
 Route::apiResource('/commodity', 'CommodityController', ['names' => ['index' => 'commodity']]);
 
 Route::get('commodities', 'CommodityController@getCommodities');
+
+Route::get('/client', function () {
+    return view('client');
+})->name('client');
