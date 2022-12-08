@@ -15,18 +15,15 @@
                             <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
                                 aria-labelledby="dropdownMenuLink">
                                 <div class="dropdown-header">商品選項:</div>
-                                <a class="dropdown-item" onclick="alert('敬請期待')">刪除</a>
+                                <a class="dropdown-item" onclick="dropCommodities({{$id}})">刪除</a>
                                 <div class="dropdown-divider"></div>
                             </div>
                         </div>
                     </div>
-                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{'價錢:暫代'}}</div>
-                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{'資訊:A'}}</div>
-                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{'資訊:B'}}</div>
                     <div class="h5 mb-0 font-weight-bold text-gray-800">{{'介紹:產品介紹'}}</div>
                 </div>
                 <div class="col-auto">
-                    <img src="storage/QwGdXNH7KCuoAJQB4IuM2ifB9YZCbw3TvQa7ER5j.jpg" alt="" class="img-thumbnail">
+                    <img src="{{ $src }}" alt="" class="img-thumbnail">
                 </div>
             </div>
         </div>

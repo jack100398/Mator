@@ -23,99 +23,100 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon1">品名</span>
                             </div>
-                            <input type="text" id="commodity-name" class="form-control" placeholder="請輸入產品名稱"
+                            <input type="text" v-model="data.name" class="form-control" placeholder="請輸入產品名稱"
                                 aria-label="name" aria-describedby="basic-addon1">
                         </div>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon1">額定推力</span>
                             </div>
-                            <input type="text" id="commodity-power" class="form-control" placeholder="請輸入額定動力"
+                            <input type="number" v-model="data.rated_thrust" class="form-control" placeholder="請輸入額定動力"
                                 aria-label="power" aria-describedby="basic-addon1">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon1">加速推力</span>
                             </div>
-                            <input type="text" id="commodity-power" class="form-control" placeholder="請輸入加速推力"
-                                aria-label="power" aria-describedby="basic-addon1">
+                            <input type="number" v-model="data.acceleration_thrust" class="form-control"
+                                placeholder="請輸入加速推力" aria-label="power" aria-describedby="basic-addon1">
 
                         </div>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon1">額定電流</span>
                             </div>
-                            <input type="text" id="commodity-power" class="form-control" placeholder="請輸入額定電流"
+                            <input type="number" v-model="data.rated_current" class="form-control" placeholder="請輸入額定電流"
                                 aria-label="power" aria-describedby="basic-addon1">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon1">加速電流</span>
                             </div>
-                            <input type="text" id="commodity-power" class="form-control" placeholder="請輸入加速電流"
-                                aria-label="power" aria-describedby="basic-addon1">
+                            <input type="number" v-model="data.acceleration_current" class="form-control"
+                                placeholder="請輸入加速電流" aria-label="power" aria-describedby="basic-addon1">
                         </div>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon1">最大加速度</span>
                             </div>
-                            <input type="text" id="commodity-power" class="form-control" placeholder="請輸入最大加速度"
-                                aria-label="power" aria-describedby="basic-addon1">
+                            <input type="number" v-model="data.max_acceleration" class="form-control"
+                                placeholder="請輸入最大加速度" aria-label="power" aria-describedby="basic-addon1">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon1">最大速度</span>
                             </div>
-                            <input type="text" id="commodity-power" class="form-control" placeholder="請輸入最大速度"
+                            <input type="number" v-model="data.max_speed" class="form-control" placeholder="請輸入最大速度"
                                 aria-label="power" aria-describedby="basic-addon1">
                         </div>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon1">重複定位精準度</span>
                             </div>
-                            <input type="text" id="commodity-power" class="form-control" placeholder="請輸入重複定位精準度"
+                            <input type="number" v-model="data.accuracy" class="form-control" placeholder="請輸入重複定位精準度"
                                 aria-label="power" aria-describedby="basic-addon1">
                         </div>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon1">水平最大荷重</span>
                             </div>
-                            <input type="text" id="commodity-power" class="form-control" placeholder="請輸入水平最大荷重"
-                                aria-label="power" aria-describedby="basic-addon1">
+                            <input type="number" v-model="data.horizontal_load" class="form-control"
+                                placeholder="請輸入水平最大荷重" aria-label="power" aria-describedby="basic-addon1">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon1">壁掛最大荷重</span>
                             </div>
-                            <input type="text" id="commodity-power" class="form-control" placeholder="請輸入壁掛最大荷重"
-                                aria-label="power" aria-describedby="basic-addon1">
+                            <input type="number" v-model="data.vertical_load" class="form-control"
+                                placeholder="請輸入壁掛最大荷重" aria-label="power" aria-describedby="basic-addon1">
                         </div>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon1">行程(雙滑軌)</span>
                             </div>
-                            <input type="text" id="commodity-power" class="form-control" placeholder="請輸入行程"
+                            <input type="number" v-model="data.travel" class="form-control" placeholder="請輸入行程"
                                 aria-label="power" aria-describedby="basic-addon1">
                         </div>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon1">電源電壓</span>
                             </div>
-                            <input type="text" id="commodity-power" class="form-control" placeholder="請輸入電源電壓"
+                            <input type="number" v-model="data.voltage" class="form-control" placeholder="請輸入電源電壓"
                                 aria-label="power" aria-describedby="basic-addon1">
                         </div>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon1">使用環境溫度</span>
                             </div>
-                            <input type="text" id="commodity-power" class="form-control" placeholder="請輸入使用環境溫度"
-                                aria-label="power" aria-describedby="basic-addon1">
+                            <input type="number" v-model="data.ambient_temperature" class="form-control"
+                                placeholder="請輸入使用環境溫度" aria-label="power" aria-describedby="basic-addon1">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon1">使用環境濕度</span>
                             </div>
-                            <input type="text" id="commodity-power" class="form-control" placeholder="請輸入使用環境濕度"
-                                aria-label="power" aria-describedby="basic-addon1">
+                            <input type="number" v-model="data.environment_humidity" class="form-control"
+                                placeholder="請輸入使用環境濕度" aria-label="power" aria-describedby="basic-addon1">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon1">保存溫度</span>
                             </div>
-                            <input type="text" id="commodity-power" class="form-control" placeholder="請輸入使用保存溫度"
-                                aria-label="power" aria-describedby="basic-addon1">
+                            <input type="number" v-model="data.storage_temperature" id="commodity-power"
+                                class="form-control" placeholder="請輸入使用保存溫度" aria-label="power"
+                                aria-describedby="basic-addon1">
                         </div>
                         <div class="form-group">
                             <label for="exampleFormControlTextarea1">備註</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+                            <textarea v-model="data.remark" class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
                         </div>
                     </div>
                 </div>
@@ -125,33 +126,103 @@
                 <div class="card shadow mb-4">
                     <!-- Card Header - Dropdown -->
                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                        <h6 class="m-0 font-weight-bold text-primary">附圖</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">產品圖片</h6>
                     </div>
                     <!-- Card Body -->
                     <div class="card-body">
-                        <img id="demo-img" class="img-thumbnail">
-                        <input id="uploadImg" class="file" type="file" multiple data-min-file-count="1">
-                        <button type="submit" class="btn btn-primary pull-right" id="img-upload">上傳</button>
+                        <img id="demo-img" class="img-fluid" style="max-width: 50%;height:auto;" :src="data.picture_one">
+                        <input id="picture_one" class="file" type="file" multiple data-min-file-count="1">
+                        <button type="submit" class="btn btn-primary pull-right" v-on:click="upload('picture_one')">上傳</button>
+                    </div>
+                </div>
+                <div class="card shadow mb-4">
+                    <!-- Card Header - Dropdown -->
+                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-primary">F-V曲線圖</h6>
+                    </div>
+                    <!-- Card Body -->
+                    <div class="card-body">
+                        <img id="demo-img" class="img-fluid" style="max-width: 50%;height:auto;" :src="data.picture_two">
+                        <input id="picture_two" class="file" type="file" multiple data-min-file-count="1">
+                        <button type="submit" class="btn btn-primary pull-right" v-on:click="upload('picture_two')">上傳</button>
+                    </div>
+                </div>
+                <div class="card shadow mb-4">
+                    <!-- Card Header - Dropdown -->
+                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-primary">重複定位精準度</h6>
+                    </div>
+                    <!-- Card Body -->
+                    <div class="card-body">
+                        <img id="demo-img" class="img-fluid" style="max-width: 50%;height:auto;" :src="data.picture_three">
+                        <input id="picture_three" class="file" type="file" multiple data-min-file-count="1">
+                        <button type="submit" class="btn btn-primary pull-right" v-on:click="upload('picture_three')">上傳</button>
+                    </div>
+                </div>
+                <div class="card shadow mb-4">
+                    <!-- Card Header - Dropdown -->
+                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-primary">加速度與荷重關係圖</h6>
+                    </div>
+                    <!-- Card Body -->
+                    <div class="card-body">
+                        <img id="demo-img" class="img-fluid" style="max-width: 50%;height:auto;" :src="data.picture_four">
+                        <input id="picture_four" class="file" type="file" multiple data-min-file-count="1">
+                        <button type="submit" class="btn btn-primary pull-right" v-on:click="upload('picture_four')">上傳</button>
                     </div>
                 </div>
             </div>
         </div>
         <div class="row justify-content-end">
-            <button type="button" class="btn btn-success" onclick="createCommodity()">新增</button>
+            <button type="button" class="btn btn-success" v-on:click="create">新增</button>
         </div>
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h3 class="h3 mb-0 text-gray-800">商品</h1>
         </div>
         <!-- Content Row -->
         <div class="row" id="commodity_cards">
-            @include('component.card', ['name' => 'abc'])
-            @include('component.card', ['name' => 'abc'])
-            @include('component.card', ['name' => 'abc'])
-            @include('component.card', ['name' => 'abc'])
-            @include('component.card', ['name' => 'abc'])
-            @include('component.card', ['name' => 'abc'])
-            @include('component.card', ['name' => 'abc'])
-            @include('component.card', ['name' => 'abc'])
         </div>
     </div>
+    <script>
+        const {
+            createApp
+        } = Vue
+        createApp({
+            data() {
+                return {
+                    data: {
+                        name: null,
+                        rated_thrust: null, //額定推力
+                        acceleration_thrust: null, //加速推力
+                        rated_current: null, //額定電流
+                        acceleration_current: null, //加速電流
+                        max_acceleration: null, //最大加速度
+                        max_speed: null, //最大速度
+                        accuracy: null, //重複定位精準度
+                        horizontal_load: null, //水平最大荷重
+                        vertical_load: null, //壁掛最大荷重
+                        travel: null, //行程(雙滑軌)
+                        voltage: null, //電源電壓
+                        ambient_temperature: null, //環境溫度
+                        environment_humidity: null, //環境濕度
+                        storage_temperature: null, //保存溫度
+                        remark: null, //備註
+                        picture_one: null, //附圖
+                        picture_two: null, //附圖
+                        picture_three: null, //附圖
+                        picture_four: null, //附圖
+                    },
+                }
+            },
+            methods: {
+                async upload(item) {
+                    this.data[item] = await uploadImage(item);
+                },
+                create() {
+                    sendAjax('post', '/commodity', this.data);
+                    getCommodities();
+                },
+            }
+        }).mount('#app')
+    </script>
 @endsection

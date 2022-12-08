@@ -1,67 +1,71 @@
 
-$("#img-upload").on('click',function(e){
+$("#img-upload").on('click', function (e) {
     uploadImage();
 })
 
-function getCommodities() {
-    sendAjax('get', '/commodities', null, function (response) {
-        $('#commodity_cards').append(response);
+async function dropCommodities(id) {
+    url = '/commodity/'+ id;
 
-    });
+    await sendAjax('delete', url, null);
+    await getCommodities();
+}
+
+async function getCommodities() {
+    $('#commodity_cards').html();
+    let html = await sendAjax('get', '/commodities', null);
+    $('#commodity_cards').html(html);
 }
 
 getCommodities();
 
-function createCommodity() {
-    var data = {
-        'name': $('#commodity-name').val(),
-        'power': $('#commodity-power').val(),
-        'image_url':$('.img-thumbnail').attr('src')
-    }
-    console.log(data);
-    sendAjax('post', '/commodity', data);
-}
-
-function uploadImage() {
-    var img = document.getElementById("uploadImg").files[0];
+async function uploadImage(element_id) {
+    let element = document.getElementById(element_id);
+    var img = element.files[0];
     var form = new FormData();
     form.append("img", img);
-    form.append("_token","{{ csrf_token() }}");
-
-    ajaxUploadFile('post', '/upload', form, function (data) {$('#demo-img').attr('src', data);})
+    form.append("_token", "{{ csrf_token() }}");
+    return await ajaxUploadFile('post', '/upload', form)
 }
 
-function sendAjax(type = 'post', url, data= null, callback = null) {
-    $.ajax({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        },
-        type: type,
-        url: url ,
-        data: data,
-        cache: false,
-        success:callback,
-        error:function(err){
-            console.log(err);
-        }
-    }); 
+function sendAjax(type = 'post', url, data = null) {
+    return new Promise((resolve, reject) => {
+        $.ajax({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            type: type,
+            url: url,
+            data: data,
+            cache: false,
+            success: function (res) {
+                resolve(res);
+            },
+            error: function (err) {
+                console.log(err);
+            }
+        });
+    });
 }
 
-function ajaxUploadFile(type = 'post', url, data, callback = null) {
-    $.ajax({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        },
-        type: type,
-        url: url ,
-        data: data,
-        processData:false,
-        //mimeType:"multipart/form-data",
-        contentType: false,
-        cache: false,
-          success:callback,
-        error:function(err){
-            console.log(err);
-        }
-    }); 
+function ajaxUploadFile(type = 'post', url, data) {
+    return new Promise((resolve, reject) => {
+        $.ajax({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            type: type,
+            url: url,
+            data: data,
+            processData: false,
+            //mimeType:"multipart/form-data",
+            contentType: false,
+            cache: false,
+            success: function (res) {
+                resolve(res);
+            },
+            error: function (err) {
+                console.log(err);
+            }
+        });
+    });
 }

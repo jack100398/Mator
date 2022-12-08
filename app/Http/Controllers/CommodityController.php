@@ -14,6 +14,7 @@ class CommodityController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
+        
         $commodity = Commodity::query()->create($data);
         
         return response()->json($commodity->id);
@@ -22,11 +23,13 @@ class CommodityController extends Controller
     public function getCommodities()
     {
         $commodities = Commodity::query()->get()->map(function (Commodity $commodity) {
-            return view('component.card', ['name' => 'aaaa']);
+            return view('component.card', ['id' => $commodity->id, 'name' => $commodity->name, 'src' => $commodity->picture_one])->toHtml();
         });
 
-        dd($commodities);
-
         return response($commodities);
+    }
+
+    public function destroy(Commodity $commodity) {
+        $commodity->delete();
     }
 }
