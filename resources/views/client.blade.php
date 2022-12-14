@@ -78,17 +78,23 @@
                     </div>
                     <!-- Card Body -->
                     <div class="card-body">
-                        <label for="customRange2" class="form-label">荷重</label>
-                        <input type="range" class="form-range" min="0" max="400" value=0 id="customRange2"
-                            oninput="this.nextElementSibling.value = this.value">
-                        <output>0</output>
-                        <label for="customRange2" class="form-label">KG</label>
+                        <div class="input-group mb-3">
+                            <label for="customRange2" class="form-label">荷重</label>
+                            <input type="range" class="form-range" min="0" max="400" v-model="data.weight"
+                                id="customRange2">
+                            <input type="text" size="4" class="form-control bg-light border-0"
+                                v-model="data.weight" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <span class="input-group-text">KG</span>
+                            </div>
+                        </div>
+
 
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon1">行程距離</span>
                             </div>
-                            <input type="text" class="form-control" placeholder="請輸入行程距離" aria-label="power"
+                            <input type="text" class="form-control" v-model="data.distance" placeholder="請輸入行程距離" aria-label="power"
                                 aria-describedby="basic-addon1">
                             <div class="input-group-append">
                                 <span class="input-group-text">mm</span>
@@ -107,7 +113,7 @@
 
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="speed_setting" id="exampleRadios1"
-                                value="option1" checked>
+                                v-model="video" value="option1">
                             <label class="form-check-label" for="exampleRadios1">
                                 以時間決定
                             </label>
@@ -116,8 +122,8 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="basic-addon1">目標時間</span>
                                 </div>
-                                <input type="text" class="form-control" placeholder="請輸入目標時間" aria-label="power"
-                                    aria-describedby="basic-addon1">
+                                <input type="text" class="form-control" v-model="byTime.time" placeholder="請輸入目標時間"
+                                    aria-label="power" aria-describedby="basic-addon1">
                                 <div class="input-group-append">
                                     <span class="input-group-text">msec</span>
                                 </div>
@@ -126,8 +132,8 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="basic-addon1">制限速度</span>
                                 </div>
-                                <input type="text" class="form-control" placeholder="請輸入制限速度" aria-label="power"
-                                    aria-describedby="basic-addon1">
+                                <input type="text" class="form-control" v-model="byTime.speed" placeholder="請輸入制限速度"
+                                    aria-label="power" aria-describedby="basic-addon1">
                                 <div class="input-group-append">
                                     <span class="input-group-text">mm/sec</span>
                                 </div>
@@ -138,7 +144,7 @@
 
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="speed_setting" id="exampleRadios1"
-                                value="option1" checked>
+                                v-model="video" value="option2">
                             <label class="form-check-label" for="exampleRadios1">
                                 以加速度時間決定
                             </label>
@@ -146,8 +152,8 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="basic-addon1">加減速時間</span>
                                 </div>
-                                <input type="text" class="form-control" placeholder="請輸入加減速時間" aria-label="power"
-                                    aria-describedby="basic-addon1">
+                                <input type="text" class="form-control" v-model="byAccelerationTime.time"
+                                    placeholder="請輸入加減速時間" aria-label="power" aria-describedby="basic-addon1">
                                 <div class="input-group-append">
                                     <span class="input-group-text">msec</span>
                                 </div>
@@ -156,8 +162,8 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="basic-addon1">運轉速度</span>
                                 </div>
-                                <input type="text" class="form-control" placeholder="請輸入運轉速度" aria-label="power"
-                                    aria-describedby="basic-addon1">
+                                <input type="text" class="form-control" v-model="byAccelerationTime.speed"
+                                    placeholder="請輸入運轉速度" aria-label="power" aria-describedby="basic-addon1">
                                 <div class="input-group-append">
                                     <span class="input-group-text">mm/sec</span>
                                 </div>
@@ -166,7 +172,7 @@
 
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="speed_setting" id="exampleRadios1"
-                                value="option1" checked>
+                                v-model="video" value="option3">
                             <label class="form-check-label" for="exampleRadios1">
                                 以加速度決定
                             </label>
@@ -174,8 +180,8 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="basic-addon1">加速度</span>
                                 </div>
-                                <input type="text" class="form-control" placeholder="請輸入加速度" aria-label="power"
-                                    aria-describedby="basic-addon1">
+                                <input type="text" class="form-control" v-model="byAcceleration.acceleration"
+                                    placeholder="請輸入加速度" aria-label="power" aria-describedby="basic-addon1">
                                 <div class="input-group-append">
                                     <span class="input-group-text">G</span>
                                 </div>
@@ -184,8 +190,8 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="basic-addon1">到達速度</span>
                                 </div>
-                                <input type="text" class="form-control" placeholder="請輸入到達速度" aria-label="power"
-                                    aria-describedby="basic-addon1">
+                                <input type="text" class="form-control" v-model="byAcceleration.speed"
+                                    placeholder="請輸入到達速度" aria-label="power" aria-describedby="basic-addon1">
                                 <div class="input-group-append">
                                     <span class="input-group-text">mm/sec</span>
                                 </div>
@@ -241,6 +247,121 @@
                     </div>
                 </div>
             </div>
+            <div class="row justify-content-end">
+                <button type="button" class="btn btn-success" v-on:click="test">測試</button>
+            </div>
         </div>
     </div>
+    <script>
+        const {
+            createApp
+        } = Vue
+        createApp({
+            data() {
+                return {
+                    video: 'option1',
+                    data: {
+                        weight: 0,
+                        acceleration: 0, //加速度
+                        acceleration_time: 0, //加速時間
+                        constant_time: 0, //定速移動時間
+                        distance: 1500,
+                    },
+                    byTime: {
+                        time: 15000,
+                        speed: 1000,
+                    },
+                    byAccelerationTime: {
+                        time: null,
+                        speed: null,
+                    },
+                    byAcceleration: {
+                        acceleration: null,
+                        speed: null,
+                    }
+                }
+            },
+            methods: {
+                async test() {
+                    switch (this.video) {
+                        case 'option3':
+                            await this.countByAcceleration();
+                            break;
+                        case 'option2':
+                            await this.countByAccelerationTime();
+                            break;
+                        case 'option1':
+                            await this.countByTime();
+                            break;
+                    }
+
+                    console.log(this.data);
+                },
+                async countByTime() {
+                    let Stroke = this.data.distance / 1000
+                    let MokuhyouJikan = this.byTime.time / 1000
+                    let SeigenSokudo = this.byTime.speed / 1000
+
+                    let temporary_acceleration = (Stroke * 4) / (MokuhyouJikan * MokuhyouJikan)
+                    let highest_speed = temporary_acceleration * (MokuhyouJikan / 2)
+                    if (SeigenSokudo < highest_speed) {
+                        if (SeigenSokudo * MokuhyouJikan <= Stroke) {
+                            alert('不可能');
+                        } else {
+                            let Kasokudo = (SeigenSokudo * SeigenSokudo) / (SeigenSokudo * MokuhyouJikan - Stroke)
+                            this.setSpeedData(
+                                Kasokudo,
+                                highest_speed / Kasokudo,
+                                MokuhyouJikan - (KasokuJikan * 2)
+                            );
+                        }
+                    } else {
+                        this.setSpeedData(temporary_acceleration / 9.8, MokuhyouJikan / 2 * 1000)
+                    }
+                },
+                async countByAccelerationTime() {
+                    let IdoSokudo = this.byAccelerationTime.speed / 1000
+                    let TachiagariJikan = this.byAccelerationTime.time / 1000
+                    let Stroke = this.data.distance
+                    let Kasokudo = IdoSokudo / TachiagariJikan / 9800
+                    let KasokuKyori = Kasokudo * TachiagariJikan ^ 2 / 2
+                    if (KasokuKyori * 2 > Stroke) {
+                        KasokuKyori = Stroke / 2
+                        let KasokuJikan = (2 * KasokuKyori / Kasokudo) ^ 0.5
+
+                        this.setSpeedData(Kasokudo, KasokuJikan, 0);
+                    } else {
+                        let TeisokuJikan = Stroke / TachiagariJikan - this.byAccelerationTime.time;
+
+                        this.setSpeedData(Kasokudo * 1000, this.byAccelerationTime.time, TeisokuJikan)
+                    }
+                },
+                async countByAcceleration() {
+                    let Stroke = this.data.distance / 1000
+                    let Kasokudo = this.byAcceleration.acceleration * 9.8
+                    let IdoSokudo = this.byAcceleration.speed / 1000
+                    let KasokuKyori = IdoSokudo ^ 2 / Kasokudo / 2
+                    if (KasokuKyori * 2 > Stroke) {
+                        KasokuKyori = Stroke / 2
+                        let KasokuJikan = (2 * KasokuKyori / Kasokudo) ^ 0.5
+                        let ToutatsuSokudo = Kasokudo * KasokuJikan
+
+                        this.setSpeedData(Kasokudo, KasokuJikan)
+                    } else {
+                        let KasokuJikan = IdoSokudo / Kasokudo
+                        let ToutatsuSokudo = IdoSokudo
+                        let TeisokuKyori = Stroke - 2 * KasokuKyori
+                        let TeisokuJikan = TeisokuKyori / ToutatsuSokudo
+
+                        this.setSpeedData(Kasokudo, KasokuJikan, TeisokuJikan)
+                    }
+                },
+                setSpeedData(acceleration = 0, acceleration_time = 0, constant_time = 0) {
+                    this.data.acceleration = acceleration;
+                    this.data.acceleration_time = acceleration_time;
+                    this.data.constant_time = constant_time;
+                }
+            }
+        }).mount('#app')
+    </script>
 @endsection
