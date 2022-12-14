@@ -28,6 +28,13 @@
                         </div>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1">解析度</span>
+                            </div>
+                            <input type="text" v-model="data.resolution" class="form-control" placeholder="請輸入解析度"
+                                aria-label="name" aria-describedby="basic-addon1">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon1">額定推力</span>
                             </div>
                             <input type="number" v-model="data.rated_thrust" class="form-control" placeholder="請輸入額定動力"
@@ -114,6 +121,36 @@
                                 class="form-control" placeholder="請輸入使用保存溫度" aria-label="power"
                                 aria-describedby="basic-addon1">
                         </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1">導抗</span>
+                            </div>
+                            <input type="number" v-model="data.Siemens" class="form-control"
+                                placeholder="請輸入導抗" aria-label="power" aria-describedby="basic-addon1">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1">電阻值</span>
+                            </div>
+                            <input type="number" v-model="data.ohm" class="form-control"
+                                placeholder="請輸入電阻值" aria-label="power" aria-describedby="basic-addon1">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1">推力定數</span>
+                            </div>
+                            <input type="number" v-model="data.force_constant" id="commodity-power"
+                                class="form-control" placeholder="請輸入推力定數" aria-label="power"
+                                aria-describedby="basic-addon1">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1">可動子重量(公斤力)</span>
+                            </div>
+                            <input type="number" v-model="data.kgf" id="commodity-power"
+                                class="form-control" placeholder="請輸入可動子重量" aria-label="power"
+                                aria-describedby="basic-addon1">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1">熱抗</span>
+                            </div>
+                            <input type="number" v-model="data.heat_resistance" id="commodity-power"
+                                class="form-control" placeholder="請輸入熱抗" aria-label="power"
+                                aria-describedby="basic-addon1">
+                        </div>
                         <div class="form-group">
                             <label for="exampleFormControlTextarea1">備註</label>
                             <textarea v-model="data.remark" class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
@@ -192,6 +229,7 @@
                 return {
                     data: {
                         name: null,
+                        resolution: null, //解析度
                         rated_thrust: null, //額定推力
                         acceleration_thrust: null, //加速推力
                         rated_current: null, //額定電流
@@ -207,6 +245,11 @@
                         environment_humidity: null, //環境濕度
                         storage_temperature: null, //保存溫度
                         remark: null, //備註
+                        Siemens: null, //導抗
+                        ohm: null, //阻抗
+                        force_constant: null, // 推力定數
+                        kgf: null, //可動子重量(公斤力)
+                        heat_resistance: null, //熱抗
                         picture_one: null, //附圖
                         picture_two: null, //附圖
                         picture_three: null, //附圖

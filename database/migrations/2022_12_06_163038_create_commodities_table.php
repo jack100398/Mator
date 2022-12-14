@@ -16,6 +16,7 @@ class CreateCommoditiesTable extends Migration
         Schema::create('commodities', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name')->comment('品名');
+            $table->float('resolution')->comment('解析度');
             $table->float('rated_thrust')->comment('額定推力');
             $table->float('acceleration_thrust')->comment('加速推力');
             $table->float('rated_current')->comment('額定電流');
@@ -30,6 +31,11 @@ class CreateCommoditiesTable extends Migration
             $table->float('ambient_temperature')->comment('環境溫度');
             $table->float('environment_humidity')->comment('環境濕度');
             $table->float('storage_temperature')->comment('保存溫度');
+            $table->float('Siemens')->comment('逆起電力定數');
+            $table->float('ohm')->comment('阻抗');
+            $table->float('force_constant')->comment('推力定數');
+            $table->float('kgf')->comment('可動子重量(公斤力)');
+            $table->float('heat_resistance')->comment('熱抗');
             $table->string('remark')->comment('備註');
             $table->string('picture_one')->nullable()->comment('圖1');
             $table->string('picture_two')->nullable()->comment('圖2');

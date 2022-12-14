@@ -8,6 +8,7 @@ class Commodity extends Model
 {
     protected $fillable = [
         'name',
+        'resolution',
         'rated_thrust',
         'acceleration_thrust',
         'rated_current',
@@ -23,6 +24,11 @@ class Commodity extends Model
         'environment_humidity',
         'storage_temperature',
         'remark',
+        'Siemens',
+        'ohm',
+        'force_constant',
+        'kgf',
+        'heat_resistance',
         'picture_one',
         'picture_two',
         'picture_three',
@@ -31,6 +37,7 @@ class Commodity extends Model
 
     protected $cast = [
         'name' => 'string',
+        'resolution' => 'float',
         'rated_thrust' => 'float',
         'acceleration_thrust' => 'float',
         'rated_current' => 'float',
@@ -46,6 +53,11 @@ class Commodity extends Model
         'environment_humidity' => 'float',
         'storage_temperature' => 'float',
         'remark' => 'string',
+        'Siemens' => 'float',
+        'ohm' => 'float',
+        'force_constant' => 'float',
+        'kgf' => 'float',
+        'heat_resistance' => 'float',
         'picture_one' => 'string',
         'picture_two' => 'string',
         'picture_three' => 'string',

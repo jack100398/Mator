@@ -24,12 +24,12 @@
                                 <span class="input-group-text" id="basic-addon1">方向</span>
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="radio" name="vetor" id="inlineRadio1" checked
-                                        value="option1">
+                                        v-model="data.direction" value="0">
                                     <label class="form-check-label" for="inlineRadio1">直立</label>
                                 </div>
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="radio" name="vetor" id="inlineRadio2"
-                                        value="option2">
+                                        v-model="data.direction" value="1">
                                     <label class="form-check-label" for="inlineRadio2">橫立</label>
                                 </div>
                             </div>
@@ -40,12 +40,12 @@
                                 <span class="input-group-text" id="basic-addon1">解析度</span>
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="radio" name="hz" id="inlineRadio1" checked
-                                        value="option1">
+                                        v-model="data.resolution" value="0.001">
                                     <label class="form-check-label" for="inlineRadio1">1um</label>
                                 </div>
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="radio" name="hz" id="inlineRadio2"
-                                        value="option2">
+                                        v-model="data.resolution" value="0.0001">
                                     <label class="form-check-label" for="inlineRadio2">0.1um</label>
                                 </div>
                             </div>
@@ -113,7 +113,7 @@
 
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="speed_setting" id="exampleRadios1"
-                                v-model="video" value="option1">
+                                v-model="data.video" value="option1">
                             <label class="form-check-label" for="exampleRadios1">
                                 以時間決定
                             </label>
@@ -144,7 +144,7 @@
 
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="speed_setting" id="exampleRadios1"
-                                v-model="video" value="option2">
+                                v-model="data.video" value="option2">
                             <label class="form-check-label" for="exampleRadios1">
                                 以加速度時間決定
                             </label>
@@ -172,7 +172,7 @@
 
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="speed_setting" id="exampleRadios1"
-                                v-model="video" value="option3">
+                                v-model="data.video" value="option3">
                             <label class="form-check-label" for="exampleRadios1">
                                 以加速度決定
                             </label>
@@ -259,8 +259,10 @@
         createApp({
             data() {
                 return {
-                    video: 'option1',
                     data: {
+                        video: 'option1'
+                        direction : 0, //垂直0 水平1
+                        resolution : 0.001, //解析度
                         weight: 0,
                         acceleration: 0, //加速度
                         acceleration_time: 0, //加速時間
@@ -283,7 +285,7 @@
             },
             methods: {
                 async test() {
-                    switch (this.video) {
+                    switch (this.data.video) {
                         case 'option3':
                             await this.countByAcceleration();
                             break;
