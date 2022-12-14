@@ -260,7 +260,7 @@
             data() {
                 return {
                     data: {
-                        video: 'option1'
+                        video: 'option1',
                         direction : 0, //垂直0 水平1
                         resolution : 0.001, //解析度
                         weight: 0,
@@ -296,7 +296,7 @@
                             await this.countByTime();
                             break;
                     }
-
+                    await search(this.data);
                     console.log(this.data);
                 },
                 async countByTime() {

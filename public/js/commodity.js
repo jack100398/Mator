@@ -10,6 +10,12 @@ async function dropCommodities(id) {
     await getCommodities();
 }
 
+async function search(data) {
+    url = 'client-commodity';
+
+    await sendAjax('get', url, data);
+}
+
 async function getCommodities() {
     $('#commodity_cards').html();
     let html = await sendAjax('get', '/commodities', null);

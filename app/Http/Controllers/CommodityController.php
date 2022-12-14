@@ -3,10 +3,21 @@
 namespace App\Http\Controllers;
 
 use App\Commodity;
+use App\Http\Services\CommodityService;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 class CommodityController extends Controller
 {
+    /** @var CommodityService */
+    private $service;
+
+
+    public function __construct(CommodityService $service)
+    {
+        $this->service = $service;
+    }
+
     public function index() {
         return view('commodity');
     }
@@ -31,5 +42,22 @@ class CommodityController extends Controller
 
     public function destroy(Commodity $commodity) {
         $commodity->delete();
+    }
+
+    public function search(Request $request)
+    {
+        $data = $request->all();
+
+        // dd($data);
+
+        $commodities = $this->service->searchCommoditiesByInfo($data);
+
+        $speeding_up = $this->service->countSpeedingUp($data);
+        $speeding_up_time = $this->service->countSpeedUpTime($speeding_up, $data);
+        $constant_time = $this->service->countConstantTime($data);
+        $data['total_time'] = $speeding_up_time * 2 + $constant_time;
+        $data['speeding_up'] = $speeding_up;
+        dd($speeding_up_time, $constant_time, $data['total_time']);
+        
     }
 }
