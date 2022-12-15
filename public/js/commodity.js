@@ -13,7 +13,7 @@ async function dropCommodities(id) {
 async function search(data) {
     url = 'client-commodity';
 
-    await sendAjax('get', url, data);
+    return await sendAjax('get', url, data);
 }
 
 async function getCommodities() {

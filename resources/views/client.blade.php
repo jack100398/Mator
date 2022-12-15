@@ -210,40 +210,7 @@
                         <h6 class="m-0 font-weight-bold text-primary">搜尋結果</h6>
                     </div>
                     <!-- Card Body -->
-                    <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                    <div>
-                                        {{ '品名:測試' }}
-                                    </div>
-                                    <div class="dropdown no-arrow pull-right">
-                                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                                            aria-labelledby="dropdownMenuLink">
-                                            <div class="dropdown-header">商品選項:</div>
-                                            <a class="dropdown-item" onclick="alert('敬請期待')">刪除</a>
-                                            <div class="dropdown-divider"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ '價錢:暫代' }}
-                                </div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ '資訊:A' }}
-                                </div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ '資訊:B' }}
-                                </div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ '介紹:產品介紹' }}
-                                </div>
-                            </div>
-                            <div class="col-auto">
-                                <img src="storage/QwGdXNH7KCuoAJQB4IuM2ifB9YZCbw3TvQa7ER5j.jpg" alt=""
-                                    class="img-thumbnail">
-                            </div>
-                        </div>
+                    <div class="card-body search_answer">
                     </div>
                 </div>
             </div>
@@ -260,10 +227,10 @@
             data() {
                 return {
                     data: {
-                        video: 'option1',
+                        video: 'option2',
                         direction : 0, //垂直0 水平1
-                        resolution : 0.001, //解析度
-                        weight: 0,
+                        resolution : 0.0001, //解析度
+                        weight: 100,
                         acceleration: 0, //加速度
                         acceleration_time: 0, //加速時間
                         constant_time: 0, //定速移動時間
@@ -274,12 +241,12 @@
                         speed: 1000,
                     },
                     byAccelerationTime: {
-                        time: null,
-                        speed: null,
+                        time: 125,
+                        speed: 800,
                     },
                     byAcceleration: {
-                        acceleration: null,
-                        speed: null,
+                        acceleration: 0.65,
+                        speed: 800,
                     }
                 }
             },
@@ -296,8 +263,8 @@
                             await this.countByTime();
                             break;
                     }
-                    await search(this.data);
-                    console.log(this.data);
+                    let res = await search(this.data);
+                    $('.search_answer').html(res);
                 },
                 async countByTime() {
                     let Stroke = this.data.distance / 1000
@@ -324,38 +291,36 @@
                 async countByAccelerationTime() {
                     let IdoSokudo = this.byAccelerationTime.speed / 1000
                     let TachiagariJikan = this.byAccelerationTime.time / 1000
-                    let Stroke = this.data.distance
-                    let Kasokudo = IdoSokudo / TachiagariJikan / 9800
-                    let KasokuKyori = Kasokudo * TachiagariJikan ^ 2 / 2
-                    if (KasokuKyori * 2 > Stroke) {
-                        KasokuKyori = Stroke / 2
-                        let KasokuJikan = (2 * KasokuKyori / Kasokudo) ^ 0.5
+                    let Stroke = this.data.distance / 1000
+                    let Kasokudo = IdoSokudo / TachiagariJikan
+                    let KasokuKyori = Kasokudo * TachiagariJikan * TachiagariJikan / 2
+                    console.log(KasokuKyori);
 
-                        this.setSpeedData(Kasokudo, KasokuJikan, 0);
-                    } else {
-                        let TeisokuJikan = Stroke / TachiagariJikan - this.byAccelerationTime.time;
+                        let TeisokuKyori = Stroke - 2 * KasokuKyori
+                        let TeisokuJikan = TeisokuKyori / IdoSokudo
 
-                        this.setSpeedData(Kasokudo * 1000, this.byAccelerationTime.time, TeisokuJikan)
-                    }
+                        this.setSpeedData(Kasokudo / 9.8, this.byAccelerationTime.time, Math.max(TeisokuJikan * 1000, 0))
                 },
                 async countByAcceleration() {
                     let Stroke = this.data.distance / 1000
                     let Kasokudo = this.byAcceleration.acceleration * 9.8
                     let IdoSokudo = this.byAcceleration.speed / 1000
-                    let KasokuKyori = IdoSokudo ^ 2 / Kasokudo / 2
+                    let KasokuKyori = IdoSokudo * IdoSokudo / Kasokudo / 2
                     if (KasokuKyori * 2 > Stroke) {
                         KasokuKyori = Stroke / 2
                         let KasokuJikan = (2 * KasokuKyori / Kasokudo) ^ 0.5
                         let ToutatsuSokudo = Kasokudo * KasokuJikan
 
-                        this.setSpeedData(Kasokudo, KasokuJikan)
+                        this.setSpeedData(Kasokudo / 9.8, KasokuJikan * 1000)
                     } else {
                         let KasokuJikan = IdoSokudo / Kasokudo
                         let ToutatsuSokudo = IdoSokudo
                         let TeisokuKyori = Stroke - 2 * KasokuKyori
+                        console.log(2 * KasokuKyori);
+
                         let TeisokuJikan = TeisokuKyori / ToutatsuSokudo
 
-                        this.setSpeedData(Kasokudo, KasokuJikan, TeisokuJikan)
+                        this.setSpeedData(Kasokudo / 9.8, KasokuJikan * 1000, TeisokuJikan * 1000)
                     }
                 },
                 setSpeedData(acceleration = 0, acceleration_time = 0, constant_time = 0) {

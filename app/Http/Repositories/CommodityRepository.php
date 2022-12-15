@@ -16,7 +16,7 @@ class CommodityRepository
                 $query->where('horizontal_load', '>=', $conditions['weight']);
             })
             ->where('resolution', $conditions['resolution'])
-            ->where('travel', $conditions['distance'])
+            ->where('travel', '>=', $conditions['distance'])
             ->get();
     }
 }

@@ -48,8 +48,6 @@ class CommodityController extends Controller
     {
         $data = $request->all();
 
-        // dd($data);
-
         $commodities = $this->service->searchCommoditiesByInfo($data);
 
         $speeding_up = $this->service->countSpeedingUp($data);
@@ -57,7 +55,13 @@ class CommodityController extends Controller
         $constant_time = $this->service->countConstantTime($data);
         $data['total_time'] = $speeding_up_time * 2 + $constant_time;
         $data['speeding_up'] = $speeding_up;
-        dd($speeding_up_time, $constant_time, $data['total_time']);
-        
+
+        $commodity = $this->service->transformCommodities($commodities, $data)->first();
+
+        if ($commodity === null) {
+            return '沒有符合的產品';
+        } else {
+            return view('component.searchCard', ['id' => $commodity->id, 'name' => $commodity->name, 'src' => $commodity->picture_one])->toHtml();
+        }
     }
 }

@@ -19,15 +19,28 @@ class CommodityService
     public function transformCommodities(Collection $commodities, array $data)
     {
         return $commodities->transform(function (Commodity $commodity) use ($data) {
+
+            // 0.800000012
+            // 100
+            // 15
+            // 2.200000048
+            // 75.97000122
+            // 2.000588655
+            // 15.24936581
+
+            
+            
+
             //升溫 = 熱抗 * (荷重 + 可動子重量) ^ 2 * 電阻 / 推力定數 ^ 2 / 需要時間 * 總時間
             $weight_param = ($data['weight'] + $commodity->kgf) * ($data['weight'] + $commodity->kgf);
             $force_constant = $commodity->force_constant * $commodity->force_constant;
-            $need_time = $data['acceleration_time'] * 2 + $data['constant_time'];
+            $need_time = ($data['acceleration_time'] * 2 + $data['constant_time']) / 1000;
+            // dd($commodity->heat_resistance, $commodity->kgf, $commodity->ohm, $commodity->force_constant,$need_time , $data['total_time'] );
             $heat_up = $commodity->heat_resistance * $weight_param * $commodity->ohm / $force_constant / $need_time * $data['total_time'];
             $commodity->setAttribute('heat_up', $heat_up);
 
             //需要電流  = 加速度 * (荷重 + 可動子重量) / 推力定數
-            $need_current = $data['speed_up'] * ($data['weight'] + $commodity->kgf) / $commodity->force_constant;
+            $need_current = $data['speeding_up'] * ($data['weight'] + $commodity->kgf) / $commodity->force_constant;
             $commodity->setAttribute('need_current', $need_current);
 
             //需要電壓 = 電流 * 指定馬達阻抗 + 最大速度(mm/sec) / 1000 * 指定馬達 逆起電力定數
