@@ -261,9 +261,16 @@
                 async upload(item) {
                     this.data[item] = await uploadImage(item);
                 },
-                create() {
-                    sendAjax('post', '/commodity', this.data);
-                    getCommodities();
+                async create() {
+                    await sendAjax('post', '/commodity', this.data)
+                        .then(value => {
+                            getCommodities();
+                            alert('新增成功');
+                        })
+                        .catch(error => {
+                            alert('新增失敗,請確認資訊使否皆已填入');
+                        });
+                    
                 },
             }
         }).mount('#app')

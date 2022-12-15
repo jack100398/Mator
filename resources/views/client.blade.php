@@ -215,7 +215,7 @@
                 </div>
             </div>
             <div class="row justify-content-end">
-                <button type="button" class="btn btn-success" v-on:click="test">測試</button>
+                <button type="button" class="btn btn-success" v-on:click="send">搜尋</button>
             </div>
         </div>
     </div>
@@ -251,7 +251,7 @@
                 }
             },
             methods: {
-                async test() {
+                async send() {
                     switch (this.data.video) {
                         case 'option3':
                             await this.countByAcceleration();
