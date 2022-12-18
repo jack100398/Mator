@@ -151,6 +151,21 @@
                                 class="form-control" placeholder="請輸入熱抗" aria-label="power"
                                 aria-describedby="basic-addon1">
                         </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1">直線尺型式</span>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="type" id="inlineRadio1" checked
+                                       v-model="data.linear_ruler" value="0">
+                                    <label class="form-check-label" for="inlineRadio1">增量</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="type" id="inlineRadio2"
+                                       v-model="data.linear_ruler" value="1">
+                                    <label class="form-check-label" for="inlineRadio2">絕對</label>
+                                </div>
+                            </div>
+                        </div>
                         <div class="form-group">
                             <label for="exampleFormControlTextarea1">備註</label>
                             <textarea v-model="data.remark" class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
@@ -254,6 +269,7 @@
                         picture_two: null, //附圖
                         picture_three: null, //附圖
                         picture_four: null, //附圖
+                        linear_ruler: 0, //直線尺形式(0:增量,1:絕對)
                     },
                 }
             },

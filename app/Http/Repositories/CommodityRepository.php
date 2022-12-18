@@ -15,6 +15,7 @@ class CommodityRepository
             ->when($conditions['direction'] == 1, function ($query) use ($conditions) {
                 $query->where('horizontal_load', '>=', $conditions['weight']);
             })
+            ->where('linear_ruler', $conditions['linear_ruler'])
             ->where('resolution', $conditions['resolution'])
             ->where('travel', '>=', $conditions['distance'])
             ->get();

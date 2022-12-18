@@ -56,12 +56,12 @@
                                 <span class="input-group-text" id="basic-addon1">直線尺型式</span>
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="radio" name="type" id="inlineRadio1" checked
-                                        value="option1">
+                                       v-model="data.linear_ruler" value="0">
                                     <label class="form-check-label" for="inlineRadio1">增量</label>
                                 </div>
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="radio" name="type" id="inlineRadio2"
-                                        value="option2">
+                                       v-model="data.linear_ruler" value="1">
                                     <label class="form-check-label" for="inlineRadio2">絕對</label>
                                 </div>
                             </div>
@@ -235,6 +235,7 @@
                         acceleration_time: 0, //加速時間
                         constant_time: 0, //定速移動時間
                         distance: 1500,
+                        linear_ruler: 0
                     },
                     byTime: {
                         time: 15000,
