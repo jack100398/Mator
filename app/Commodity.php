@@ -33,6 +33,7 @@ class Commodity extends Model
         'picture_two',
         'picture_three',
         'picture_four',
+        'linear_ruler'
     ];
 
     protected $cast = [
@@ -62,5 +63,6 @@ class Commodity extends Model
         'picture_two' => 'string',
         'picture_three' => 'string',
         'picture_four' => 'string',
+        'linear_ruler' => 'integer'
     ];
 }
