@@ -34,6 +34,10 @@ Route::apiResource('/commodity', 'CommodityController', ['names' => ['index' => 
 
 Route::get('commodities', 'CommodityController@getCommodities');
 
+Route::get('editCommodityPage', function (Request $request) {
+    return view('editCommodity', ['id'=>$request->id]);
+})->name('editCommodityPage');
+
 Route::get('client-commodity', 'CommodityController@search');
 
 Route::get('/client', function () {

@@ -22,6 +22,14 @@ class CommodityController extends Controller
         return view('commodity');
     }
 
+    public function show($id) {
+        return Commodity::query()->where('id', $id)->first();
+    }
+
+    public function update($id, Request $request) {
+        Commodity::query()->where('id', $id)->update($request->all());
+    }
+
     public function store(Request $request)
     {
         $data = $request->all();

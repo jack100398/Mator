@@ -16,6 +16,7 @@
                                 aria-labelledby="dropdownMenuLink">
                                 <div class="dropdown-header">商品選項:</div>
                                 <a class="dropdown-item" onclick="dropCommodities({{$id}})">刪除</a>
+                                <a class="dropdown-item" href="{{route('editCommodityPage',['id' => $id])}}">編輯</a>
                                 <div class="dropdown-divider"></div>
                             </div>
                         </div>

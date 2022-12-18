@@ -22,6 +22,10 @@ async function getCommodities() {
     $('#commodity_cards').html(html);
 }
 
+async function getCommodity(id) {
+    return await sendAjax('get', '/commodity/' + id);
+}
+
 getCommodities();
 
 async function uploadImage(element_id) {
