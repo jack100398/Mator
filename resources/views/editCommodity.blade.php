@@ -101,28 +101,9 @@
                         </div>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon1">水平最大荷重</span>
-                            </div>
-                            <input type="number" v-model="data.horizontal_load" class="form-control"
-                                placeholder="請輸入水平最大荷重" aria-label="power" aria-describedby="basic-addon1">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon1">壁掛最大荷重</span>
-                            </div>
-                            <input type="number" v-model="data.vertical_load" class="form-control"
-                                placeholder="請輸入壁掛最大荷重" aria-label="power" aria-describedby="basic-addon1">
-                        </div>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon1">行程(雙滑軌)</span>
-                            </div>
-                            <input type="number" v-model="data.travel" class="form-control" placeholder="請輸入行程"
-                                aria-label="power" aria-describedby="basic-addon1">
-                        </div>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon1">電源電壓</span>
                             </div>
-                            <input type="number" v-model="data.voltage" class="form-control" placeholder="請輸入電源電壓"
+                            <input disabled="disabled" type="number" v-model="data.voltage" class="form-control" placeholder="請輸入電源電壓"
                                 aria-label="power" aria-describedby="basic-addon1">
                         </div>
                         <div class="input-group mb-3">
@@ -263,10 +244,7 @@
                         max_acceleration: null, //最大加速度
                         max_speed: null, //最大速度
                         accuracy: null, //重複定位精準度
-                        horizontal_load: null, //水平最大荷重
-                        vertical_load: null, //壁掛最大荷重
-                        travel: null, //行程(雙滑軌)
-                        voltage: null, //電源電壓
+                        voltage: 220, //電源電壓
                         ambient_temperature: null, //環境溫度
                         environment_humidity: null, //環境濕度
                         storage_temperature: null, //保存溫度

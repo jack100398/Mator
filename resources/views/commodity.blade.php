@@ -21,14 +21,14 @@
                     <div class="card-body">
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon1">品名</span>
+                                <span class="input-group-text" id="basic-addon1">*品名</span>
                             </div>
                             <input type="text" v-model="data.name" class="form-control" placeholder="請輸入產品名稱"
                                 aria-label="name" aria-describedby="basic-addon1">
                         </div>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon1">解析度</span>
+                                <span class="input-group-text" id="basic-addon1">*解析度</span>
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="radio" name="resolution" id="inlineRadio1" checked
                                        v-model="data.resolution" value="0.0001">
@@ -41,7 +41,7 @@
                                 </div>
                             </div>
                             <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon1">直線尺型式</span>
+                                <span class="input-group-text" id="basic-addon1">*直線尺型式</span>
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="radio" name="linear_ruler" id="inlineRadio1" checked
                                        v-model="data.linear_ruler" value="0">
@@ -100,28 +100,9 @@
                         </div>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon1">水平最大荷重</span>
-                            </div>
-                            <input type="number" v-model="data.horizontal_load" class="form-control"
-                                placeholder="請輸入水平最大荷重" aria-label="power" aria-describedby="basic-addon1">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon1">壁掛最大荷重</span>
-                            </div>
-                            <input type="number" v-model="data.vertical_load" class="form-control"
-                                placeholder="請輸入壁掛最大荷重" aria-label="power" aria-describedby="basic-addon1">
-                        </div>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon1">行程(雙滑軌)</span>
-                            </div>
-                            <input type="number" v-model="data.travel" class="form-control" placeholder="請輸入行程"
-                                aria-label="power" aria-describedby="basic-addon1">
-                        </div>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon1">電源電壓</span>
                             </div>
-                            <input type="number" v-model="data.voltage" class="form-control" placeholder="請輸入電源電壓"
+                            <input disabled="disabled" type="number" v-model="data.voltage" class="form-control" placeholder="請輸入電源電壓"
                                 aria-label="power" aria-describedby="basic-addon1">
                         </div>
                         <div class="input-group mb-3">
@@ -144,29 +125,29 @@
                         </div>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon1">導抗</span>
+                                <span class="input-group-text" id="basic-addon1">*導抗</span>
                             </div>
                             <input type="number" v-model="data.Siemens" class="form-control"
                                 placeholder="請輸入導抗" aria-label="power" aria-describedby="basic-addon1">
                             <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon1">電阻值</span>
+                                <span class="input-group-text" id="basic-addon1">*電阻值</span>
                             </div>
                             <input type="number" v-model="data.ohm" class="form-control"
                                 placeholder="請輸入電阻值" aria-label="power" aria-describedby="basic-addon1">
                             <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon1">推力定數</span>
+                                <span class="input-group-text" id="basic-addon1">*推力定數</span>
                             </div>
                             <input type="number" v-model="data.force_constant" id="commodity-power"
                                 class="form-control" placeholder="請輸入推力定數" aria-label="power"
                                 aria-describedby="basic-addon1">
                             <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon1">可動子重量(公斤力)</span>
+                                <span class="input-group-text" id="basic-addon1">*可動子重量(公斤力)</span>
                             </div>
                             <input type="number" v-model="data.kgf" id="commodity-power"
                                 class="form-control" placeholder="請輸入可動子重量" aria-label="power"
                                 aria-describedby="basic-addon1">
                             <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon1">熱抗</span>
+                                <span class="input-group-text" id="basic-addon1">*熱抗</span>
                             </div>
                             <input type="number" v-model="data.heat_resistance" id="commodity-power"
                                 class="form-control" placeholder="請輸入熱抗" aria-label="power"
@@ -250,7 +231,7 @@
                 return {
                     data: {
                         name: null,
-                        resolution: null, //解析度
+                        resolution: 0.0001, //解析度
                         rated_thrust: null, //額定推力
                         acceleration_thrust: null, //加速推力
                         rated_current: null, //額定電流
@@ -258,10 +239,7 @@
                         max_acceleration: null, //最大加速度
                         max_speed: null, //最大速度
                         accuracy: null, //重複定位精準度
-                        horizontal_load: null, //水平最大荷重
-                        vertical_load: null, //壁掛最大荷重
-                        travel: null, //行程(雙滑軌)
-                        voltage: null, //電源電壓
+                        voltage: 220, //電源電壓
                         ambient_temperature: null, //環境溫度
                         environment_humidity: null, //環境濕度
                         storage_temperature: null, //保存溫度
@@ -290,7 +268,12 @@
                             alert('新增成功');
                         })
                         .catch(error => {
-                            alert('新增失敗,請確認資訊使否皆已填入');
+                            if (error.responseJSON.message.indexOf('NOT NULL constraint') !== -1) {
+                                alert('新增失敗,請確認資訊使否皆已填入');
+                            }
+                            if (error.responseJSON.message.indexOf('UNIQUE constraint') !== -1) {
+                                alert('已存在相同名稱與規格的產品(品名,解析度,直線尺型式相同)');
+                            }
                         });
                     
                 },

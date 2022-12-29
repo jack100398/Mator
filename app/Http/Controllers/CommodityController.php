@@ -54,7 +54,20 @@ class CommodityController extends Controller
 
     public function search(Request $request)
     {
-        $data = $request->all();
+        $data = $request->validate([
+            'video' => 'required',
+            'direction' => 'required',
+            'resolution' => 'required',
+            'weight' => 'required',
+            'acceleration' => 'required',
+            'acceleration_time' => 'required',
+            'constant_time' => 'required',
+            'distance' => 'required',
+            'linear_ruler' => 'required',
+        ]);
+        if ($data['direction'] === "0") {
+            $data['weight'] = $data['weight'] * 2;
+        }
 
         $commodities = $this->service->searchCommoditiesByInfo($data);
 

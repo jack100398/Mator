@@ -21,7 +21,6 @@
                             </div>
                         </div>
                     </div>
-                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{'介紹:產品介紹'}}</div>
                 </div>
                 <div class="col-auto">
                     <img src="{{ $src }}" alt="" class="img-thumbnail">

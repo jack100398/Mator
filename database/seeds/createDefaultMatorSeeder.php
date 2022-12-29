@@ -26,12 +26,9 @@ class createDefaultMatorSeeder extends Seeder
                 'force_constant' => $this->force_constant[$i],
                 'resolution' => 0.0001,
                 'kgf' => $this->kgf[$i],
-                'travel' => $this->travel[$i],
                 'Siemens' => $this->Siemens[$i],
                 'ohm' => $this->ohm[$i],
                 'heat_resistance' => $this->heat_resistance[$i],
-                'horizontal_load' => 1000,
-                'vertical_load' => 1000,
             ]);
         }
     }

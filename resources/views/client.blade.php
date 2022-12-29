@@ -21,16 +21,16 @@
                     <div class="card-body">
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon1">方向</span>
+                                <span class="input-group-text" id="basic-addon1">姿勢</span>
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="radio" name="vetor" id="inlineRadio1" checked
                                         v-model="data.direction" value="0">
-                                    <label class="form-check-label" for="inlineRadio1">直立</label>
+                                    <label class="form-check-label" for="inlineRadio1">垂直</label>
                                 </div>
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="radio" name="vetor" id="inlineRadio2"
                                         v-model="data.direction" value="1">
-                                    <label class="form-check-label" for="inlineRadio2">橫立</label>
+                                    <label class="form-check-label" for="inlineRadio2">水平</label>
                                 </div>
                             </div>
                         </div>
@@ -80,7 +80,7 @@
                     <div class="card-body">
                         <div class="input-group mb-3">
                             <label for="customRange2" class="form-label">荷重</label>
-                            <input type="range" class="form-range" min="0" max="400" v-model="data.weight"
+                            <input type="range" class="form-range" min="0" max="400" step="10" v-model="data.weight"
                                 id="customRange2">
                             <input type="text" size="4" class="form-control bg-light border-0"
                                 v-model="data.weight" aria-describedby="basic-addon2">
@@ -89,18 +89,16 @@
                             </div>
                         </div>
 
-
                         <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon1">行程距離</span>
-                            </div>
-                            <input type="text" class="form-control" v-model="data.distance" placeholder="請輸入行程距離" aria-label="power"
-                                aria-describedby="basic-addon1">
+                            <label for="customRange2" class="form-label">行程距離</label>
+                            <input type="range" class="form-range" min="0" max="10000" step="50" v-model="data.distance"
+                                id="customRange2">
+                            <input type="text" size="4" class="form-control bg-light border-0"
+                                v-model="data.distance" aria-describedby="basic-addon2">
                             <div class="input-group-append">
-                                <span class="input-group-text">mm</span>
+                                <span class="input-group-text">KG</span>
                             </div>
                         </div>
-
                     </div>
                 </div>
                 <div class="card shadow mb-4">
@@ -264,8 +262,14 @@
                             await this.countByTime();
                             break;
                     }
-                    let res = await search(this.data);
-                    $('.search_answer').html(res);
+                    await search(this.data)
+                        .then(value => {
+                            $('.search_answer').html(value);
+                        })
+                        .catch(error => {
+                            alert('請確認荷重與行程不可為空值');
+                        });
+                    
                 },
                 async countByTime() {
                     let Stroke = this.data.distance / 1000
@@ -295,7 +299,6 @@
                     let Stroke = this.data.distance / 1000
                     let Kasokudo = IdoSokudo / TachiagariJikan
                     let KasokuKyori = Kasokudo * TachiagariJikan * TachiagariJikan / 2
-                    console.log(KasokuKyori);
 
                         let TeisokuKyori = Stroke - 2 * KasokuKyori
                         let TeisokuJikan = TeisokuKyori / IdoSokudo
@@ -317,7 +320,6 @@
                         let KasokuJikan = IdoSokudo / Kasokudo
                         let ToutatsuSokudo = IdoSokudo
                         let TeisokuKyori = Stroke - 2 * KasokuKyori
-                        console.log(2 * KasokuKyori);
 
                         let TeisokuJikan = TeisokuKyori / ToutatsuSokudo
 
