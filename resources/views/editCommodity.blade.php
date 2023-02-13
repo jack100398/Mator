@@ -22,9 +22,14 @@
                     <div class="card-body">
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon1">品名</span>
+                                <span class="input-group-text" id="basic-addon1">型號</span>
                             </div>
-                            <input type="text" v-model="data.name" class="form-control" placeholder="請輸入產品名稱"
+                            <input type="text" v-model="data.name" class="form-control" placeholder="請輸入型號"
+                                aria-label="name" aria-describedby="basic-addon1">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1">產品類別</span>
+                            </div>
+                            <input type="text" v-model="data.type" class="form-control" placeholder="請輸入產品類別"
                                 aria-label="name" aria-describedby="basic-addon1">
                         </div>
                         <div class="input-group mb-3">
@@ -97,6 +102,25 @@
                                 <span class="input-group-text" id="basic-addon1">重複定位精準度</span>
                             </div>
                             <input type="number" v-model="data.accuracy" class="form-control" placeholder="請輸入重複定位精準度"
+                                aria-label="power" aria-describedby="basic-addon1">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1">水平最大荷重</span>
+                            </div>
+                            <input type="number" v-model="data.horizontal_load" class="form-control"
+                                placeholder="請輸入水平最大荷重" aria-label="power" aria-describedby="basic-addon1">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1">壁掛(垂直)最大荷重</span>
+                            </div>
+                            <input type="number" v-model="data.vertical_load" class="form-control"
+                                placeholder="請輸入壁掛最大荷重" aria-label="power" aria-describedby="basic-addon1">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1">行程(雙滑軌)</span>
+                            </div>
+                            <input type="number" v-model="data.travel" class="form-control" placeholder="請輸入行程"
                                 aria-label="power" aria-describedby="basic-addon1">
                         </div>
                         <div class="input-group mb-3">
@@ -236,6 +260,7 @@
                     data: {
                         id: {{ $id }},
                         name: null,
+                        type:null,
                         resolution: null, //解析度
                         rated_thrust: null, //額定推力
                         acceleration_thrust: null, //加速推力

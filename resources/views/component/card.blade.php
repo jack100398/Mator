@@ -5,7 +5,7 @@
                 <div class="col mr-2">
                     <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                         <div>
-                            {{"品名:$name"}}
+                            {{"型號:$name"}}
                         </div>
                         <div class="dropdown no-arrow pull-right">
                             <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
