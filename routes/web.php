@@ -27,7 +27,7 @@ Route::middleware(['auth'])->group(function () {
         return view('client');
     })->name('client');
 
-
+    Route::apiResource('/banner', 'BannerController', ['names' => ['index' => 'banner']]);
 
     Route::apiResource('/commodity', 'CommodityController', ['names' => ['index' => 'commodity']]);
 
