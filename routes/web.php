@@ -27,15 +27,12 @@ Route::middleware(['auth'])->group(function () {
         return view('client');
     })->name('client');
 
-    Route::apiResource('/banner', 'BannerController', ['names' => ['index' => 'banner']]);
+    Route::apiResource('banner', 'BannerController', ['names' => ['index' => 'banner']]);
+    Route::get('banner/edit/{banner}', 'BannerController@edit');
 
     Route::apiResource('/commodity', 'CommodityController', ['names' => ['index' => 'commodity']]);
 
     Route::get('commodities', 'CommodityController@getCommodities');
-
-    Route::get('editCommodityPage', function (Request $request) {
-        return view('editCommodity', ['id' => $request->id]);
-    })->name('editCommodityPage');
 
     Route::get('/client', function () {
         return view('client');
@@ -45,6 +42,14 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/upload', function () {
         $imageURL = request()->file('img')->store('public');
         return 'storage/' . substr($imageURL, 7);
+    });
+
+    Route::prefix('edit-page')->group(function () {
+        Route::get('commodity', function (Request $request) {
+            return view('editCommodity', ['id' => $request->id]);
+        })->name('editCommodityPage');
+
+        Route::get('banner', 'BannerController@edit')->name('editBannerPage');
     });
 
     Route::get('client-commodity', 'CommodityController@search');

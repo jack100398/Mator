@@ -5,17 +5,27 @@ namespace App\Http\Controllers;
 use App\Banner;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class BannerController extends Controller
 {
+    /** @var string 主標題 */
+    protected const PAGE_CATEGORY = 'Banner';
+
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return View
      */
-    public function index()
+    public function index(): View
     {
-        return view('banner');
+        $banners = Banner::query()->get();
+
+        return view('Banner.banner', [
+            'page_categroy' => self::PAGE_CATEGORY,
+            'page_title'    => 'Banner總覽',
+            'banners'       => $banners
+        ]);
     }
 
     /**
@@ -42,23 +52,27 @@ class BannerController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Banner  $banner
-     * @return \Illuminate\Http\Response
+     * @param  Banner $banner
+     * @return JsonResponse
      */
-    public function show(Banner $banner)
+    public function show(Banner $banner): JsonResponse
     {
-        //
+        return response()->json($banner);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Banner  $banner
-     * @return \Illuminate\Http\Response
+     * @param  Request $request
+     * @return View
      */
-    public function edit(Banner $banner)
+    public function edit(Request $request): View
     {
-        return response()->json($banner);
+        return view('Banner.editBanner', [
+            'page_categroy' => self::PAGE_CATEGORY,
+            'page_title'    => 'Banner修改',
+            'id'       => $request->id
+        ]);
     }
 
     /**
