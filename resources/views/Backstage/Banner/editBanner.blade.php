@@ -1,7 +1,7 @@
-@extends('layouts')
+@extends('Backstage.layouts')
 @section('content')
     <div id="app">
-        @include('component.title')
+        @include('Backstage.component.title')
         <div class="row">
             <!-- Pie Chart -->
             <div class="col-xl-12 col-lg-12">
@@ -38,6 +38,7 @@
             <button type="button" class="btn btn-success" v-on:click="update">修改</button>
         </div>
     </div>
+    <script src="{{ asset('Backstage/js/banner.js') }}"></script>
     <script>
         const {
             createApp
@@ -72,7 +73,7 @@
                         })
                 },
                 async update(id) {
-                    await sendAjax('patch', '/banner/' + this.data.id, this.data)
+                    await sendAjax('patch', 'banner/' + this.data.id, this.data)
                         .then(value => {
                             alert('修改成功');
                             window.location.href = "{{ route('banner') }}"

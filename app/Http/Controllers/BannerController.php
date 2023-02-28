@@ -21,7 +21,7 @@ class BannerController extends Controller
     {
         $banners = Banner::query()->get();
 
-        return view('Banner.banner', [
+        return view('Backstage.Banner.banner', [
             'page_categroy' => self::PAGE_CATEGORY,
             'page_title'    => 'Banner總覽',
             'banners'       => $banners
@@ -68,7 +68,7 @@ class BannerController extends Controller
      */
     public function edit(Request $request): View
     {
-        return view('Banner.editBanner', [
+        return view('Backstage.Banner.editBanner', [
             'page_categroy' => self::PAGE_CATEGORY,
             'page_title'    => 'Banner修改',
             'id'       => $request->id

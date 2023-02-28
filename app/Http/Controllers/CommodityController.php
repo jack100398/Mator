@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Commodity;
 use App\Http\Services\CommodityService;
-use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class CommodityController extends Controller
 {
@@ -18,37 +18,52 @@ class CommodityController extends Controller
         $this->service = $service;
     }
 
-    public function index() {
-        return view('commodity');
+    public function index()
+    {
+        return view('Backstage.Commodity.commodity');
     }
 
-    public function show($id) {
+    public function show($id)
+    {
         return Commodity::query()->where('id', $id)->first();
     }
 
-    public function update($id, Request $request) {
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  Request $request
+     * @return View
+     */
+    public function edit(Request $request): View
+    {
+        return view('Backstage.Commodity.editCommodity', ['id' => $request->id]);
+    }
+
+    public function update($id, Request $request)
+    {
         Commodity::query()->where('id', $id)->update($request->all());
     }
 
     public function store(Request $request)
     {
         $data = $request->all();
-        
+
         $commodity = Commodity::query()->create($data);
-        
+
         return response()->json($commodity->id);
     }
 
     public function getCommodities()
     {
         $commodities = Commodity::query()->get()->map(function (Commodity $commodity) {
-            return view('component.card', ['id' => $commodity->id, 'name' => $commodity->name, 'src' => $commodity->picture_one])->toHtml();
+            return view('Backstage.component.card', ['id' => $commodity->id, 'name' => $commodity->name, 'src' => $commodity->picture_one])->toHtml();
         });
 
         return response($commodities);
     }
 
-    public function destroy(Commodity $commodity) {
+    public function destroy(Commodity $commodity)
+    {
         $commodity->delete();
     }
 
@@ -82,7 +97,7 @@ class CommodityController extends Controller
         if ($commodity === null) {
             return '沒有符合的產品';
         } else {
-            return view('component.searchCard', ['id' => $commodity->id, 'name' => $commodity->name, 'src' => $commodity->picture_one])->toHtml();
+            return view('Backstage.component.searchCard', ['id' => $commodity->id, 'name' => $commodity->name, 'src' => $commodity->picture_one])->toHtml();
         }
     }
 }

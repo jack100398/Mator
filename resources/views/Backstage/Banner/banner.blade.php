@@ -1,7 +1,7 @@
-@extends('layouts')
+@extends('Backstage.layouts')
 @section('content')
     <div id="app">
-        @include('component.title')
+        @include('Backstage.component.title')
         <div class="row">
             <div class="col-xl-12 col-lg-12">
                 @foreach ($banners as $banner)

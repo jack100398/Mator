@@ -8,10 +8,12 @@ async function uploadImage(element_id) {
     var form = new FormData();
     form.append("img", img);
     form.append("_token", "{{ csrf_token() }}");
-    return await ajaxUploadFile('post', '/upload', form)
+    return await ajaxUploadFile('post', 'upload', form)
 }
 
-function sendAjax(type = 'post', url, data = null) {
+function sendAjax(type = 'post', path, data = null) {
+    var url = `${getAdminDomainUrl()}${path}`
+
     return new Promise((resolve, reject) => {
         $.ajax({
             headers: {
@@ -31,7 +33,9 @@ function sendAjax(type = 'post', url, data = null) {
     });
 }
 
-function ajaxUploadFile(type = 'post', url, data) {
+function ajaxUploadFile(type = 'post', path, data) {
+    var url = `${getAdminDomainUrl()}${path}`
+
     return new Promise((resolve, reject) => {
         $.ajax({
             headers: {
@@ -52,4 +56,8 @@ function ajaxUploadFile(type = 'post', url, data) {
             }
         });
     });
+}
+
+function getAdminDomainUrl() {
+    return `${document.location.origin}/admin/`;
 }

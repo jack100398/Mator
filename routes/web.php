@@ -22,7 +22,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::middleware(['auth'])->group(function () {
+Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::get('/client', function () {
         return view('client');
     })->name('client');
@@ -34,9 +34,9 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('commodities', 'CommodityController@getCommodities');
 
-    Route::get('/client', function () {
-        return view('client');
-    })->name('client');
+    // Route::get('/client', function () {
+    //     return view('client');
+    // })->name('client');
 
     //api
     Route::post('/upload', function () {
@@ -45,9 +45,7 @@ Route::middleware(['auth'])->group(function () {
     });
 
     Route::prefix('edit-page')->group(function () {
-        Route::get('commodity', function (Request $request) {
-            return view('editCommodity', ['id' => $request->id]);
-        })->name('editCommodityPage');
+        Route::get('commodity', 'CommodityController@edit')->name('editCommodityPage');
 
         Route::get('banner', 'BannerController@edit')->name('editBannerPage');
     });

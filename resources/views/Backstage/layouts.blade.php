@@ -2,27 +2,24 @@
 <html lang="en">
 
 <head>
-    @include('component.include_js')
-    @include('component.head')
+    @include('Backstage.component.head')
 </head>
 
 <body id="page-top">
+
     <div id="wrapper">
-        @include('component.sideBar')
+        @include('Backstage.component.sideBar')
         <div id="content-wrapper" class="d-flex flex-column">
 
-            @include('component.topBar')
+            @include('Backstage.component.topBar')
             <div class="container-fluid">
                 @yield('content')
             </div>
-            @include('component.footer')
+            @include('Backstage.component.footer')
         </div>
     </div>
-
-    @include('component.popup')
-
-
-
+    @include('Backstage.component.include_js')
+    @include('Backstage.component.popup')
 </body>
 
 </html>

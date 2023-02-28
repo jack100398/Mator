@@ -1,4 +1,4 @@
-@extends('layouts')
+@extends('Backstage.layouts')
 @section('content')
     <div id="app">
         <!-- Page Heading -->
@@ -56,12 +56,12 @@
                                 <span class="input-group-text" id="basic-addon1">直線尺型式</span>
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="radio" name="type" id="inlineRadio1" checked
-                                       v-model="data.linear_ruler" value="0">
+                                        v-model="data.linear_ruler" value="0">
                                     <label class="form-check-label" for="inlineRadio1">增量</label>
                                 </div>
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="radio" name="type" id="inlineRadio2"
-                                       v-model="data.linear_ruler" value="1">
+                                        v-model="data.linear_ruler" value="1">
                                     <label class="form-check-label" for="inlineRadio2">絕對</label>
                                 </div>
                             </div>
@@ -80,8 +80,8 @@
                     <div class="card-body">
                         <div class="input-group mb-3">
                             <label for="customRange2" class="form-label">荷重</label>
-                            <input type="range" class="form-range" min="0" max="400" step="10" v-model="data.weight"
-                                id="customRange2">
+                            <input type="range" class="form-range" min="0" max="400" step="10"
+                                v-model="data.weight" id="customRange2">
                             <input type="text" size="4" class="form-control bg-light border-0"
                                 v-model="data.weight" aria-describedby="basic-addon2">
                             <div class="input-group-append">
@@ -91,8 +91,8 @@
 
                         <div class="input-group mb-3">
                             <label for="customRange2" class="form-label">行程距離</label>
-                            <input type="range" class="form-range" min="0" max="10000" step="50" v-model="data.distance"
-                                id="customRange2">
+                            <input type="range" class="form-range" min="0" max="10000" step="50"
+                                v-model="data.distance" id="customRange2">
                             <input type="text" size="4" class="form-control bg-light border-0"
                                 v-model="data.distance" aria-describedby="basic-addon2">
                             <div class="input-group-append">
@@ -226,8 +226,8 @@
                 return {
                     data: {
                         video: 'option2',
-                        direction : 0, //垂直0 水平1
-                        resolution : 0.0001, //解析度
+                        direction: 0, //垂直0 水平1
+                        resolution: 0.0001, //解析度
                         weight: 100,
                         acceleration: 0, //加速度
                         acceleration_time: 0, //加速時間
@@ -269,7 +269,7 @@
                         .catch(error => {
                             alert('請確認荷重與行程不可為空值');
                         });
-                    
+
                 },
                 async countByTime() {
                     let Stroke = this.data.distance / 1000
@@ -282,7 +282,8 @@
                         if (SeigenSokudo * MokuhyouJikan <= Stroke) {
                             alert('不可能');
                         } else {
-                            let Kasokudo = (SeigenSokudo * SeigenSokudo) / (SeigenSokudo * MokuhyouJikan - Stroke)
+                            let Kasokudo = (SeigenSokudo * SeigenSokudo) / (SeigenSokudo * MokuhyouJikan -
+                                Stroke)
                             this.setSpeedData(
                                 Kasokudo,
                                 highest_speed / Kasokudo,
@@ -300,10 +301,11 @@
                     let Kasokudo = IdoSokudo / TachiagariJikan
                     let KasokuKyori = Kasokudo * TachiagariJikan * TachiagariJikan / 2
 
-                        let TeisokuKyori = Stroke - 2 * KasokuKyori
-                        let TeisokuJikan = TeisokuKyori / IdoSokudo
+                    let TeisokuKyori = Stroke - 2 * KasokuKyori
+                    let TeisokuJikan = TeisokuKyori / IdoSokudo
 
-                        this.setSpeedData(Kasokudo / 9.8, this.byAccelerationTime.time, Math.max(TeisokuJikan * 1000, 0))
+                    this.setSpeedData(Kasokudo / 9.8, this.byAccelerationTime.time, Math.max(TeisokuJikan *
+                        1000, 0))
                 },
                 async countByAcceleration() {
                     let Stroke = this.data.distance / 1000

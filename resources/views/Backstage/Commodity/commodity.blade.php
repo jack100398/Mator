@@ -1,4 +1,4 @@
-@extends('layouts')
+@extends('Backstage.layouts')
 @section('content')
     <div id="app">
         <!-- Page Heading -->
@@ -7,7 +7,7 @@
         </div>
         <!-- Content Row -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h3 class="h3 mb-0 text-gray-800">編輯商品</h1>
+            <h3 class="h3 mb-0 text-gray-800">新增商品</h1>
         </div>
         <div class="row">
             <!-- Area Chart -->
@@ -18,11 +18,10 @@
                         <h6 class="m-0 font-weight-bold text-primary">產品資訊</h6>
                     </div>
                     <!-- Card Body -->
-                    <input type="hidden" class="defaultToken" v-model="data.id">
                     <div class="card-body">
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon1">型號</span>
+                                <span class="input-group-text" id="basic-addon1">*型號</span>
                             </div>
                             <input type="text" v-model="data.name" class="form-control" placeholder="請輸入型號"
                                 aria-label="name" aria-describedby="basic-addon1">
@@ -34,7 +33,7 @@
                         </div>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon1">解析度</span>
+                                <span class="input-group-text" id="basic-addon1">*解析度</span>
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="radio" name="resolution" id="inlineRadio1"
                                         checked v-model="data.resolution" value="0.0001">
@@ -47,7 +46,7 @@
                                 </div>
                             </div>
                             <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon1">直線尺型式</span>
+                                <span class="input-group-text" id="basic-addon1">*直線尺型式</span>
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="radio" name="linear_ruler" id="inlineRadio1"
                                         checked v-model="data.linear_ruler" value="0">
@@ -150,28 +149,28 @@
                         </div>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon1">導抗</span>
+                                <span class="input-group-text" id="basic-addon1">*導抗</span>
                             </div>
                             <input type="number" v-model="data.Siemens" class="form-control" placeholder="請輸入導抗"
                                 aria-label="power" aria-describedby="basic-addon1">
                             <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon1">電阻值</span>
+                                <span class="input-group-text" id="basic-addon1">*電阻值</span>
                             </div>
                             <input type="number" v-model="data.ohm" class="form-control" placeholder="請輸入電阻值"
                                 aria-label="power" aria-describedby="basic-addon1">
                             <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon1">推力定數</span>
+                                <span class="input-group-text" id="basic-addon1">*推力定數</span>
                             </div>
                             <input type="number" v-model="data.force_constant" id="commodity-power"
                                 class="form-control" placeholder="請輸入推力定數" aria-label="power"
                                 aria-describedby="basic-addon1">
                             <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon1">可動子重量(公斤力)</span>
+                                <span class="input-group-text" id="basic-addon1">*可動子重量(公斤力)</span>
                             </div>
                             <input type="number" v-model="data.kgf" id="commodity-power" class="form-control"
                                 placeholder="請輸入可動子重量" aria-label="power" aria-describedby="basic-addon1">
                             <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon1">熱抗</span>
+                                <span class="input-group-text" id="basic-addon1">*熱抗</span>
                             </div>
                             <input type="number" v-model="data.heat_resistance" id="commodity-power"
                                 class="form-control" placeholder="請輸入熱抗" aria-label="power"
@@ -245,9 +244,16 @@
             </div>
         </div>
         <div class="row justify-content-end">
-            <button type="button" class="btn btn-success" v-on:click="edit">修改</button>
+            <button type="button" class="btn btn-success" v-on:click="create">新增</button>
+        </div>
+        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h3 class="h3 mb-0 text-gray-800">商品</h1>
+        </div>
+        <!-- Content Row -->
+        <div class="row" id="commodity_cards">
         </div>
     </div>
+    <script src="{{ asset('Backstage/js/commodity.js') }}"></script>
     <script>
         const {
             createApp
@@ -256,10 +262,9 @@
             data() {
                 return {
                     data: {
-                        id: {{ $id }},
                         name: null,
                         type: null,
-                        resolution: null, //解析度
+                        resolution: 0.0001, //解析度
                         rated_thrust: null, //額定推力
                         acceleration_thrust: null, //加速推力
                         rated_current: null, //額定電流
@@ -285,31 +290,26 @@
                     },
                 }
             },
-            mounted: async function() {
-                await this.getCommodity();
-            },
             methods: {
                 async upload(item) {
                     this.data[item] = await uploadImage(item);
                 },
-                async getCommodity() {
-                    await getCommodity(this.data.id)
-                        .then(res => {
-                            this.data = res;
-                        })
-                        .catch(err => {
-                            alert('發生錯誤,請聯繫系統管理員');
-                        })
-                },
-                async edit(id) {
-                    await sendAjax('patch', '/commodity/' + this.data.id, this.data)
+                async create() {
+                    await sendAjax('post', 'commodity', this.data)
                         .then(value => {
                             getCommodities();
-                            alert('修改成功');
+                            alert('新增成功');
+                            location.reload();
                         })
                         .catch(error => {
-                            alert('修改失敗,請確認資訊使否皆已填入');
+                            if (error.responseJSON.message.indexOf('NOT NULL constraint') !== -1) {
+                                alert('新增失敗,請確認資訊使否皆已填入');
+                            }
+                            if (error.responseJSON.message.indexOf('UNIQUE constraint') !== -1) {
+                                alert('已存在相同名稱與規格的產品(品名,解析度,直線尺型式相同)');
+                            }
                         });
+
                 },
             }
         }).mount('#app')
