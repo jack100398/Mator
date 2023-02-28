@@ -36,26 +36,26 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon1">解析度</span>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="resolution" id="inlineRadio1" checked
-                                       v-model="data.resolution" value="0.0001">
+                                    <input class="form-check-input" type="radio" name="resolution" id="inlineRadio1"
+                                        checked v-model="data.resolution" value="0.0001">
                                     <label class="form-check-label" for="inlineRadio1">0.1um</label>
                                 </div>
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="radio" name="resolution" id="inlineRadio2"
-                                       v-model="data.resolution" value="0.001">
+                                        v-model="data.resolution" value="0.001">
                                     <label class="form-check-label" for="inlineRadio2">1um</label>
                                 </div>
                             </div>
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon1">直線尺型式</span>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="linear_ruler" id="inlineRadio1" checked
-                                       v-model="data.linear_ruler" value="0">
+                                    <input class="form-check-input" type="radio" name="linear_ruler" id="inlineRadio1"
+                                        checked v-model="data.linear_ruler" value="0">
                                     <label class="form-check-label" for="inlineRadio1">增量</label>
                                 </div>
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="radio" name="linear_ruler" id="inlineRadio2"
-                                       v-model="data.linear_ruler" value="1">
+                                        v-model="data.linear_ruler" value="1">
                                     <label class="form-check-label" for="inlineRadio2">絕對</label>
                                 </div>
                             </div>
@@ -127,8 +127,8 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon1">電源電壓</span>
                             </div>
-                            <input disabled="disabled" type="number" v-model="data.voltage" class="form-control" placeholder="請輸入電源電壓"
-                                aria-label="power" aria-describedby="basic-addon1">
+                            <input disabled="disabled" type="number" v-model="data.voltage" class="form-control"
+                                placeholder="請輸入電源電壓" aria-label="power" aria-describedby="basic-addon1">
                         </div>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
@@ -248,8 +248,6 @@
             <button type="button" class="btn btn-success" v-on:click="edit">修改</button>
         </div>
     </div>
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="js/commodity.js"></script>
     <script>
         const {
             createApp
@@ -260,7 +258,7 @@
                     data: {
                         id: {{ $id }},
                         name: null,
-                        type:null,
+                        type: null,
                         resolution: null, //解析度
                         rated_thrust: null, //額定推力
                         acceleration_thrust: null, //加速推力
@@ -312,7 +310,6 @@
                         .catch(error => {
                             alert('修改失敗,請確認資訊使否皆已填入');
                         });
-
                 },
             }
         }).mount('#app')
