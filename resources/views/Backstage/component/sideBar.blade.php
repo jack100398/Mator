@@ -2,7 +2,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('home') }}">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('commodity') }}">
                 <div class="sidebar-brand-text mx-3">MATOR</div>
             </a>
 
@@ -11,7 +11,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="{{ route('home') }}">
+                <a class="nav-link" href="{{ route('commodity') }}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>DashBoard</span></a>
             </li>
