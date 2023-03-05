@@ -11,21 +11,16 @@
 |
 */
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/', function () {
-    return view('home');
-})->name('home');
-
-Auth::routes();
-
 Route::prefix('admin')->middleware(['auth'])->group(function () {
-    Route::get('/client', function () {
-        return view('client');
-    })->name('client');
+    Auth::routes();
+
+    Route::get('/', function () {
+        return redirect()->route('commodity');
+    });
 
     Route::apiResource('banner', 'BannerController', ['names' => ['index' => 'banner']]);
     Route::get('banner/edit/{banner}', 'BannerController@edit');
@@ -33,10 +28,6 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::apiResource('/commodity', 'CommodityController', ['names' => ['index' => 'commodity']]);
 
     Route::get('commodities', 'CommodityController@getCommodities');
-
-    // Route::get('/client', function () {
-    //     return view('client');
-    // })->name('client');
 
     //api
     Route::post('/upload', function () {
@@ -53,4 +44,24 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::get('client-commodity', 'CommodityController@search');
 });
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::prefix('zh')->group(function () {
+    Route::get('index', 'ClientController@index')->name('index');
+    Route::get('news', 'ClientController@news')->name('news');
+    Route::get('contact', 'ClientController@contact')->name('contact');
+    Route::get('recommend', 'ClientController@recommend')->name('recommend');
+    Route::get('product', 'ClientController@product')->name('product');
+    Route::get('article', 'ClientController@article')->name('article');
+    Route::get('product-list', 'ClientController@productList')->name('product-list');
+    Route::get('product-detail', 'ClientController@productDetail')->name('product-detail');
+});
+
+
+Route::prefix('/')->group(function () {
+    Route::get('/', function () {
+        return redirect()->route('index');
+    })->name('home');
+
+    Route::get('/home', function () {
+        return redirect()->route('index');
+    });
+});
