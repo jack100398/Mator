@@ -15,33 +15,35 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 
-Route::prefix('admin')->middleware(['auth'])->group(function () {
+Route::prefix('admin')->group(function () {
     Auth::routes();
 
     Route::get('/', function () {
         return redirect()->route('commodity');
     });
 
-    Route::apiResource('banner', 'BannerController', ['names' => ['index' => 'banner']]);
-    Route::get('banner/edit/{banner}', 'BannerController@edit');
+    Route::middleware(['auth'])->group(function () {
+        Route::apiResource('banner', 'BannerController', ['names' => ['index' => 'banner']]);
+        Route::get('banner/edit/{banner}', 'BannerController@edit');
 
-    Route::apiResource('/commodity', 'CommodityController', ['names' => ['index' => 'commodity']]);
+        Route::apiResource('/commodity', 'CommodityController', ['names' => ['index' => 'commodity']]);
 
-    Route::get('commodities', 'CommodityController@getCommodities');
+        Route::get('commodities', 'CommodityController@getCommodities');
 
-    //api
-    Route::post('/upload', function () {
-        $imageURL = request()->file('img')->store('public');
-        return 'storage/' . substr($imageURL, 7);
+        //api
+        Route::post('/upload', function () {
+            $imageURL = request()->file('img')->store('public');
+            return 'storage/' . substr($imageURL, 7);
+        });
+
+        Route::prefix('edit-page')->group(function () {
+            Route::get('commodity', 'CommodityController@edit')->name('editCommodityPage');
+
+            Route::get('banner', 'BannerController@edit')->name('editBannerPage');
+        });
+
+        Route::get('client-commodity', 'CommodityController@search');
     });
-
-    Route::prefix('edit-page')->group(function () {
-        Route::get('commodity', 'CommodityController@edit')->name('editCommodityPage');
-
-        Route::get('banner', 'BannerController@edit')->name('editBannerPage');
-    });
-
-    Route::get('client-commodity', 'CommodityController@search');
 });
 
 Route::prefix('zh')->group(function () {
