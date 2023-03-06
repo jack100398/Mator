@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Banner;
+use App\Helpers\UrlHelper;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -19,7 +20,14 @@ class BannerController extends Controller
      */
     public function index(): View
     {
-        $banners = Banner::query()->get();
+        $banners = Banner::query()->get()->map(function (Banner $banner) {
+            return (new Banner([
+                'route'       => $banner->route,
+                'remark'      => $banner->remark,
+                'desktop_url' => UrlHelper::formatOutPutUrl($banner->desktop_url),
+                'mobile_url'  => UrlHelper::formatOutPutUrl($banner->mobile_url)
+            ]))->setAttribute('id', $banner->id);
+        });
 
         return view('Backstage.Banner.banner', [
             'page_categroy' => self::PAGE_CATEGORY,
@@ -57,6 +65,13 @@ class BannerController extends Controller
      */
     public function show(Banner $banner): JsonResponse
     {
+        $banner = (new Banner([
+            'route'       => $banner->route,
+            'remark'      => $banner->remark,
+            'desktop_url' => UrlHelper::formatOutPutUrl($banner->desktop_url),
+            'mobile_url'  => UrlHelper::formatOutPutUrl($banner->mobile_url)
+        ]))->setAttribute('id', $banner->id);
+
         return response()->json($banner);
     }
 
