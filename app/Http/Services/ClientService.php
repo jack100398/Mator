@@ -17,6 +17,16 @@ class ClientService
 
     public function getBanner(string $route): Banner
     {
-        return $this->repository->getBanner($route);
+        $banner = $this->repository->getBanner($route);
+
+        if (!filter_var($banner->desktop_url, FILTER_VALIDATE_URL)) {
+            $banner->desktop_url = asset($banner->desktop_url);
+        }
+
+        if (!filter_var($banner->mobile_url, FILTER_VALIDATE_URL)) {
+            $banner->desktop_url = asset($banner->mobile_url);
+        }
+
+        return $banner;
     }
 }
