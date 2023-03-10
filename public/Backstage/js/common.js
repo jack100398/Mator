@@ -33,6 +33,28 @@ function sendAjax(type = 'post', path, data = null) {
     });
 }
 
+function sendApiAjax(type = 'post', path, data = null) {
+    var url = `${getApiDomainUrl()}${path}`
+
+    return new Promise((resolve, reject) => {
+        $.ajax({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            type: type,
+            url: url,
+            data: data,
+            cache: false,
+            success: function (res) {
+                resolve(res);
+            },
+            error: function (err) {
+                reject(err);
+            }
+        });
+    });
+}
+
 function ajaxUploadFile(type = 'post', path, data) {
     var url = `${getAdminDomainUrl()}${path}`
 
@@ -60,4 +82,8 @@ function ajaxUploadFile(type = 'post', path, data) {
 
 function getAdminDomainUrl() {
     return `${document.location.origin}/admin/`;
+}
+
+function getApiDomainUrl() {
+    return `${document.location.origin}/api/`;
 }

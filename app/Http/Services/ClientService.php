@@ -24,7 +24,7 @@ class ClientService
         }
 
         if (!filter_var($banner->mobile_url, FILTER_VALIDATE_URL)) {
-            $banner->desktop_url = asset($banner->mobile_url);
+            $banner->mobile_url = asset($banner->mobile_url);
         }
 
         return $banner;

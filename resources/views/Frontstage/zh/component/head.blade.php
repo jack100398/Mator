@@ -35,5 +35,8 @@
     <script src="{{ asset('Frontstage/js/slick.js') }}"></script>
     <script src="{{ asset('Frontstage/js/parallax.min.js') }}"></script>
     <script src="{{ asset('Frontstage/js/wow.min.js') }}"></script>
+    <script src="{{ asset('Backstage/js/common.js') }}"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </head>

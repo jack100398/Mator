@@ -3,10 +3,11 @@
 namespace App\Http\Services;
 
 use App\Commodity;
+use App\Helpers\UrlHelper;
 use App\Http\Repositories\CommodityRepository;
 use Illuminate\Database\Eloquent\Collection;
 
-class CommodityService 
+class CommodityService
 {
     /** @var CommodityRepository */
     private $repository;
@@ -28,8 +29,8 @@ class CommodityService
             // 2.000588655
             // 15.24936581
 
-            
-            
+
+
 
             //升溫 = 熱抗 * (荷重 + 可動子重量) ^ 2 * 電阻 / 推力定數 ^ 2 / 需要時間 * 總時間
             $weight_param = ($data['weight'] + $commodity->kgf) * ($data['weight'] + $commodity->kgf);
@@ -46,6 +47,11 @@ class CommodityService
             //需要電壓 = 電流 * 指定馬達阻抗 + 最大速度(mm/sec) / 1000 * 指定馬達 逆起電力定數
             $need_voltage = $need_current * $commodity->ohm + ($data['acceleration'] * $data['acceleration_time'] * 9.8) / 1000 * $commodity->Siemens;
             $commodity->setAttribute('need_voltage', $need_voltage);
+
+            $commodity->picture_four = UrlHelper::formatOutPutUrl($commodity->picture_four);
+            $commodity->picture_one = UrlHelper::formatOutPutUrl($commodity->picture_one);
+            $commodity->picture_three = UrlHelper::formatOutPutUrl($commodity->picture_three);
+            $commodity->picture_two = UrlHelper::formatOutPutUrl($commodity->picture_two);
 
             return $commodity;
         })->filter(function (Commodity $commodity) {
@@ -97,7 +103,7 @@ class CommodityService
      * @param array $data
      * @return float
      */
-    public function countConstantTime(array $data):float
+    public function countConstantTime(array $data): float
     {
         $is_direction_value = $data['direction'] == 0 ? 1 : 0;
 

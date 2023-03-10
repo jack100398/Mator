@@ -250,6 +250,7 @@
     </div>
     <script src="{{ asset('Backstage/js/commodity.js') }}"></script>
     <script>
+        window._asset = '{{ asset('') }}';
         const {
             createApp
         } = Vue
@@ -291,7 +292,7 @@
             },
             methods: {
                 async upload(item) {
-                    this.data[item] = await uploadImage(item);
+                    this.data[item] = window._asset + (await uploadImage(item));
                 },
                 async getCommodity() {
                     await getCommodity(this.data.id)

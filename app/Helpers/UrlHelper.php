@@ -12,8 +12,12 @@ abstract class UrlHelper
      *
      * @return string
      */
-    public static function formatOutPutUrl(string $url): string
+    public static function formatOutPutUrl(?string $url): ?string
     {
+        if (is_null($url)) {
+            return null;
+        }
+
         return filter_var($url, FILTER_VALIDATE_URL) ? $url : asset($url);
     }
 
@@ -29,12 +33,33 @@ abstract class UrlHelper
 
         if (filter_var($url, FILTER_VALIDATE_URL)) {
             if (Str::contains($url, $base_url)) {
-                $url = Str::diff($url, $base_url);
+                $url = self::findDiffience($url, $base_url);
             }
         } else {
             $url = asset($url);
         }
 
         return $url;
+    }
+
+    private static function findDiffience(string $url, $base_url): string
+    {
+        $len1 = strlen($url);
+        $len2 = strlen($base_url);
+
+        $diff = '';
+
+        for ($i = 0; $i < $len1 && $i < $len2; $i++) {
+            if ($url[$i] !== $base_url[$i]) {
+                $diff .= substr($url, $i);
+                break;
+            }
+        }
+
+        if (empty($diff)) {
+            $diff = substr($url, $len2);
+        }
+
+        return $diff;
     }
 }

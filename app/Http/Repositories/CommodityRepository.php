@@ -4,7 +4,7 @@ namespace App\Http\Repositories;
 
 use App\Commodity;
 
-class CommodityRepository 
+class CommodityRepository
 {
     public function searchCommoditiesByInfo(array $conditions)
     {

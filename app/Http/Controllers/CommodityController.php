@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Commodity;
+use App\Helpers\UrlHelper;
 use App\Http\Services\CommodityService;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -41,7 +42,14 @@ class CommodityController extends Controller
 
     public function update($id, Request $request)
     {
-        Commodity::query()->where('id', $id)->update($request->all());
+        $data = $request->all();
+
+        $data['picture_one'] = UrlHelper::formatInputUrl($data['picture_one']);
+        $data['picture_two'] = UrlHelper::formatInputUrl($data['picture_two']);
+        $data['picture_three'] = UrlHelper::formatInputUrl($data['picture_three']);
+        $data['picture_four'] = UrlHelper::formatInputUrl($data['picture_four']);
+
+        Commodity::query()->where('id', $id)->update($data);
     }
 
     public function store(Request $request)
@@ -56,7 +64,11 @@ class CommodityController extends Controller
     public function getCommodities()
     {
         $commodities = Commodity::query()->get()->map(function (Commodity $commodity) {
-            return view('Backstage.component.card', ['id' => $commodity->id, 'name' => $commodity->name, 'src' => $commodity->picture_one])->toHtml();
+            return view('Backstage.component.card', [
+                'id' => $commodity->id,
+                'name' => $commodity->name,
+                'src' => UrlHelper::formatOutPutUrl($commodity->picture_one)
+            ])->toHtml();
         });
 
         return response($commodities);
@@ -97,7 +109,7 @@ class CommodityController extends Controller
         if ($commodity === null) {
             return '沒有符合的產品';
         } else {
-            return view('Backstage.component.searchCard', ['id' => $commodity->id, 'name' => $commodity->name, 'src' => $commodity->picture_one])->toHtml();
+            return $commodity;
         }
     }
 }
