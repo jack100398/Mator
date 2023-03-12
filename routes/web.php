@@ -36,10 +36,16 @@ Route::prefix('admin')->group(function () {
             return 'storage/' . substr($imageURL, 7);
         });
 
+        Route::apiResource('third', 'ThirdLinkController', ['names' => ['index' => 'third']]);
+
         Route::prefix('edit-page')->group(function () {
             Route::get('commodity', 'CommodityController@edit')->name('editCommodityPage');
-
+            Route::get('link', 'ThirdLinkController@edit')->name('editLinkPage');
             Route::get('banner', 'BannerController@edit')->name('editBannerPage');
+        });
+
+        Route::prefix('create-page')->group(function () {
+            Route::get('link', 'ThirdLinkController@create')->name('createThirdLinkPage');
         });
 
         Route::get('client-commodity', 'CommodityController@search');

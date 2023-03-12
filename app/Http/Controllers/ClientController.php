@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Helpers\TimeHelper;
 use App\Http\Services\ClientService;
+use App\ThirdLink;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -75,7 +76,9 @@ class ClientController extends Controller
     {
         $banner = $this->service->getBanner('product');
 
-        return view('Frontstage.zh.product', compact('banner'));
+        $third_links = ThirdLink::query()->get();
+
+        return view('Frontstage.zh.product', compact('banner', 'third_links'));
     }
 
     /**

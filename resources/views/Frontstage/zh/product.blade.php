@@ -66,26 +66,13 @@
         <div class="brands">
             <div class="wrap">
                 <div class="brands-slider">
-                    <div class="swiper-content"><a href=""><img src="{{ asset('Frontstage/images/brand1.png') }}"
-                                alt=""></a></div>
-                    <div class="swiper-content"><a href=""><img src="{{ asset('Frontstage/images/brand2.png') }}"
-                                alt=""></a></div>
-                    <div class="swiper-content"><a href=""><img src="{{ asset('Frontstage/images/brand3.png') }}"
-                                alt=""></a></div>
-                    <div class="swiper-content"><a href=""><img src="{{ asset('Frontstage/images/brand4.png') }}"
-                                alt=""></a></div>
-                    <div class="swiper-content"><a href=""><img src="{{ asset('Frontstage/images/brand5.png') }}"
-                                alt=""></a></div>
-                    <div class="swiper-content"><a href=""><img src="{{ asset('Frontstage/images/brand1.png') }}"
-                                alt=""></a></div>
-                    <div class="swiper-content"><a href=""><img src="{{ asset('Frontstage/images/brand2.png') }}"
-                                alt=""></a></div>
-                    <div class="swiper-content"><a href=""><img src="{{ asset('Frontstage/images/brand3.png') }}"
-                                alt=""></a></div>
-                    <div class="swiper-content"><a href=""><img src="{{ asset('Frontstage/images/brand4.png') }}"
-                                alt=""></a></div>
-                    <div class="swiper-content"><a href=""><img src="{{ asset('Frontstage/images/brand5.png') }}"
-                                alt=""></a></div>
+                    @foreach ($third_links as $third_link)
+                        <div class="swiper-content">
+                            <a href="{{ $third_link->url }}">
+                                <img src="{{ asset($third_link->image) }}" alt="">
+                            </a>
+                        </div>
+                    @endforeach
                 </div>
             </div>
         </div>

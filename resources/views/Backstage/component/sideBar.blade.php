@@ -38,6 +38,12 @@
                     <span>Banner管理</span></a>
             </li>
 
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('third') }}">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>合作夥伴連結管理</span></a>
+            </li>
+
             <!-- Nav Item - Tables -->
             {{-- <li class="nav-item">
                 <a class="nav-link" href="{{route('client')}}">
