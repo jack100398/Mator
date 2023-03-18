@@ -3,6 +3,7 @@
 namespace App\Http\Repositories;
 
 use App\Banner;
+use App\News;
 use App\Product;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Pagination\LengthAwarePaginator;
@@ -26,6 +27,18 @@ class ClientRepository
         return Product::query()
             ->orderBy('id')
             ->where('type_id', $type_id)
+            ->paginate(15);
+    }
+
+    /**
+     * 獲得分頁後的最新消息
+     *
+     * @return LengthAwarePaginator
+     */
+    public function getNews(): LengthAwarePaginator
+    {
+        return News::query()
+            ->orderBy('id')
             ->paginate(15);
     }
 }

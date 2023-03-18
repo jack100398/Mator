@@ -3,13 +3,13 @@
     <div id="app">
         <div class="wrap">
             <div class="article-text">
-                <div class="activity-date">{{ $date }}</div>
-                <h1>{{ $title }}</h1>
+                <div class="activity-date">{{ $news['created_at'] }}</div>
+                <h1>{{ $news['title'] }}</h1>
                 <span></span>
-                <p><span>新聞類別名稱</span><span>2023/01/01-2023/01/29</span></p>
+                <p><span>{{ $news['type'] }}</span>
             </div>
             <div class="editor">
-                {!! $content !!}
+                {!! $news['text'] !!}
             </div>
             <div class="back"><a href="{{ route('news') }}" class="btn" style="color: #fff;">« 回列表</a></div>
         </div>

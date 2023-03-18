@@ -11,6 +11,7 @@ class News extends Model
         'type',
         'image',
         'text',
+        'introduction',
     ];
 
     protected $cast = [
@@ -18,5 +19,6 @@ class News extends Model
         'type' => 'string',
         'image' => 'string',
         'text' => 'string',
+        'introduction' => 'string'
     ];
 }

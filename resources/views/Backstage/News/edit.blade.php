@@ -45,6 +45,18 @@
                 <div class="card shadow mb-4">
                     <!-- Card Header - Dropdown -->
                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-primary">簡介</h6>
+                    </div>
+                    <!-- Card Body -->
+                    <div class="card-body">
+                        <input type="text" v-model="data.introduction" class="form-control" placeholder="請輸入簡介"
+                            aria-label="power" aria-describedby="basic-addon1">
+                    </div>
+                </div>
+
+                <div class="card shadow mb-4">
+                    <!-- Card Header - Dropdown -->
+                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                         <h6 class="m-0 font-weight-bold text-primary">文章內容</h6>
                     </div>
                     <!-- Card Body -->
@@ -89,6 +101,7 @@
                         type: null,
                         image: null,
                         text: null,
+                        introduction: null,
                     },
                 }
             },

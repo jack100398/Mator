@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use App\Helpers\TimeHelper;
 use App\Http\Services\ClientService;
 use App\Http\Services\ProductTypeService;
+use App\Http\Transformer\News\NewsTransformer;
 use App\Http\Transformer\Product\ProductDetailTransformer;
 use App\Http\Transformer\Product\ProductTransformer;
 use App\Http\Transformer\ProductType\ProductTypeTransformer;
+use App\News;
 use App\Product;
 use App\ProductType;
 use App\ThirdLink;
@@ -22,7 +24,8 @@ class ClientController extends Controller
         protected ProductTypeTransformer $product_type_transformer,
         protected ProductTransformer $product_transformer,
         protected ProductTypeService $product_type_service,
-        protected ProductDetailTransformer $product_detail_transformer
+        protected ProductDetailTransformer $product_detail_transformer,
+        protected NewsTransformer $news_transformer
     ) {
         $this->service = $service;
     }
@@ -49,8 +52,12 @@ class ClientController extends Controller
     public function news(): View
     {
         $banner = $this->service->getBanner('news');
+        $news = $this->service->getNews();
 
-        return view('Frontstage.zh.news', compact('banner'));
+        return view('Frontstage.zh.news', [
+            'banner' => $banner,
+            'news' => $news->setCollection($this->news_transformer->transformCollection($news)),
+        ]);
     }
 
     /**
@@ -98,15 +105,12 @@ class ClientController extends Controller
      *
      * @return View
      */
-    public function article(Request $request): View
+    public function article(News $news): View
     {
-        $banner = $this->service->getBanner('news');
-
-        $title = '營養師教你吃冰消暑不怕胖，2招有助改善吃冰頭痛';
-        $date = TimeHelper::formatjnFY('2022-08-08');
-        $content = "炎炎夏日，你是不是也習慣來點冰涼的飲品或冰棒，瞬間消消暑氣呢？不過，不少人都有吃冰會感到頭有點疼痛的困擾，是否有什麼潛在的疾病？如何吃冰消暑又不怕肥胖呢？ <br><br>";
-
-        return view('Frontstage.zh.article', compact('banner', 'title', 'date', 'content'));
+        return view('Frontstage.zh.article', [
+            'banner' => $this->service->getBanner('news'),
+            'news' => $this->news_transformer->transform($news)
+        ]);
     }
 
     /**

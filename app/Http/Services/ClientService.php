@@ -44,10 +44,12 @@ class ClientService
     }
 
     /**
-     * 
+     * 獲得分頁後的最新消息
+     *
+     * @return LengthAwarePaginator
      */
-    public function getProduct(int $product_id): Product
+    public function getNews(): LengthAwarePaginator
     {
-        return $this->repository->getProduct($product_id);
+        return $this->repository->getNews();
     }
 }
