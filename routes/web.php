@@ -13,6 +13,7 @@
 
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\CommodityController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductTypiesController;
 use App\Http\Controllers\ThirdLinkController;
 use Illuminate\Support\Facades\Auth;
@@ -42,6 +43,16 @@ Route::prefix('admin')->group(function () {
             Route::delete('/{type}', [ProductTypiesController::class, 'destroy']);
             Route::get('/', [ProductTypiesController::class, 'index'])->name('product-type');
             Route::post('/', [ProductTypiesController::class, 'store']);
+        });
+
+        Route::prefix('product')->group(function () {
+            Route::get('/edit', [ProductController::class, 'edit'])->name('editProductPage');
+            Route::get('/create', [ProductController::class, 'create'])->name('createProductPage');
+            Route::get('/{product}', [ProductController::class, 'show']);
+            Route::patch('/{product}', [ProductController::class, 'update']);
+            Route::delete('/{product}', [ProductController::class, 'destroy']);
+            Route::get('/', [ProductController::class, 'index'])->name('product-admin');
+            Route::post('/', [ProductController::class, 'store']);
         });
 
         //api

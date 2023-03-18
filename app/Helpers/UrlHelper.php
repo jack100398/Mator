@@ -10,7 +10,7 @@ abstract class UrlHelper
      * 轉換非網址之連結源自 asset()
      * @param string $config
      *
-     * @return string
+     * @return null|string
      */
     public static function formatOutPutUrl(?string $url): ?string
     {
@@ -25,10 +25,14 @@ abstract class UrlHelper
      * 轉換非網址之連結源自 asset()
      * @param string $config
      *
-     * @return string
+     * @return null|string
      */
-    public static function formatInputUrl(string $url): string
+    public static function formatInputUrl(?string $url): ?string
     {
+        if (is_null($url)) {
+            return null;
+        }
+
         $base_url = asset('/');
 
         if (filter_var($url, FILTER_VALIDATE_URL)) {

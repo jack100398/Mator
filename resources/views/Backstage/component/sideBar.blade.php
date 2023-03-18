@@ -45,6 +45,12 @@
                     <span>產品類別</span></a>
             </li>
 
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('product-admin') }}">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>產品</span></a>
+            </li>
+
             <!-- Divider -->
             <hr class="sidebar-divider">
 
