@@ -11,6 +11,14 @@ async function uploadImage(element_id) {
     return await ajaxUploadFile('post', 'upload', form)
 }
 
+async function uploadImageByNote(file) {
+    var img = file;
+    var form = new FormData();
+    form.append("img", img);
+    form.append("_token", "{{ csrf_token() }}");
+    return await ajaxUploadFile('post', 'upload', form)
+}
+
 function sendAjax(type = 'post', path, data = null) {
     var url = `${getAdminDomainUrl()}${path}`
 

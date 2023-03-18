@@ -51,6 +51,17 @@
                     <span>產品</span></a>
             </li>
 
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                最新消息
+            </div>
+
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('news-admin') }}">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>貼文管理</span></a>
+            </li>
+
             <!-- Divider -->
             <hr class="sidebar-divider">
 

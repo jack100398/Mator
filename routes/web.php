@@ -13,6 +13,7 @@
 
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\CommodityController;
+use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductTypiesController;
 use App\Http\Controllers\ThirdLinkController;
@@ -53,6 +54,16 @@ Route::prefix('admin')->group(function () {
             Route::delete('/{product}', [ProductController::class, 'destroy']);
             Route::get('/', [ProductController::class, 'index'])->name('product-admin');
             Route::post('/', [ProductController::class, 'store']);
+        });
+
+        Route::prefix('news')->group(function () {
+            Route::get('/edit', [NewsController::class, 'edit'])->name('editNewsPage');
+            Route::get('/create', [NewsController::class, 'create'])->name('createNewsPage');
+            Route::get('/{news}', [NewsController::class, 'show']);
+            Route::patch('/{news}', [NewsController::class, 'update']);
+            Route::delete('/{news}', [NewsController::class, 'destroy']);
+            Route::get('/', [NewsController::class, 'index'])->name('news-admin');
+            Route::post('/', [NewsController::class, 'store']);
         });
 
         //api
