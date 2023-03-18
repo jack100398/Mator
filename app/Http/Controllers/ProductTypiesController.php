@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Transformer\ProductType\InputTransformer;
 use App\Http\Transformer\ProductType\ProductTypeTransformer;
-use App\Product_Typies;
+use App\ProductType;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -22,7 +22,7 @@ class ProductTypiesController extends Controller
 
     public function index(): View
     {
-        $typies = Product_Typies::query()->get();
+        $typies = ProductType::query()->get();
 
         return view('Backstage.ProductTypies.index', [
             'page_categroy' => self::PAGE_CATEGORY,
@@ -44,11 +44,11 @@ class ProductTypiesController extends Controller
     {
         $data = $this->input_transformer->transform($request->all());
 
-        return response()->json(Product_Typies::query()->create($data));
+        return response()->json(ProductType::query()->create($data));
     }
 
 
-    public function show(Product_Typies $type)
+    public function show(ProductType $type)
     {
         return response()->json($this->transformer->transform($type));
     }
@@ -64,13 +64,13 @@ class ProductTypiesController extends Controller
     }
 
 
-    public function update(Request $request, Product_Typies $type)
+    public function update(Request $request, ProductType $type)
     {
         return response()->json($type->update($request->all()));
     }
 
 
-    public function destroy(Product_Typies $type)
+    public function destroy(ProductType $type)
     {
         $type->delete();
     }

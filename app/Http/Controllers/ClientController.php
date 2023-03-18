@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Helpers\TimeHelper;
 use App\Http\Services\ClientService;
 use App\Http\Transformer\ProductType\ProductTypeTransformer;
-use App\Product_Typies;
+use App\ProductType;
 use App\ThirdLink;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -76,7 +76,7 @@ class ClientController extends Controller
     {
         $banner = $this->service->getBanner('product');
         $third_links = ThirdLink::query()->get();
-        $product_typies = $this->product_type_transformer->transformCollection(Product_Typies::query()->get());
+        $product_typies = $this->product_type_transformer->transformCollection(ProductType::query()->get());
 
         return view('Frontstage.zh.product', compact('banner', 'third_links', 'product_typies'));
     }
@@ -110,7 +110,7 @@ class ClientController extends Controller
     {
         $banner = $this->service->getBanner('product');
 
-        $types = Product_Typies::query()->get();
+        $types = ProductType::query()->get();
         $product_typies = $this->product_type_transformer->transformCollection($types);
 
         $current_type = $types->filter(fn ($type) => $type->id == $request->id)->first();

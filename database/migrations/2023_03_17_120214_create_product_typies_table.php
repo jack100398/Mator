@@ -13,7 +13,7 @@ class CreateProductTypiesTable extends Migration
      */
     public function up()
     {
-        Schema::create('product__typies', function (Blueprint $table) {
+        Schema::create('product_typies', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name')->comment('類別名稱');
             $table->string('page_banner')->nullable()->comment('頁面banner (product-list頁面上面)');
@@ -32,6 +32,6 @@ class CreateProductTypiesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('product__typies');
+        Schema::dropIfExists('product_typies');
     }
 }

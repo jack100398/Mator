@@ -4,8 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Product_Typies extends Model
+class ProductType extends Model
 {
+    protected $table = 'product_typies';
+
     protected $fillable = [
         'name',
         'page_banner',
