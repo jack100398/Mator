@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Product extends Model
 {
@@ -37,4 +38,9 @@ class Product extends Model
         'video_url4' => 'string',
         'pdf' => 'string',
     ];
+
+    public function Type(): BelongsTo
+    {
+        return $this->belongsTo(ProductType::class, 'type_id', 'id');
+    }
 }

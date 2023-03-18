@@ -87,7 +87,7 @@ Route::prefix('zh')->group(function () {
     Route::get('product', 'ClientController@product')->name('product');
     Route::get('article', 'ClientController@article')->name('article');
     Route::get('product-list', 'ClientController@productList')->name('product-list');
-    Route::get('product-detail', 'ClientController@productDetail')->name('product-detail');
+    Route::get('product-detail/{product}', 'ClientController@productDetail')->name('product-detail');
 });
 
 

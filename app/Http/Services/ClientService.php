@@ -4,15 +4,15 @@ namespace App\Http\Services;
 
 use App\Banner;
 use App\Http\Repositories\ClientRepository;
+use App\Product;
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class ClientService
 {
-    /** @var ClientRepository */
-    private $repository;
-
-    public function __construct(ClientRepository $repository)
-    {
-        $this->repository = $repository;
+    public function __construct(
+        protected ClientRepository $repository
+    ) {
     }
 
     public function getBanner(string $route): Banner
@@ -28,5 +28,26 @@ class ClientService
         }
 
         return $banner;
+    }
+
+
+    /**
+     * 取得在目標類別下的產品
+     *
+     * @param int $type_id
+     *
+     * @return LengthAwarePaginator
+     */
+    public function getProductsByType(int $type_id): LengthAwarePaginator
+    {
+        return $this->repository->getProductsByType($type_id);
+    }
+
+    /**
+     * 
+     */
+    public function getProduct(int $product_id): Product
+    {
+        return $this->repository->getProduct($product_id);
     }
 }

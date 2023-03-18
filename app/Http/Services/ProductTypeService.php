@@ -22,4 +22,14 @@ class ProductTypeService
     {
         return $this->repository->getAll();
     }
+
+    /**
+     * 獲得部分產品
+     *
+     * @return Collection
+     */
+    public function getProducts(): COllection
+    {
+        return $this->repository->getProducts();
+    }
 }

@@ -3,65 +3,17 @@
     <div id="app">
         <div class="wrap">
             <div class="product-slider">
-                <div class="swiper-content">
-                    <a href="{{ route('product-detail', ['id' => 1]) }}">
-                        <div class="img"><img src="{{ asset('Frontstage/images/product6.png') }}" alt=""></div>
-                        <div class="text">
-                            <h3>NEW MOTECH<br>線性馬達模組</h3>
-                            <p>該類別簡易介紹，簡單二十個字數內即可，讓瀏覽者更加了解該分類內容產品...</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="swiper-content">
-                    <a href="{{ route('product-detail', ['id' => 1]) }}">
-                        <div class="img"><img src="{{ asset('Frontstage/images/product1.png') }}" alt="">
-                        </div>
-                        <div class="text">
-                            <h3>NEW MOTECH<br>精密Z軸線性馬達模組</h3>
-                            <p>該類別簡易介紹，簡單二十個字數內即可，讓瀏覽者更加了解該分類內容產品...</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="swiper-content">
-                    <a href="{{ route('product-detail', ['id' => 1]) }}">
-                        <div class="img"><img src="{{ asset('Frontstage/images/product2.png') }}" alt="">
-                        </div>
-                        <div class="text">
-                            <h3>NEW MOTECH<br>精密水平軸線性馬達模組</h3>
-                            <p>該類別簡易介紹，簡單二十個字數內即可，讓瀏覽者更加了解該分類內容產品...</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="swiper-content">
-                    <a href="{{ route('product-detail', ['id' => 1]) }}">
-                        <div class="img"><img src="{{ asset('Frontstage/images/product3.png') }}" alt="">
-                        </div>
-                        <div class="text">
-                            <h3>NEW MOTECH<br>精密多動子線性馬達模組</h3>
-                            <p>該類別簡易介紹，簡單二十個字數內即可，讓瀏覽者更加了解該分類內容產品...</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="swiper-content">
-                    <a href="{{ route('product-detail', ['id' => 1]) }}">
-                        <div class="img"><img src="{{ asset('Frontstage/images/product4.png') }}" alt="">
-                        </div>
-                        <div class="text">
-                            <h3>NEW MOTECH<br>龍門同動專用線性馬達模組</h3>
-                            <p>該類別簡易介紹，簡單二十個字數內即可，讓瀏覽者更加了解該分類內容產品...</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="swiper-content">
-                    <a href="{{ route('product-detail', ['id' => 1]) }}">
-                        <div class="img"><img src="{{ asset('Frontstage/images/product5.png') }}" alt="">
-                        </div>
-                        <div class="text">
-                            <h3>NEW MOTECH<br>精密線性馬達微型STAGE</h3>
-                            <p>該類別簡易介紹，簡單二十個字數內即可，讓瀏覽者更加了解該分類內容產品...</p>
-                        </div>
-                    </a>
-                </div>
+                @foreach ($products as $product)
+                    <div class="swiper-content">
+                        <a href="{{ route('product-detail', ['product' => $product['id']]) }}">
+                            <div class="img"><img src="{{ $product['image'] }}" alt=""></div>
+                            <div class="text">
+                                <h3>{{ $product['name'] }}</h3>
+                                <p>{{ $product['introduction'] }}</p>
+                            </div>
+                        </a>
+                    </div>
+                @endforeach
             </div>
         </div>
 

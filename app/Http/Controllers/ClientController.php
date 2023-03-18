@@ -4,17 +4,25 @@ namespace App\Http\Controllers;
 
 use App\Helpers\TimeHelper;
 use App\Http\Services\ClientService;
+use App\Http\Services\ProductTypeService;
+use App\Http\Transformer\Product\ProductDetailTransformer;
+use App\Http\Transformer\Product\ProductTransformer;
 use App\Http\Transformer\ProductType\ProductTypeTransformer;
+use App\Product;
 use App\ProductType;
 use App\ThirdLink;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 use Illuminate\View\View;
 
 class ClientController extends Controller
 {
     public function __construct(
         protected ClientService $service,
-        protected ProductTypeTransformer $product_type_transformer
+        protected ProductTypeTransformer $product_type_transformer,
+        protected ProductTransformer $product_transformer,
+        protected ProductTypeService $product_type_service,
+        protected ProductDetailTransformer $product_detail_transformer
     ) {
         $this->service = $service;
     }
@@ -27,8 +35,10 @@ class ClientController extends Controller
     public function index(): View
     {
         $banner = $this->service->getBanner('about');
+        $products = $this->product_type_service->getProducts();
+        $products = $this->product_transformer->transformCollection($products);
 
-        return view('Frontstage.zh.index', compact('banner'));
+        return view('Frontstage.zh.index', compact('banner', 'products'));
     }
 
     /**
@@ -108,16 +118,25 @@ class ClientController extends Controller
      */
     public function productList(Request $request): View
     {
-        $banner = $this->service->getBanner('product');
+        $data = $request->all();
+        $type_id = $data['id'];
 
         $types = ProductType::query()->get();
-        $product_typies = $this->product_type_transformer->transformCollection($types);
-
         $current_type = $types->filter(fn ($type) => $type->id == $request->id)->first();
-        $current_type = $this->product_type_transformer->transform($current_type);
-        // $product = $request->id;
+        $products = $this->service->getProductsByType($type_id, Arr::get($data, 'page', 1));
 
-        return view('Frontstage.zh.product_list', compact('banner', 'product_typies', 'current_type'));
+        $path = $products->path();
+        $products->setPath("$path?id=$type_id");
+
+        return view(
+            'Frontstage.zh.product_list',
+            [
+                'banner' => $this->service->getBanner('product'),
+                'product_typies' => $this->product_type_transformer->transformCollection($types),
+                'current_type' => $this->product_type_transformer->transform($current_type),
+                'products' => $products->setCollection($this->product_transformer->transformCollection($products)),
+            ]
+        );
     }
 
     /**
@@ -127,10 +146,11 @@ class ClientController extends Controller
      *
      * @return View
      */
-    public function productDetail(Request $request): View
+    public function productDetail(Product $product): View
     {
         $banner = $this->service->getBanner('product');
+        $product = $this->product_detail_transformer->transform($product);
 
-        return view('Frontstage.zh.product_detail', compact('banner'));
+        return view('Frontstage.zh.product_detail', compact('banner', 'product'));
     }
 }

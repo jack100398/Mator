@@ -14,7 +14,7 @@ abstract class UrlHelper
      */
     public static function formatOutPutUrl(?string $url): ?string
     {
-        if (is_null($url)) {
+        if (is_null($url) || $url == '') {
             return null;
         }
 
@@ -29,7 +29,7 @@ abstract class UrlHelper
      */
     public static function formatInputUrl(?string $url): ?string
     {
-        if (is_null($url)) {
+        if (is_null($url) || $url == '') {
             return null;
         }
 

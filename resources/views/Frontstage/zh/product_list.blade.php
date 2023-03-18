@@ -34,35 +34,29 @@
                         <img src="{{ asset($current_type['type_banner']) }}" alt="">
                         <div class="product-list">
                             <div class="flex-row">
-                                <div class="col">
-                                    <a href="{{ route('product-detail', ['id' => 1]) }}" class="inner hover-scale">
-                                        <div class="img"><img src="{{ asset('Frontstage/images/product6.png') }}"
-                                                alt=""></div>
-                                        <div class="name">JDBN-65</div>
-                                    </a>
-                                </div>
-                                <div class="col">
-                                    <a href="{{ route('product-detail', ['id' => 1]) }}" class="inner hover-scale">
-                                        <div class="img"><img src="{{ asset('Frontstage/images/product6-2.png') }}"
-                                                alt=""></div>
-                                        <div class="name">JDB-240</div>
-                                    </a>
-                                </div>
-                                <div class="col">
-                                    <a href="{{ route('product-detail', ['id' => 1]) }}" class="inner hover-scale">
-                                        <div class="img"><img src="{{ asset('Frontstage/images/product6-3.png') }}"
-                                                alt=""></div>
-                                        <div class="name">JDB-180</div>
-                                    </a>
-                                </div>
+                                @foreach ($products as $product)
+                                    <div class="col">
+                                        <a href="{{ route('product-detail', ['product' => $product['id']]) }}"
+                                            class="inner hover-scale">
+                                            <div class="img"><img src="{{ asset($product['image']) }}" alt="">
+                                            </div>
+                                            <div class="name">{{ $product['name'] }}</div>
+                                        </a>
+                                    </div>
+                                @endforeach
                             </div>
                         </div>
                         <div class="pager">
-                            <a href="" class="page-prev">上一頁</a>
-                            <a href="" class="current">1</a>
-                            <span>/</span>
-                            <a href="">2</a>
-                            <a href="" class="page-next">下一頁</a>
+                            <a href="{{ $products->previousPageUrl() ?? 'javascript:void(0)' }}" class="page-prev">上一頁</a>
+
+                            <a href="{{ $products->path() }}"
+                                class=" {{ $products->onFirstPage() ? 'current' : '' }}">1</a>
+                            @for ($i = 2; $i <= $products->lastPage(); $i++)
+                                <span>/</span>
+                                <a class=" {{ $products->currentPage() == $i ? 'current' : '' }}"
+                                    href="{{ $products->path() }}&page={{ $i }}">{{ $i }}</a>
+                            @endfor
+                            <a href="{{ $products->nextPageUrl() ?? 'javascript:void(0)' }}" class="page-next">下一頁</a>
                         </div>
                     </div>
                 </div>
