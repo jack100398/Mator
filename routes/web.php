@@ -11,6 +11,10 @@
 |
 */
 
+use App\Http\Controllers\BannerController;
+use App\Http\Controllers\CommodityController;
+use App\Http\Controllers\ProductTypiesController;
+use App\Http\Controllers\ThirdLinkController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -30,6 +34,16 @@ Route::prefix('admin')->group(function () {
 
         Route::get('commodities', 'CommodityController@getCommodities');
 
+        Route::prefix('product-type')->group(function () {
+            Route::get('/edit', [ProductTypiesController::class, 'edit'])->name('editProductTypePage');
+            Route::get('/create', [ProductTypiesController::class, 'create'])->name('createProductTypePage');
+            Route::get('/{type}', [ProductTypiesController::class, 'show']);
+            Route::patch('/{type}', [ProductTypiesController::class, 'update']);
+            Route::delete('/{type}', [ProductTypiesController::class, 'destroy']);
+            Route::get('/', [ProductTypiesController::class, 'index'])->name('product-type');
+            Route::post('/', [ProductTypiesController::class, 'store']);
+        });
+
         //api
         Route::post('/upload', function () {
             $imageURL = request()->file('img')->store('public');
@@ -38,10 +52,12 @@ Route::prefix('admin')->group(function () {
 
         Route::apiResource('third', 'ThirdLinkController', ['names' => ['index' => 'third']]);
 
+        Route::apiResource('/commodity', 'CommodityController', ['names' => ['index' => 'commodity']]);
+
         Route::prefix('edit-page')->group(function () {
-            Route::get('commodity', 'CommodityController@edit')->name('editCommodityPage');
-            Route::get('link', 'ThirdLinkController@edit')->name('editLinkPage');
-            Route::get('banner', 'BannerController@edit')->name('editBannerPage');
+            Route::get('commodity', [CommodityController::class, 'edit'])->name('editCommodityPage');
+            Route::get('link', [ThirdLinkController::class, 'edit'])->name('editLinkPage');
+            Route::get('banner', [BannerController::class, 'edit'])->name('editBannerPage');
         });
 
         Route::prefix('create-page')->group(function () {

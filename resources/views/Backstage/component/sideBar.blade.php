@@ -3,7 +3,7 @@
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('commodity') }}">
-                <div class="sidebar-brand-text mx-3">MATOR</div>
+                <div class="sidebar-brand-text mx-3">New - Motech</div>
             </a>
 
             <!-- Divider -->
@@ -21,7 +21,7 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                選單
+                智慧篩選
             </div>
 
             <!-- Nav Item - Charts -->
@@ -31,7 +31,28 @@
                     <span>商品管理</span></a>
             </li>
 
-            <!-- Nav Item - Charts -->
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                產品管理
+            </div>
+
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('product-type') }}">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>產品類別</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                連結與Banner
+            </div>
+
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('banner') }}">
                     <i class="fas fa-fw fa-chart-area"></i>
