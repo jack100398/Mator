@@ -3,11 +3,10 @@
     <div id="app">
         <div class="wrap">
             <div class="plist-banner">
-                <img src="{{ asset('Frontstage/images/plist_banner.jpg') }}" alt="">
+                <img src="{{ asset($current_type['page_banner']) }}" alt="">
                 <div class="youtube">
                     <img src="{{ asset('Frontstage/images/youtube-base.png') }}" alt="">
-                    <iframe src="https://www.youtube.com/embed/C1IP05_Hk0Y?list=PLGyv6kOJhxI_FB7C3WLLjO2LUmIus4G88"
-                        title="2020年5月14日(1)" frameborder="0"
+                    <iframe src="{{ $current_type['video'] ?? '' }}" title="2020年5月14日(1)" frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         allowfullscreen></iframe>
                 </div>
@@ -17,17 +16,22 @@
                     <div class="col left">
                         <h2 class="tk-century-gothic">PRODUCT CATAGORY</h2>
                         <ul>
-                            <li class="current"><a href="">線性馬達模組</a></li>
-                            <li><a href="">精密Z軸線性馬達模組</a></li>
-                            <li><a href="">精密水平軸線性馬達模組</a></li>
-                            <li><a href="">精密多動子線性馬達模組</a></li>
-                            <li><a href="">龍門同動專用線性馬達模組</a></li>
-                            <li><a href="">精密線性馬達微型STAGE</a></li>
+                            @foreach ($product_typies as $type)
+                                @if ($type['id'] == $current_type['id'])
+                                    <li class="current">
+                                        <a href="{{ route('product-list', ['id' => $type['id']]) }}">{{ $type['name'] }}</a>
+                                    </li>
+                                @else
+                                    <li>
+                                        <a href="{{ route('product-list', ['id' => $type['id']]) }}">{{ $type['name'] }}</a>
+                                    </li>
+                                @endif
+                            @endforeach
                         </ul>
                     </div>
                     <div class="col right">
-                        <div class="title">精密Z軸線性馬達模組</div>
-                        <img src="{{ asset('Frontstage/images/plist_banner2.jpg') }}" alt="">
+                        <div class="title">{{ $current_type['name'] }}</div>
+                        <img src="{{ asset($current_type['type_banner']) }}" alt="">
                         <div class="product-list">
                             <div class="flex-row">
                                 <div class="col">

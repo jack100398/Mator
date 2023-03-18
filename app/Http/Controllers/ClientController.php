@@ -4,18 +4,18 @@ namespace App\Http\Controllers;
 
 use App\Helpers\TimeHelper;
 use App\Http\Services\ClientService;
+use App\Http\Transformer\ProductType\ProductTypeTransformer;
+use App\Product_Typies;
 use App\ThirdLink;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class ClientController extends Controller
 {
-    /** @var ClientService */
-    private $service;
-
-
-    public function __construct(ClientService $service)
-    {
+    public function __construct(
+        protected ClientService $service,
+        protected ProductTypeTransformer $product_type_transformer
+    ) {
         $this->service = $service;
     }
 
@@ -75,16 +75,16 @@ class ClientController extends Controller
     public function product(): View
     {
         $banner = $this->service->getBanner('product');
-
         $third_links = ThirdLink::query()->get();
+        $product_typies = $this->product_type_transformer->transformCollection(Product_Typies::query()->get());
 
-        return view('Frontstage.zh.product', compact('banner', 'third_links'));
+        return view('Frontstage.zh.product', compact('banner', 'third_links', 'product_typies'));
     }
 
     /**
      * 文章
      *
-     * @param Request $requeset
+     * @param Request $request
      *
      * @return View
      */
@@ -102,7 +102,7 @@ class ClientController extends Controller
     /**
      * 產品列表
      *
-     * @param Request $requeset
+     * @param Request $request
      *
      * @return View
      */
@@ -110,13 +110,20 @@ class ClientController extends Controller
     {
         $banner = $this->service->getBanner('product');
 
-        return view('Frontstage.zh.product_list', compact('banner'));
+        $types = Product_Typies::query()->get();
+        $product_typies = $this->product_type_transformer->transformCollection($types);
+
+        $current_type = $types->filter(fn ($type) => $type->id == $request->id)->first();
+        $current_type = $this->product_type_transformer->transform($current_type);
+        // $product = $request->id;
+
+        return view('Frontstage.zh.product_list', compact('banner', 'product_typies', 'current_type'));
     }
 
     /**
      * 產品列表
      *
-     * @param Request $requeset
+     * @param Request $request
      *
      * @return View
      */

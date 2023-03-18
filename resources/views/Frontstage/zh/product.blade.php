@@ -6,60 +6,17 @@
                 <h2 class="tk-century-gothic">PRODUCT</h2>
             </div>
             <div class="product flex-row">
-                <div class="col">
-                    <a href="{{ route('product-list') }}">
-                        <div class="img">
-                            <img src="{{ asset('Frontstage/images/product-6.png') }}" alt="">
-                            <div class="text">該類別簡易介紹，簡單70字數內即可，讓瀏覽者更加了解該分類內容產品，至多兩排文字介紹，每排約35個字數...</div>
-                        </div>
-                        <h1>NEW MOTECH 線性馬達模組</h1>
-                    </a>
-                </div>
-                <div class="col">
-                    <a href="{{ route('product-list') }}">
-                        <div class="img">
-                            <img src="{{ asset('Frontstage/images/product-1.png') }}" alt="">
-                            <div class="text">該類別簡易介紹，簡單70字數內即可，讓瀏覽者更加了解該分類內容產品，至多兩排文字介紹，每排約35個字數...</div>
-                        </div>
-                        <h1>NEW MOTECH 精密Z軸線性馬達模組</h1>
-                    </a>
-                </div>
-                <div class="col">
-                    <a href="{{ route('product-list') }}">
-                        <div class="img">
-                            <img src="{{ asset('Frontstage/images/product-2.png') }}" alt="">
-                            <div class="text">該類別簡易介紹，簡單70字數內即可，讓瀏覽者更加了解該分類內容產品，至多兩排文字介紹，每排約35個字數...</div>
-                        </div>
-                        <h1>NEW MOTECH 精密水平軸線性馬達模組</h1>
-                    </a>
-                </div>
-                <div class="col">
-                    <a href="{{ route('product-list') }}">
-                        <div class="img">
-                            <img src="{{ asset('Frontstage/images/product-3.png') }}" alt="">
-                            <div class="text">該類別簡易介紹，簡單70字數內即可，讓瀏覽者更加了解該分類內容產品，至多兩排文字介紹，每排約35個字數...</div>
-                        </div>
-                        <h1>NEW MOTECH 精密多動子線性馬達模組</h1>
-                    </a>
-                </div>
-                <div class="col">
-                    <a href="{{ route('product-list') }}">
-                        <div class="img">
-                            <img src="{{ asset('Frontstage/images/product-4.png') }}" alt="">
-                            <div class="text">該類別簡易介紹，簡單70字數內即可，讓瀏覽者更加了解該分類內容產品，至多兩排文字介紹，每排約35個字數...</div>
-                        </div>
-                        <h1>NEW MOTECH 龍門同動專用線性馬達模組</h1>
-                    </a>
-                </div>
-                <div class="col">
-                    <a href="{{ route('product-list') }}">
-                        <div class="img">
-                            <img src="{{ asset('Frontstage/images/product-5.png') }}" alt="">
-                            <div class="text">該類別簡易介紹，簡單70字數內即可，讓瀏覽者更加了解該分類內容產品，至多兩排文字介紹，每排約35個字數...</div>
-                        </div>
-                        <h1>NEW MOTECH 精密線性馬達微型STAGE</h1>
-                    </a>
-                </div>
+                @foreach ($product_typies as $type)
+                    <div class="col">
+                        <a href="{{ route('product-list', ['id' => $type['id']]) }}">
+                            <div class="img">
+                                <img src="{{ asset($type['image']) }}" alt="">
+                                <div class="text">該類別簡易介紹，簡單70字數內即可，讓瀏覽者更加了解該分類內容產品，至多兩排文字介紹，每排約35個字數...</div>
+                            </div>
+                            <h1>{{ $type['name'] }}</h1>
+                        </a>
+                    </div>
+                @endforeach
             </div>
         </div>
 
