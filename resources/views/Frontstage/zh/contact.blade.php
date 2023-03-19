@@ -13,21 +13,21 @@
                 <p>非常感謝您！如果您有任何的問題或建議或對我們公司的產品及服務有任何疑問，請您不吝賜教
                     將您的意見填寫於下列表單，我們會盡快處理並給您答覆！(*為必填項目)</p>
                 <div class="form">
-                    <form action="">
+                    <form action="javascript:;">
                         <div class="title"><span>*</span>主旨</div>
-                        <div class="block"><input type="text"></div>
+                        <div class="block"><input v-model="data.title" type="text"></div>
                         <div class="flex-row">
                             <div class="col">
                                 <div class="title"><span>*</span>姓名</div>
                                 <div class="block gender">
-                                    <input type="text">
+                                    <input v-model="data.name" type="text">
                                     <div class="gender-select">
                                         <label class="radio-container">先生
-                                            <input type="radio" name="radio1">
+                                            <input v-model="data.sex" type="radio" name="radio1" value="1">
                                             <span class="checkmark"></span>
                                         </label>
                                         <label class="radio-container">小姐
-                                            <input type="radio" name="radio1">
+                                            <input v-model="data.sex" type="radio" name="radio1" value="0">
                                             <span class="checkmark"></span>
                                         </label>
                                     </div>
@@ -35,26 +35,27 @@
                             </div>
                             <div class="col">
                                 <div class="title"><span>*</span>聯絡電話</div>
-                                <div class="block"><input type="text"></div>
+                                <div class="block"><input v-model="data.phone" type="text"></div>
                             </div>
                         </div>
                         <div class="title"><span>*</span>Mail</div>
-                        <div class="block"><input type="email"></div>
+                        <div class="block"><input v-model="data.mail" type="email"></div>
                         <div class="title"><span>*</span>諮詢內容</div>
                         <div class="block">
-                            <textarea name="" id=""></textarea>
+                            <textarea v-model="data.text"></textarea>
                         </div>
                         <div class="submit-content">
                             <div class="tips">
                                 <label class="checkbox-container">本人已確認聯絡項目與內容，並同意本人對貴公司所為電子表示之效力與書面表示相同。
-                                    <input type="checkbox">
+                                    <input v-model="checker" type="checkbox">
                                     <span class="checkmark"></span>
                                 </label>
                             </div>
                             <div class="g-api">
                                 <div class="g-recaptcha" data-sitekey="6Lel4Z4UAAAAAOa8LO1Q9mqKRUiMYl_00o5mXJrR"></div>
                             </div>
-                            <button type="submit" class="hover-scale" style="background-color: black;">送出</button>
+                            <button v-on:click="sendContact" class="hover-scale" style="background-color: black;">送出
+                            </button>
                         </div>
                     </form>
                 </div>
@@ -89,5 +90,70 @@
             </div>
         </div>
     </div>
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+    <script>
+        $(document).ready(function() {
+            grecaptcha.ready(function() {
+                checkGrecaptcha = function() {
+                    var cha_response = grecaptcha.getResponse();
+                    if (cha_response.length == 0) {
+                        // $('.hover-scale').hide();
+                        // $('.g-recaptcha').show();
+                    } else {
+                        // $('.hover-scale').show();
+                        // $('.g-recaptcha').hide();
+                    }
+                };
+                checkGrecaptcha();
+
+                var myVar = setInterval(function() {
+                    checkGrecaptcha();
+                }, 1000);
+            });
+        });
+
+        const {
+            createApp
+        } = Vue
+        createApp({
+            data() {
+                return {
+                    data: {
+                        title: null,
+                        name: null,
+                        sex: 1,
+                        phone: null,
+                        mail: null,
+                        text: null,
+                    },
+                    checker: false,
+                    is_loading: false
+                }
+            },
+            methods: {
+                async sendContact() {
+                    if (this.checkConsent()) {
+                        this.is_loading = true;
+                        await sendApiAjax('post', 'send_mail', this.data)
+                            .then(value => {
+                                alert('發送成功');
+                                window.location.href = window.location.href
+                            })
+                            .catch(error => {
+                                console.log(error.responseJSON.errors);
+                                alert('發送失敗, 請確認資訊是否全部輸入或者稍後再嘗試');
+                            });
+                        this.is_loading = false;
+                    }
+                },
+                checkConsent() {
+                    if (!this.checker) {
+                        alert('請勾選同意書');
+                    }
+
+                    return this.checker;
+                },
+            }
+        }).mount('#app')
+    </script>
 @endsection

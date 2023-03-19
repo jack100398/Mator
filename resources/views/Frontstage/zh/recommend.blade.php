@@ -374,6 +374,24 @@
             $('.result-close').click(function() {
                 $('.fliter-result').hide();
             });
+
+            grecaptcha.ready(function() {
+                checkGrecaptcha = function() {
+                    var cha_response = grecaptcha.getResponse();
+                    if (cha_response.length == 0) {
+                        $('.hover-scale').hide();
+                        $('.g-recaptcha').show();
+                    } else {
+                        $('.hover-scale').show();
+                        $('.g-recaptcha').hide();
+                    }
+                };
+                checkGrecaptcha();
+
+                var myVar = setInterval(function() {
+                    checkGrecaptcha();
+                }, 1000);
+            });
         });
 
         $('.fancybox').attr('rel', 'media-gallery').fancybox({
@@ -381,24 +399,6 @@
             nextEffect: 'none',
             padding: 10,
             arrows: false
-        });
-
-        grecaptcha.ready(function() {
-            checkGrecaptcha = function() {
-                var cha_response = grecaptcha.getResponse();
-                if (cha_response.length == 0) {
-                    $('.hover-scale').hide();
-                    $('.g-recaptcha').show();
-                } else {
-                    $('.hover-scale').show();
-                    $('.g-recaptcha').hide();
-                }
-            };
-            checkGrecaptcha();
-
-            var myVar = setInterval(function() {
-                checkGrecaptcha();
-            }, 1000);
         });
     </script>
 @endsection
