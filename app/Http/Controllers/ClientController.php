@@ -163,6 +163,6 @@ class ClientController extends Controller
         $product = $this->product_detail_transformer->transform($product);
         $settings = $this->service->getSettings();
 
-        return view('Frontstage.zh.product_detail', compact('banner', 'product',));
+        return view('Frontstage.zh.product_detail', compact('banner', 'product', 'settings'));
     }
 }
