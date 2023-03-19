@@ -25,5 +25,6 @@ class DatabaseSeeder extends Seeder
 
         $this->call(BannerSeeder::class);
         $this->call(ThirdLinkSeeder::class);
+        $this->call(SettingSeeder::class);
     }
 }
