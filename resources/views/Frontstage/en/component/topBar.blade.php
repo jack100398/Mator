@@ -3,27 +3,29 @@
         <a href="" class="logo"><img src="{{ asset('Frontstage/images/logo.png') }}" alt=""></a>
         <nav>
             <ul class="row">
-                <li><a href="{{ route('index') }}">關於欣茂達</a></li>
-                <li><a href="{{ route('news') }}">最新消息</a></li>
-                <li><a href="{{ route('product') }}">產品介紹</a></li>
-                <li><a href="{{ route('recommend') }}">篩選推薦</a></li>
-                <li><a href="{{ route('contact') }}">聯絡我們</a></li>
+                <li><a href="{{ route('en-index') }}">ABOUT US</a></li>
+                <li><a href="{{ route('en-news') }}">NEWS</a></li>
+                <li><a href="{{ route('en-product') }}">PRODUCT</a></li>
+                <li><a href="{{ route('en-recommend') }}">MATCHING</a></li>
+                <li><a href="{{ route('en-contact') }}">CONTACT US</a></li>
                 <li id="language">
                     <div class="language-select">
                         <img src="{{ asset('Frontstage/images/globe.svg') }}" alt="">
-                        <span id="selected-language">繁體中文</span>
+                        <span id="selected-language">English</span>
                     </div>
                     <div id="language-content" class="language-content animated fadeIn">
                         <ul>
                             <li onclick="location.href = '{{ route('index') }}'">
-                                <a class="current">
+                                <a>
                                     <span>繁體中文</span>
-                                    <img src="{{ asset('Frontstage/images/correct.svg') }}" alt=""></a>
+                                    <img src="{{ asset('Frontstage/images/correct.svg') }}" alt="">
+                                </a>
                             </li>
                             <li onclick="location.href = '{{ route('en-index') }}'">
-                                <a>
+                                <a class="current">
                                     <span>English</span>
-                                    <img src="{{ asset('Frontstage/images/correct.svg') }}" alt=""></a>
+                                    <img src="{{ asset('Frontstage/images/correct.svg') }}" alt="">
+                                </a>
                             </li>
                         </ul>
                     </div>
@@ -41,13 +43,13 @@
         <div id="language-content2" class="language-content animated fadeIn">
             <ul>
                 <li onclick="location.href = '{{ route('index') }}'">
-                    <a href="" class="current">
-                        <span>繁體中文</span>
+                    <a>
+                        <span>English</span>
                         <img src="{{ asset('Frontstage/images/correct.svg') }}" alt="">
                     </a>
                 </li>
                 <li onclick="location.href = '{{ route('en-index') }}'">
-                    <a href="">
+                    <a class="current">
                         <span>English</span>
                         <img src="{{ asset('Frontstage/images/correct.svg') }}" alt="">
                     </a>
@@ -64,11 +66,11 @@
             <button><img src="{{ asset('Frontstage/images/search.svg') }}" alt=""></button>
         </div> --}}
         <ul id="mobile-menu">
-            <li><a href="{{ route('index') }}">關於欣茂達</a></li>
-            <li><a href="{{ route('news') }}">最新消息</a></li>
-            <li><a href="{{ route('product') }}">產品介紹</a></li>
-            <li><a href="{{ route('recommend') }}">篩選推薦</a></li>
-            <li><a href="{{ route('contact') }}">聯絡我們</a></li>
+            <li><a href="{{ route('en-index') }}">關於欣茂達</a></li>
+            <li><a href="{{ route('en-news') }}">最新消息</a></li>
+            <li><a href="{{ route('en-product') }}">產品介紹</a></li>
+            <li><a href="{{ route('en-recommend') }}">篩選推薦</a></li>
+            <li><a href="{{ route('en-contact') }}">聯絡我們</a></li>
         </ul>
     </div>
 </div>

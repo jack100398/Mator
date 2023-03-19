@@ -109,6 +109,17 @@ Route::prefix('zh')->group(function () {
     Route::get('product-detail/{product}', 'ClientController@productDetail')->name('product-detail');
 });
 
+Route::prefix('en')->group(function () {
+    Route::get('index', 'EnClientController@index')->name('en-index');
+    Route::get('news', 'EnClientController@news')->name('en-news');
+    Route::get('contact', 'EnClientController@contact')->name('en-contact');
+    Route::get('recommend', 'EnClientController@recommend')->name('en-recommend');
+    Route::get('product', 'EnClientController@product')->name('en-product');
+    Route::get('article/{news}', 'EnClientController@article')->name('en-article');
+    Route::get('product-list', 'EnClientController@productList')->name('en-product-list');
+    Route::get('product-detail/{product}', 'EnClientController@productDetail')->name('en-product-detail');
+});
+
 
 Route::prefix('/')->group(function () {
     Route::get('/', function () {

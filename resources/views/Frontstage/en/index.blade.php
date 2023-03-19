@@ -1,4 +1,4 @@
-@extends('Frontstage.zh.layouts')
+@extends('Frontstage.en.layouts')
 @section('content')
     <div id="app">
         <div class="wrap">
@@ -19,15 +19,18 @@
 
         <div class="page-title">
             <h2 class="tk-century-gothic wow fadeInDown">AUTOMATION <br class="mobile">SERVICE</h2>
-            <p class="wow fadeInDown">專業自動化技術服務的提供者</p>
+            <p class="wow fadeInDown">Provider of professional automation technology services</p>
         </div>
 
         <div class="wrap2">
             <div class="index-block1 row">
                 <div class="left col">
-                    <p>NEW MOTECH 專注於追求速度、穩定、精準、品質，創新科技協助用戶永保市場領先地位。<br class="pc">
-                        我們仔細聆聽客戶需求，經由專業的團隊提供正確的線性馬達選型、組裝諮詢及精度校驗...等各項服務技術。</p>
-                    <a href="" class="btn">進入了解</a>
+                    <p>new motech Focusing on the pursuit of speed, stability, precision, and quality, innovative technology
+                        helps users maintain their leading positions in the market. <br>
+                        We listen carefully to customer needs, and provide various service technologies such as correct
+                        linear motor selection, assembly consultation and accuracy verification through a professional team.
+                    </p>
+                    <a href="" class="btn">MORE</a>
                     <img src="{{ asset('Frontstage/images/index_block1.jpg') }}" alt="">
                 </div>
                 <div class="col">
@@ -65,9 +68,9 @@
             <div class="wrap">
                 <div class="col">
                     <h2 class="tk-century-gothic">MATCHING</h2>
-                    <p>為便利您更加有效尋找符合之產品 <br>
-                        我們提供快速搜索系統！</p>
-                    <a href="{{ route('recommend') }}" class="btn style2">智慧配對</a>
+                    <p>To facilitate you to find suitable products more effectively<br>
+                        We provide a quick search system! </p>
+                    <a href="{{ route('en-recommend') }}" class="btn style2">智慧配對</a>
                 </div>
             </div>
         </div>
