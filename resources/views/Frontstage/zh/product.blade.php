@@ -34,7 +34,7 @@
             </div>
         </div>
     </div>
-    <script src="js/slick.js"></script>
+    <script src="{{ asset('Frontstage/js/slick.js') }}"></script>
     <script>
         $(document).ready(function() {
 

@@ -37,11 +37,13 @@ class ClientController extends Controller
      */
     public function index(): View
     {
-        $banner = $this->service->getBanner('about');
         $products = $this->product_type_service->getProducts();
-        $products = $this->product_transformer->transformCollection($products);
 
-        return view('Frontstage.zh.index', compact('banner', 'products'));
+        return view('Frontstage.zh.index', [
+            'settings' => $this->service->getSettings(),
+            'banner' => $this->service->getBanner('about'),
+            'products' => $this->product_transformer->transformCollection($products)
+        ]);
     }
 
     /**
@@ -51,12 +53,12 @@ class ClientController extends Controller
      */
     public function news(): View
     {
-        $banner = $this->service->getBanner('news');
         $news = $this->service->getNews();
 
         return view('Frontstage.zh.news', [
-            'banner' => $banner,
-            'news' => $news->setCollection($this->news_transformer->transformCollection($news)),
+            'banner' => $this->service->getBanner('news'),
+            'settings' => $this->service->getSettings(),
+            'news' => $news->setCollection($this->news_transformer->transformCollection($news))
         ]);
     }
 
@@ -67,9 +69,10 @@ class ClientController extends Controller
      */
     public function contact(): View
     {
-        $banner = $this->service->getBanner('contact');
-
-        return view('Frontstage.zh.contact', compact('banner'));
+        return view('Frontstage.zh.contact', [
+            'banner' => $this->service->getBanner('contact'),
+            'settings' => $this->service->getSettings()
+        ]);
     }
 
     /**
@@ -79,9 +82,10 @@ class ClientController extends Controller
      */
     public function recommend(): View
     {
-        $banner = $this->service->getBanner('recommend');
-
-        return view('Frontstage.zh.recommend', compact('banner'));
+        return view('Frontstage.zh.recommend', [
+            'banner' => $this->service->getBanner('recommend'),
+            'settings' => $this->service->getSettings()
+        ]);
     }
 
     /**
@@ -91,11 +95,12 @@ class ClientController extends Controller
      */
     public function product(): View
     {
-        $banner = $this->service->getBanner('product');
-        $third_links = ThirdLink::query()->get();
-        $product_typies = $this->product_type_transformer->transformCollection(ProductType::query()->get());
-
-        return view('Frontstage.zh.product', compact('banner', 'third_links', 'product_typies'));
+        return view('Frontstage.zh.product', [
+            'banner' => $this->service->getBanner('product'),
+            'third_links' => ThirdLink::query()->get(),
+            'product_typies' => $this->product_type_transformer->transformCollection(ProductType::query()->get()),
+            'settings' => $this->service->getSettings()
+        ]);
     }
 
     /**
@@ -109,7 +114,8 @@ class ClientController extends Controller
     {
         return view('Frontstage.zh.article', [
             'banner' => $this->service->getBanner('news'),
-            'news' => $this->news_transformer->transform($news)
+            'news' => $this->news_transformer->transform($news),
+            'settings' => $this->service->getSettings()
         ]);
     }
 
@@ -139,6 +145,7 @@ class ClientController extends Controller
                 'product_typies' => $this->product_type_transformer->transformCollection($types),
                 'current_type' => $this->product_type_transformer->transform($current_type),
                 'products' => $products->setCollection($this->product_transformer->transformCollection($products)),
+                'settings' => $this->service->getSettings()
             ]
         );
     }
@@ -154,7 +161,8 @@ class ClientController extends Controller
     {
         $banner = $this->service->getBanner('product');
         $product = $this->product_detail_transformer->transform($product);
+        $settings = $this->service->getSettings();
 
-        return view('Frontstage.zh.product_detail', compact('banner', 'product'));
+        return view('Frontstage.zh.product_detail', compact('banner', 'product',));
     }
 }

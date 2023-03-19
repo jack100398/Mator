@@ -3,6 +3,7 @@
 namespace App\Http\Repositories;
 
 use App\Banner;
+use App\GlobalSetting;
 use App\News;
 use App\Product;
 use Illuminate\Database\Eloquent\Collection;
@@ -40,5 +41,16 @@ class ClientRepository
         return News::query()
             ->orderBy('id')
             ->paginate(15);
+    }
+
+
+    /**
+     * 獲得設定
+     *
+     * @return Collection
+     */
+    public function getSettings(): Collection
+    {
+        return GlobalSetting::query()->get();
     }
 }

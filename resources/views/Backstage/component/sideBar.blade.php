@@ -67,8 +67,14 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                連結與Banner
+                網站設定
             </div>
+
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('setting-admin') }}">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>連結設定</span></a>
+            </li>
 
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('banner') }}">

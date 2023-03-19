@@ -13,6 +13,7 @@
 
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\CommodityController;
+use App\Http\Controllers\GlobalSettingController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductTypiesController;
@@ -64,6 +65,13 @@ Route::prefix('admin')->group(function () {
             Route::delete('/{news}', [NewsController::class, 'destroy']);
             Route::get('/', [NewsController::class, 'index'])->name('news-admin');
             Route::post('/', [NewsController::class, 'store']);
+        });
+
+        Route::prefix('settings')->group(function () {
+            Route::get('/edit', [GlobalSettingController::class, 'edit'])->name('editSettingPage');
+            Route::get('/{setting}', [GlobalSettingController::class, 'show']);
+            Route::patch('/{setting}', [GlobalSettingController::class, 'update']);
+            Route::get('/', [GlobalSettingController::class, 'index'])->name('setting-admin');
         });
 
         //api

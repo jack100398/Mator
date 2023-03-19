@@ -52,4 +52,14 @@ class ClientService
     {
         return $this->repository->getNews();
     }
+
+    /**
+     * 獲得設定
+     *
+     * @return Collection
+     */
+    public function getSettings(): Collection
+    {
+        return $this->repository->getSettings()->keyBy('event');
+    }
 }

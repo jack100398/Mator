@@ -11,9 +11,12 @@
         </ul>
         <div class="links">
             <span class="company">欣茂達科技股份有限公司</span>
-            <a href="" class="line"><img src="{{ asset('Frontstage/images/line.png') }}" alt=""></a>
-            <a href="" class="facebook"><img src="{{ asset('Frontstage/images/facebook.png') }}"
-                    alt=""></a>
+            <a href="{{ $settings['line']['value'] }}" class="line">
+                <img src="{{ asset('Frontstage/images/line.png') }}" alt="">
+            </a>
+            <a href="{{ $settings['facebook']['value'] }}" class="facebook">
+                <img src="{{ asset('Frontstage/images/facebook.png') }}" alt="">
+            </a>
         </div>
         <div class="info">
             <span>
