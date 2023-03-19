@@ -97,11 +97,11 @@
                 checkGrecaptcha = function() {
                     var cha_response = grecaptcha.getResponse();
                     if (cha_response.length == 0) {
-                        // $('.hover-scale').hide();
-                        // $('.g-recaptcha').show();
+                        $('.hover-scale').hide();
+                        $('.g-recaptcha').show();
                     } else {
-                        // $('.hover-scale').show();
-                        // $('.g-recaptcha').hide();
+                        $('.hover-scale').show();
+                        $('.g-recaptcha').hide();
                     }
                 };
                 checkGrecaptcha();
