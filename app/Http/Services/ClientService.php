@@ -4,6 +4,7 @@ namespace App\Http\Services;
 
 use App\Banner;
 use App\Http\Repositories\ClientRepository;
+use App\Http\Transformer\Banner\BannerTransformer;
 use App\Product;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Pagination\LengthAwarePaginator;
@@ -11,23 +12,16 @@ use Illuminate\Pagination\LengthAwarePaginator;
 class ClientService
 {
     public function __construct(
-        protected ClientRepository $repository
+        protected ClientRepository $repository,
+        protected BannerTransformer $banner_transformer
     ) {
     }
 
-    public function getBanner(string $route): Banner
+    public function getBanner(string $route, string $site = 'zh'): array
     {
-        $banner = $this->repository->getBanner($route);
+        $banner = $this->repository->getBanner($route, $site);
 
-        if (!filter_var($banner->desktop_url, FILTER_VALIDATE_URL)) {
-            $banner->desktop_url = asset($banner->desktop_url);
-        }
-
-        if (!filter_var($banner->mobile_url, FILTER_VALIDATE_URL)) {
-            $banner->mobile_url = asset($banner->mobile_url);
-        }
-
-        return $banner;
+        return $this->banner_transformer->transform($banner);
     }
 
 

@@ -10,7 +10,8 @@ class Banner extends Model
         'desktop_url',
         'mobile_url',
         'route',
-        'remark'
+        'remark',
+        'site'
     ];
 
     protected $cast = [
@@ -18,5 +19,6 @@ class Banner extends Model
         'mobile_url'   => 'string',
         'route'  => 'string',
         'remark' => 'string',
+        'site' => 'string'
     ];
 }

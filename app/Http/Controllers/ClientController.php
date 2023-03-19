@@ -84,6 +84,7 @@ class ClientController extends Controller
     {
         return view('Frontstage.zh.recommend', [
             'banner' => $this->service->getBanner('recommend'),
+            'recommend_banner' => $this->service->getBanner('recomment_banner'),
             'settings' => $this->service->getSettings()
         ]);
     }

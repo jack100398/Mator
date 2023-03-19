@@ -40,7 +40,7 @@ class EnClientController extends Controller
 
         return view('Frontstage.en.index', [
             'settings' => $this->service->getSettings(),
-            'banner' => $this->service->getBanner('about'),
+            'banner' => $this->service->getBanner('about', 'en'),
             'products' => $this->product_transformer->transformCollection($products)
         ]);
     }
@@ -55,7 +55,7 @@ class EnClientController extends Controller
         $news = $this->service->getNews();
 
         return view('Frontstage.en.news', [
-            'banner' => $this->service->getBanner('news'),
+            'banner' => $this->service->getBanner('news', 'en'),
             'settings' => $this->service->getSettings(),
             'news' => $news->setCollection($this->news_transformer->transformCollection($news))
         ]);
@@ -69,7 +69,7 @@ class EnClientController extends Controller
     public function contact(): View
     {
         return view('Frontstage.en.contact', [
-            'banner' => $this->service->getBanner('contact'),
+            'banner' => $this->service->getBanner('contact', 'en'),
             'settings' => $this->service->getSettings()
         ]);
     }
@@ -82,7 +82,8 @@ class EnClientController extends Controller
     public function recommend(): View
     {
         return view('Frontstage.en.recommend', [
-            'banner' => $this->service->getBanner('recommend'),
+            'banner' => $this->service->getBanner('recommend', 'en'),
+            'recommend_banner' => $this->service->getBanner('recomment_banner', 'en'),
             'settings' => $this->service->getSettings()
         ]);
     }
@@ -95,7 +96,7 @@ class EnClientController extends Controller
     public function product(): View
     {
         return view('Frontstage.en.product', [
-            'banner' => $this->service->getBanner('product'),
+            'banner' => $this->service->getBanner('product', 'en'),
             'third_links' => ThirdLink::query()->get(),
             'product_typies' => $this->product_type_transformer->transformCollection(ProductType::query()->get()),
             'settings' => $this->service->getSettings()
@@ -112,7 +113,7 @@ class EnClientController extends Controller
     public function article(News $news): View
     {
         return view('Frontstage.en.article', [
-            'banner' => $this->service->getBanner('news'),
+            'banner' => $this->service->getBanner('news', 'en'),
             'news' => $this->news_transformer->transform($news),
             'settings' => $this->service->getSettings()
         ]);
@@ -140,7 +141,7 @@ class EnClientController extends Controller
         return view(
             'Frontstage.en.product_list',
             [
-                'banner' => $this->service->getBanner('product'),
+                'banner' => $this->service->getBanner('product', 'en'),
                 'product_typies' => $this->product_type_transformer->transformCollection($types),
                 'current_type' => $this->product_type_transformer->transform($current_type),
                 'products' => $products->setCollection($this->product_transformer->transformCollection($products)),

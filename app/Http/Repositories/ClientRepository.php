@@ -11,9 +11,9 @@ use Illuminate\Pagination\LengthAwarePaginator;
 
 class ClientRepository
 {
-    public function getBanner(string $route): Banner
+    public function getBanner(string $route, string $site = 'zh'): Banner
     {
-        return Banner::query()->where('route', $route)->first();
+        return Banner::query()->where('route', $route)->where('site', $site)->first();
     }
 
     /**

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Banner;
 use App\Helpers\UrlHelper;
+use App\Http\Transformer\Banner\BannerTransformer;
+use App\Http\Transformer\Banner\InputTransformer;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -13,6 +15,12 @@ class BannerController extends Controller
     /** @var string 主標題 */
     protected const PAGE_CATEGORY = 'Banner';
 
+    public function __construct(
+        protected BannerTransformer $transformer,
+        protected InputTransformer $input_transformer
+    ) {
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -20,19 +28,12 @@ class BannerController extends Controller
      */
     public function index(): View
     {
-        $banners = Banner::query()->get()->map(function (Banner $banner) {
-            return (new Banner([
-                'route'       => $banner->route,
-                'remark'      => $banner->remark,
-                'desktop_url' => UrlHelper::formatOutPutUrl($banner->desktop_url),
-                'mobile_url'  => UrlHelper::formatOutPutUrl($banner->mobile_url)
-            ]))->setAttribute('id', $banner->id);
-        });
+        $banners = Banner::query()->get();
 
         return view('Backstage.Banner.banner', [
             'page_categroy' => self::PAGE_CATEGORY,
             'page_title'    => 'Banner總覽',
-            'banners'       => $banners
+            'banners'       => $this->transformer->transformCollection($banners)
         ]);
     }
 
@@ -65,14 +66,7 @@ class BannerController extends Controller
      */
     public function show(Banner $banner): JsonResponse
     {
-        $banner = (new Banner([
-            'route'       => $banner->route,
-            'remark'      => $banner->remark,
-            'desktop_url' => UrlHelper::formatOutPutUrl($banner->desktop_url),
-            'mobile_url'  => UrlHelper::formatOutPutUrl($banner->mobile_url)
-        ]))->setAttribute('id', $banner->id);
-
-        return response()->json($banner);
+        return response()->json($this->transformer->transform($banner));
     }
 
     /**
@@ -99,7 +93,8 @@ class BannerController extends Controller
      */
     public function update(Request $request, Banner $banner)
     {
-        return response()->json($banner->update($request->all()));
+        $data = $this->input_transformer->transform($request->all());
+        return response()->json($banner->update($data));
     }
 
     /**

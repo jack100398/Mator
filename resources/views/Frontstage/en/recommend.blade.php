@@ -5,6 +5,10 @@
             <div class="page-title2">
                 <h2 class="tk-century-gothic">MATCHING</h2>
             </div>
+            <div class="recommend-banner">
+                <img src="{{ $recommend_banner['desktop_url'] }}" alt="" class="pc">
+                <img src="{{ $recommend_banner['mobile_url'] }}" alt="" class="mobile">
+            </div>
             <div class="steps">STEP 1 / PAIRING SCREENING</div>
             <div class="fliter">
                 <div class="flex-row">
@@ -86,7 +90,8 @@
                 <div class="flex-row">
                     <div class="col">
                         <label class="radio-container">By time
-                            <input type="radio" checked="checked" name="radio4" v-model="data.video" value="option1">
+                            <input type="radio" checked="checked" name="radio4" v-model="data.video"
+                                value="option1">
                             <span class="checkmark"></span>
                         </label>
                         <div class="input">
