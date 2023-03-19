@@ -5,18 +5,18 @@ namespace App\Http\Controllers;
 use App\Commodity;
 use App\Helpers\UrlHelper;
 use App\Http\Services\CommodityService;
+use App\Http\Transformer\Commodity\CommodityTransformer;
+use App\Http\Transformer\Commodity\InputTransformer;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class CommodityController extends Controller
 {
-    /** @var CommodityService */
-    private $service;
-
-
-    public function __construct(CommodityService $service)
-    {
-        $this->service = $service;
+    public function __construct(
+        protected CommodityService $service,
+        protected CommodityTransformer $transformer,
+        protected InputTransformer $input_transformer
+    ) {
     }
 
     public function index()
@@ -24,9 +24,9 @@ class CommodityController extends Controller
         return view('Backstage.Commodity.commodity');
     }
 
-    public function show($id)
+    public function show(Commodity $commodity)
     {
-        return Commodity::query()->where('id', $id)->first();
+        return $this->transformer->transform($commodity);
     }
 
     /**
@@ -40,16 +40,9 @@ class CommodityController extends Controller
         return view('Backstage.Commodity.editCommodity', ['id' => $request->id]);
     }
 
-    public function update($id, Request $request)
+    public function update(Commodity $commodity, Request $request)
     {
-        $data = $request->all();
-
-        $data['picture_one'] = UrlHelper::formatInputUrl($data['picture_one']);
-        $data['picture_two'] = UrlHelper::formatInputUrl($data['picture_two']);
-        $data['picture_three'] = UrlHelper::formatInputUrl($data['picture_three']);
-        $data['picture_four'] = UrlHelper::formatInputUrl($data['picture_four']);
-
-        Commodity::query()->where('id', $id)->update($data);
+        $commodity->update($this->input_transformer->transform($request->all()));
     }
 
     public function store(Request $request)
@@ -109,7 +102,7 @@ class CommodityController extends Controller
         if ($commodity === null) {
             return '沒有符合的產品';
         } else {
-            return $commodity;
+            return response()->json($this->transformer->transform($commodity));
         }
     }
 }

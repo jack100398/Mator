@@ -84,6 +84,10 @@
                         <input id="pdf" class="file" type="file" accept=".pdf" multiple data-min-file-count="1">
                         <button type="submit" class="btn btn-primary pull-right" v-on:click="upload('pdf')">上傳</button>
                     </div>
+                    <div class="card-body" v-show="data.pdf !== null">
+                        <input v-show="data.pdf !== null" type="text" v-model="data.pdf" class="form-control"
+                            placeholder="" aria-label="power" aria-describedby="basic-addon1">
+                    </div>
                 </div>
 
 

@@ -178,14 +178,15 @@
                             </div>
                             <div class="col">
                                 <div class="sub-title">行程</div>
-                                <div class="num">@{{ result.travel }}</div>
+                                <div class="num">@{{ result.travel }}@{{ result.pdf }}</div>
                             </div>
                         </div>
-                        {{-- <div class="sub-title">PDF下載</div>
-                        <div class="download">
-                            <a href=""><img src="{{ asset('Frontstage/images/pdf.svg') }}" alt="pdf檔案"
+                        <div v-show="result.pdf !== null" class="sub-title">PDF下載</div>
+                        <div v-show="result.pdf !== null" class="download">
+                            <a :href="result.pdf" :download="result.name + '.pdf'"><img
+                                    src="{{ asset('Frontstage/images/pdf.svg') }}" alt="pdf檔案"
                                     title="pdf檔案"><span>PDF檔名在這點擊後下載</span></a>
-                        </div> --}}
+                        </div>
                     </div>
                 </div>
             </div>

@@ -13,8 +13,11 @@
                     <h2>備註說明</h2>
                     <p>{{ $product['remark'] }}</p>
                     <div class="bottom-btn flex-row">
-                        <a href="{{ $product['pdf'] }}" download="{{ $product['name'] }}.pdf" class="col hover-scale">PDF
-                            檔案下載</a>
+                        @if ($product['pdf'] !== null)
+                            <a href="{{ $product['pdf'] }}" download="{{ $product['name'] }}.pdf"
+                                class="col hover-scale">PDF
+                                檔案下載</a>
+                        @endif
                         <a href="javascript:history.back()" class="col hover-scale">
                             < 返回上一頁</a>
                     </div>

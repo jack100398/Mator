@@ -30,7 +30,11 @@ class Commodity extends Model
         'picture_two',
         'picture_three',
         'picture_four',
-        'linear_ruler'
+        'pdf',
+        'linear_ruler',
+        'travel',
+        'horizontal_load',
+        'vertical_load'
     ];
 
     protected $cast = [
@@ -57,6 +61,10 @@ class Commodity extends Model
         'picture_two' => 'string',
         'picture_three' => 'string',
         'picture_four' => 'string',
-        'linear_ruler' => 'integer'
+        'pdf' => 'string',
+        'linear_ruler' => 'integer',
+        'travel' => 'integer',
+        'horizontal_load' => 'integer',
+        'vertical_load'  => 'integer'
     ];
 }

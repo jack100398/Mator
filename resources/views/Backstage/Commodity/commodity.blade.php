@@ -176,6 +176,18 @@
                                 class="form-control" placeholder="請輸入熱抗" aria-label="power"
                                 aria-describedby="basic-addon1">
                         </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1">水平最大荷重</span>
+                            </div>
+                            <input type="number" v-model="data.horizontal_load" class="form-control"
+                                placeholder="請輸入水平最大荷重" aria-label="power" aria-describedby="basic-addon1">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1">壁掛(垂直)最大荷重</span>
+                            </div>
+                            <input type="number" v-model="data.vertical_load" class="form-control"
+                                placeholder="請輸入壁掛最大荷重" aria-label="power" aria-describedby="basic-addon1">
+                        </div>
                         <div class="form-group">
                             <label for="exampleFormControlTextarea1">備註</label>
                             <textarea v-model="data.remark" class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
@@ -241,6 +253,25 @@
                             v-on:click="upload('picture_four')">上傳</button>
                     </div>
                 </div>
+
+                <div class="card shadow mb-4">
+                    <!-- Card Header - Dropdown -->
+                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-primary">pdf</h6>
+                    </div>
+                    <!-- Card Body -->
+                    <div class="card-body">
+                        <img v-show="data.pdf !== null" id="demo-img" class="img-fluid"
+                            style="max-width: 50px;height:50px" src="{{ asset('Frontstage/images/pdf.svg') }}">
+                        <input id="pdf" class="file" type="file" accept=".pdf" multiple
+                            data-min-file-count="1">
+                        <button type="submit" class="btn btn-primary pull-right" v-on:click="upload('pdf')">上傳</button>
+                    </div>
+                    <div class="card-body" v-show="data.pdf !== null">
+                        <input v-show="data.pdf !== null" type="text" v-model="data.pdf" class="form-control"
+                            placeholder="" aria-label="power" aria-describedby="basic-addon1">
+                    </div>
+                </div>
             </div>
         </div>
         <div class="row justify-content-end">
@@ -286,7 +317,10 @@
                         picture_two: null, //附圖
                         picture_three: null, //附圖
                         picture_four: null, //附圖
+                        pdf: null,
                         linear_ruler: 0, //直線尺形式(0:增量,1:絕對)
+                        horizontal_load: null,
+                        vertical_load: null,
                     },
                 }
             },
@@ -304,9 +338,10 @@
                         .catch(error => {
                             if (error.responseJSON.message.indexOf('NOT NULL constraint') !== -1) {
                                 alert('新增失敗,請確認資訊使否皆已填入');
-                            }
-                            if (error.responseJSON.message.indexOf('UNIQUE constraint') !== -1) {
+                            } else if (error.responseJSON.message.indexOf('UNIQUE constraint') !== -1) {
                                 alert('已存在相同名稱與規格的產品(品名,解析度,直線尺型式相同)');
+                            } else {
+                                alert('新增失敗,請確認資訊使否皆已填入,或洽詢系統管理者')
                             }
                         });
 
