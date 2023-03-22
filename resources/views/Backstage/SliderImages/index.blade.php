@@ -38,5 +38,5 @@
 
         </div>
     </div>
-    <script src="{{ asset('Backstage/js/product_type.js') }}"></script>
+    <script src="{{ asset('Backstage/js/slider_image.js') }}"></script>
 @endsection
