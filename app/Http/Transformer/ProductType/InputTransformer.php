@@ -16,6 +16,8 @@ class InputTransformer extends Transformer
             'image' => UrlHelper::formatInputUrl($model['image']),
             'video' => $model['video'],
             'remark' => $model['remark'],
+            'en_remark' => $model['en_remark'],
+            'index_image' => UrlHelper::formatInputUrl($model['index_image']),
         ];
     }
 }

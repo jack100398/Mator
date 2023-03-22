@@ -66,7 +66,9 @@ class ProductTypiesController extends Controller
 
     public function update(Request $request, ProductType $type)
     {
-        return response()->json($type->update($request->all()));
+        $data = $this->input_transformer->transform($request->all());
+
+        return response()->json($type->update($data));
     }
 
 

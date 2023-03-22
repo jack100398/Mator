@@ -17,6 +17,8 @@ class ProductTypeTransformer extends Transformer
             'image' => UrlHelper::formatOutPutUrl($model->image),
             'video' => $model->video,
             'remark' => $model->remark,
+            'en_remark' => $model->en_remark,
+            'index_image' => UrlHelper::formatOutPutUrl($model->index_image),
         ];
     }
 }

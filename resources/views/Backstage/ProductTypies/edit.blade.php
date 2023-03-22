@@ -32,6 +32,20 @@
                 <div class="card shadow mb-4">
                     <!-- Card Header - Dropdown -->
                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-primary">首頁圖示</h6>
+                    </div>
+                    <!-- Card Body -->
+                    <div class="card-body">
+                        <img id="demo-img" class="img-fluid" style="max-width: 50%;height:auto;" :src="data.index_image">
+                        <input id="index-image" class="file" type="file" multiple data-min-file-count="1">
+                        <button type="submit" class="btn btn-primary pull-right"
+                            v-on:click="upload('index-image')">上傳</button>
+                    </div>
+                </div>
+
+                <div class="card shadow mb-4">
+                    <!-- Card Header - Dropdown -->
+                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                         <h6 class="m-0 font-weight-bold text-primary">上Banner</h6>
                     </div>
                     <!-- Card Body -->
@@ -81,6 +95,17 @@
                     </div>
                 </div>
 
+                <div class="card shadow mb-4">
+                    <!-- Card Header - Dropdown -->
+                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-primary">英文站備註</h6>
+                    </div>
+                    <!-- Card Body -->
+                    <div class="card-body">
+                        <textarea v-model="data.en_remark" class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+                    </div>
+                </div>
+
             </div>
         </div>
         <div class="row justify-content-end">
@@ -103,7 +128,9 @@
                         type_banner: null,
                         image: null,
                         video: null,
-                        remark: null
+                        remark: null,
+                        en_remark: null,
+                        index_image: null
                     },
                 }
             },

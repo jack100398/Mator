@@ -14,7 +14,9 @@ class ProductType extends Model
         'type_banner',
         'image',
         'video',
-        'remark'
+        'remark',
+        'index_image',
+        'en_remark'
     ];
 
     protected $cast = [
@@ -23,6 +25,8 @@ class ProductType extends Model
         'type_banner' => 'string',
         'image' => 'string',
         'video' => 'string',
-        'remark' => 'string'
+        'remark' => 'string',
+        'index_image' => 'string',
+        'en_remark' => 'string'
     ];
 }

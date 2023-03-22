@@ -2,8 +2,7 @@
 
 namespace App\Http\Services;
 
-use App\Banner;
-use App\Http\Repositories\ClientRepository;
+
 use App\Http\Repositories\ProductTypeRepository;
 use Illuminate\Database\Eloquent\Collection;
 

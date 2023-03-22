@@ -3,13 +3,13 @@
     <div id="app">
         <div class="wrap">
             <div class="product-slider">
-                @foreach ($products as $product)
+                @foreach ($product_tyipes as $type)
                     <div class="swiper-content">
-                        <a href="{{ route('product-detail', ['product' => $product['id']]) }}">
-                            <div class="img"><img src="{{ $product['image'] }}" alt=""></div>
+                        <a href="{{ route('en-product-list', ['id' => $type['id']]) }}">
+                            <div class="img"><img src="{{ $type['index_image'] }}" alt=""></div>
                             <div class="text">
-                                <h3>{{ $product['name'] }}</h3>
-                                <p>{{ $product['introduction'] }}</p>
+                                <h3>{{ $type['name'] }}</h3>
+                                <p>{{ $type['en_remark'] }}</p>
                             </div>
                         </a>
                     </div>

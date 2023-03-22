@@ -37,12 +37,12 @@ class ClientController extends Controller
      */
     public function index(): View
     {
-        $products = $this->product_type_service->getProducts();
+        $product_typies = $this->product_type_service->getAll();
 
         return view('Frontstage.zh.index', [
             'settings' => $this->service->getSettings(),
             'banner' => $this->service->getBanner('index'),
-            'products' => $this->product_transformer->transformCollection($products)
+            'product_tyipes' => $this->product_type_transformer->transformCollection($product_typies)
         ]);
     }
 
