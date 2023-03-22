@@ -273,8 +273,7 @@
 
                 },
                 async search(data) {
-                    this.is_loading = true;
-                    $('.fliter-result').hide();
+                    this.actionStart()
                     url = 'client-commodity';
 
                     await sendAjax('get', url, data).then(response => {
@@ -287,7 +286,15 @@
 
                     });
 
+                    this.actionFinished();
+                },
+                actionStart() {
+                    this.is_loading = true;
+                    $('.hover-scale').hide();
+                },
+                actionFinished() {
                     this.is_loading = false;
+                    $('.hover-scale').show();
                 },
                 async countByTime() {
                     let Stroke = this.data.distance / 1000
