@@ -11,7 +11,7 @@
                         <a href="{{ route('en-product-list', ['id' => $type['id']]) }}">
                             <div class="img">
                                 <img src="{{ asset($type['image']) }}" alt="">
-                                <div class="text">該類別簡易介紹，簡單70字數內即可，讓瀏覽者更加了解該分類內容產品，至多兩排文字介紹，每排約35個字數...</div>
+                                <div class="text">{{ $type['remark'] }}</div>
                             </div>
                             <h1>{{ $type['name'] }}</h1>
                         </a>

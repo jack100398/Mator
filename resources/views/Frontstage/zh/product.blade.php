@@ -11,7 +11,7 @@
                         <a href="{{ route('product-list', ['id' => $type['id']]) }}">
                             <div class="img">
                                 <img src="{{ asset($type['image']) }}" alt="">
-                                <div class="text">該類別簡易介紹，簡單70字數內即可，讓瀏覽者更加了解該分類內容產品，至多兩排文字介紹，每排約35個字數...</div>
+                                <div class="text">{{ $type['remark'] }}</div>
                             </div>
                             <h1>{{ $type['name'] }}</h1>
                         </a>
@@ -19,20 +19,21 @@
                 @endforeach
             </div>
         </div>
-
-        <div class="brands">
-            <div class="wrap">
-                <div class="brands-slider">
-                    @foreach ($third_links as $third_link)
-                        <div class="swiper-content">
-                            <a href="{{ $third_link->url }}">
-                                <img src="{{ asset($third_link->image) }}" alt="">
-                            </a>
-                        </div>
-                    @endforeach
+        @if ($third_links->isNotEmpty())
+            <div class="brands">
+                <div class="wrap">
+                    <div class="brands-slider">
+                        @foreach ($third_links as $third_link)
+                            <div class="swiper-content">
+                                <a href="{{ $third_link->url }}">
+                                    <img src="{{ asset($third_link->image) }}" alt="">
+                                </a>
+                            </div>
+                        @endforeach
+                    </div>
                 </div>
             </div>
-        </div>
+        @endif
     </div>
     <script src="{{ asset('Frontstage/js/slick.js') }}"></script>
     <script>
