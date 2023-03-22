@@ -56,6 +56,7 @@
                             </div>
                             <button v-on:click="sendContact" class="hover-scale" style="background-color: black;">送出
                             </button>
+                            <img v-show="is_loading" src="{{ asset('Frontstage/images/loading2.svg') }}" alt="">
                         </div>
                     </form>
                 </div>
