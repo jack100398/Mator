@@ -46,7 +46,7 @@
             <ul>
                 <li onclick="location.href = '{{ route('index') }}'">
                     <a>
-                        <span>English</span>
+                        <span>繁體中文</span>
                         <img src="{{ asset('Frontstage/images/correct.svg') }}" alt="">
                     </a>
                 </li>

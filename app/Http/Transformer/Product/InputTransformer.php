@@ -11,7 +11,7 @@ class InputTransformer extends Transformer
     {
         return [
             'type_id' => $model['type_id'],
-            'name' => $model->name,
+            'name' => $model['name'],
             'acting' => $model['acting'],
             'image' => UrlHelper::formatInputUrl($model['image']),
             'features' => $model['features'],

@@ -8,7 +8,7 @@
                         @if ($products->isNotEmpty())
                             @foreach ($products as $item)
                                 <div class="col">
-                                    <a href="{{ route('product-detail', ['product' => $item['id']]) }}"
+                                    <a href="{{ route('en-product-detail', ['product' => $item['id']]) }}"
                                         class="inner hover-scale">
                                         <div class="img"><img src="{{ $item['image'] }}" alt=""></div>
                                         <div class="name">{{ $item['name'] }} / {{ $item['type']['name'] }}</div>
