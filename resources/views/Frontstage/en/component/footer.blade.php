@@ -1,9 +1,9 @@
 <footer class="footer">
     <div class="wrap">
-        <a href="" class="footer_logo"><img src="{{ asset('Frontstage/images/footer_logo.png') }}"
+        <a href="{{ route('en-index') }}" class="footer_logo"><img src="{{ asset('Frontstage/images/footer_logo.png') }}"
                 alt=""></a>
         <ul>
-            <li><a href="{{ route('en-index') }}">ABOUT US</a></li>
+            <li><a href="{{ route('en-about') }}">ABOUT US</a></li>
             <li><a href="{{ route('en-news') }}">NEWS</a></li>
             <li><a href="{{ route('en-product') }}">PRODUCT</a></li>
             <li><a href="{{ route('en-recommend') }}">MATCHING</a></li>

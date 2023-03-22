@@ -41,8 +41,21 @@ class ClientController extends Controller
 
         return view('Frontstage.zh.index', [
             'settings' => $this->service->getSettings(),
-            'banner' => $this->service->getBanner('about'),
+            'banner' => $this->service->getBanner('index'),
             'products' => $this->product_transformer->transformCollection($products)
+        ]);
+    }
+
+    /**
+     * 關於我們
+     *
+     * @return View
+     */
+    public function about(): View
+    {
+        return view('Frontstage.zh.about', [
+            'settings' => $this->service->getSettings(),
+            'banner' => $this->service->getBanner('about'),
         ]);
     }
 

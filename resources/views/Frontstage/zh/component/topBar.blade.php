@@ -1,9 +1,11 @@
 <header id="fixed-header" class="header animated fadeInDown pc">
     <div class="wrap2">
-        <a href="" class="logo"><img src="{{ asset('Frontstage/images/logo.png') }}" alt=""></a>
+        <a href="{{ route('index') }}" class="logo">
+            <img src="{{ asset('Frontstage/images/logo.png') }}" alt="">
+        </a>
         <nav>
             <ul class="row">
-                <li><a href="{{ route('index') }}">關於欣茂達</a></li>
+                <li><a href="{{ route('about') }}">關於欣茂達</a></li>
                 <li><a href="{{ route('news') }}">最新消息</a></li>
                 <li><a href="{{ route('product') }}">產品介紹</a></li>
                 <li><a href="{{ route('recommend') }}">篩選推薦</a></li>

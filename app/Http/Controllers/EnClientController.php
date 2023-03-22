@@ -46,6 +46,19 @@ class EnClientController extends Controller
     }
 
     /**
+     * 關於我們
+     *
+     * @return View
+     */
+    public function about(): View
+    {
+        return view('Frontstage.en.about', [
+            'settings' => $this->service->getSettings(),
+            'banner' => $this->service->getBanner('about'),
+        ]);
+    }
+
+    /**
      * 最新資訊
      *
      * @return View

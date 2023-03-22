@@ -1,9 +1,9 @@
 <footer class="footer">
     <div class="wrap">
-        <a href="" class="footer_logo"><img src="{{ asset('Frontstage/images/footer_logo.png') }}"
+        <a href="{{ route('index') }}" class="footer_logo"><img src="{{ asset('Frontstage/images/footer_logo.png') }}"
                 alt=""></a>
         <ul>
-            <li><a href="{{ route('index') }}">關於欣茂達</a></li>
+            <li><a href="{{ route('about') }}">關於欣茂達</a></li>
             <li><a href="{{ route('news') }}">最新消息</a></li>
             <li><a href="{{ route('product') }}">產品介紹</a></li>
             <li><a href="{{ route('recommend') }}">篩選推薦</a></li>

@@ -12,7 +12,9 @@
 */
 
 use App\Http\Controllers\BannerController;
+use App\Http\Controllers\ClientController;
 use App\Http\Controllers\CommodityController;
+use App\Http\Controllers\EnClientController;
 use App\Http\Controllers\GlobalSettingController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ProductController;
@@ -99,25 +101,27 @@ Route::prefix('admin')->group(function () {
 });
 
 Route::prefix('zh')->group(function () {
-    Route::get('index', 'ClientController@index')->name('index');
-    Route::get('news', 'ClientController@news')->name('news');
-    Route::get('contact', 'ClientController@contact')->name('contact');
-    Route::get('recommend', 'ClientController@recommend')->name('recommend');
-    Route::get('product', 'ClientController@product')->name('product');
-    Route::get('article/{news}', 'ClientController@article')->name('article');
-    Route::get('product-list', 'ClientController@productList')->name('product-list');
-    Route::get('product-detail/{product}', 'ClientController@productDetail')->name('product-detail');
+    Route::get('index', [ClientController::class, 'index'])->name('index');
+    Route::get('about', [ClientController::class, 'about'])->name('about');
+    Route::get('news', [ClientController::class, 'news'])->name('news');
+    Route::get('contact', [ClientController::class, 'contact'])->name('contact');
+    Route::get('recommend', [ClientController::class, 'recommend'])->name('recommend');
+    Route::get('product', [ClientController::class, 'product'])->name('product');
+    Route::get('article/{news}', [ClientController::class, 'article'])->name('article');
+    Route::get('product-list', [ClientController::class, 'productList'])->name('product-list');
+    Route::get('product-detail/{product}', [ClientController::class, 'productDetail'])->name('product-detail');
 });
 
 Route::prefix('en')->group(function () {
-    Route::get('index', 'EnClientController@index')->name('en-index');
-    Route::get('news', 'EnClientController@news')->name('en-news');
-    Route::get('contact', 'EnClientController@contact')->name('en-contact');
-    Route::get('recommend', 'EnClientController@recommend')->name('en-recommend');
-    Route::get('product', 'EnClientController@product')->name('en-product');
-    Route::get('article/{news}', 'EnClientController@article')->name('en-article');
-    Route::get('product-list', 'EnClientController@productList')->name('en-product-list');
-    Route::get('product-detail/{product}', 'EnClientController@productDetail')->name('en-product-detail');
+    Route::get('index', [EnClientController::class, 'index'])->name('en-index');
+    Route::get('about', [EnClientController::class, 'about'])->name('en-about');
+    Route::get('news', [EnClientController::class, 'news'])->name('en-news');
+    Route::get('contact', [EnClientController::class, 'contact'])->name('en-contact');
+    Route::get('recommend', [EnClientController::class, 'recommend'])->name('en-recommend');
+    Route::get('product', [EnClientController::class, 'product'])->name('en-product');
+    Route::get('article/{news}', [EnClientController::class, 'article'])->name('en-article');
+    Route::get('product-list', [EnClientController::class, 'productList'])->name('en-product-list');
+    Route::get('product-detail/{product}', [EnClientController::class, 'productDetail'])->name('en-product-detail');
 });
 
 

@@ -2,10 +2,16 @@
 
 return [
     [
-        'remark'      => '關於我們',
-        'route'       => 'about',
+        'remark'      => '首頁',
+        'route'       => 'index',
         'desktop_url' => 'Frontstage/images/banner1.jpg',
         'mobile_url'  => 'Frontstage/images/mobile_banner1.jpg'
+    ],
+    [
+        'remark'      => '關於我們',
+        'route'       => 'about',
+        'desktop_url' => 'Frontstage/images/pagebanner6.jpg',
+        'mobile_url'  => 'Frontstage/images/mobile_pagebanner6.jpg'
     ],
     [
         'remark'      => '最新資訊',
@@ -37,13 +43,19 @@ return [
         'desktop_url' => 'Frontstage/images/recommend_banner.jpg',
         'mobile_url'  => 'Frontstage/images/recommend_banner_mobile.jpg'
     ],
-
+    [
+        'site'        => 'en',
+        'remark'      => '首頁',
+        'route'       => 'index',
+        'desktop_url' => 'Frontstage/images/banner1.jpg',
+        'mobile_url'  => 'Frontstage/images/mobile_banner1.jpg'
+    ],
     [
         'site'        => 'en',
         'remark'      => '關於我們',
         'route'       => 'about',
-        'desktop_url' => 'Frontstage/images/banner1.jpg',
-        'mobile_url'  => 'Frontstage/images/mobile_banner1.jpg'
+        'desktop_url' => 'Frontstage/images/pagebanner6.jpg',
+        'mobile_url'  => 'Frontstage/images/mobile_pagebanner6.jpg'
     ],
     [
         'site'        => 'en',

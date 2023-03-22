@@ -1,9 +1,11 @@
 <header id="fixed-header" class="header animated fadeInDown pc">
     <div class="wrap2">
-        <a href="" class="logo"><img src="{{ asset('Frontstage/images/logo.png') }}" alt=""></a>
+        <a href="{{ route('en-index') }}" class="logo">
+            <img src="{{ asset('Frontstage/images/logo.png') }}" alt="">
+        </a>
         <nav>
             <ul class="row">
-                <li><a href="{{ route('en-index') }}">ABOUT US</a></li>
+                <li><a href="{{ route('en-about') }}">ABOUT US</a></li>
                 <li><a href="{{ route('en-news') }}">NEWS</a></li>
                 <li><a href="{{ route('en-product') }}">PRODUCT</a></li>
                 <li><a href="{{ route('en-recommend') }}">MATCHING</a></li>
