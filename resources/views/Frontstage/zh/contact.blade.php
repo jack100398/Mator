@@ -54,8 +54,11 @@
                             <div class="g-api">
                                 <div class="g-recaptcha" data-sitekey="6Lel4Z4UAAAAAOa8LO1Q9mqKRUiMYl_00o5mXJrR"></div>
                             </div>
-                            <button v-on:click="sendContact" class="hover-scale" style="background-color: black;">送出
+                            <button v-on:click="sendContact" class="hover-scale real-btn"
+                                style="background-color: black;">送出
                             </button>
+                            <button type="submit" class="hover-scale fake-btn"
+                                style="background-color: #bfbfbf;">送出</button>
                             <img v-show="is_loading" src="{{ asset('Frontstage/images/loading2.svg') }}" alt="">
                         </div>
                     </form>
@@ -98,11 +101,13 @@
                 checkGrecaptcha = function() {
                     var cha_response = grecaptcha.getResponse();
                     if (cha_response.length == 0) {
-                        $('.hover-scale').hide();
                         $('.g-recaptcha').show();
+                        $('.real-btn').hide();
+                        $('.fake-btn').show();
                     } else {
-                        $('.hover-scale').show();
                         $('.g-recaptcha').hide();
+                        $('.real-btn').show();
+                        $('.fake-btn').hide();
                     }
                 };
                 checkGrecaptcha();
