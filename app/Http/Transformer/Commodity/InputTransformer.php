@@ -12,6 +12,7 @@ class InputTransformer extends Transformer
         return [
             'id' => $model['id'],
             'name' => $model['name'],
+            'type' => $model['type'],
             'resolution' => $model['resolution'],
             'rated_thrust' => $model['rated_thrust'],
             'acceleration_thrust' => $model['acceleration_thrust'],

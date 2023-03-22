@@ -8,6 +8,7 @@ class Commodity extends Model
 {
     protected $fillable = [
         'name',
+        'type',
         'resolution',
         'rated_thrust',
         'acceleration_thrust',
@@ -39,6 +40,7 @@ class Commodity extends Model
 
     protected $cast = [
         'name' => 'string',
+        'type' => 'string',
         'resolution' => 'float',
         'rated_thrust' => 'float',
         'acceleration_thrust' => 'float',
