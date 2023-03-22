@@ -207,8 +207,9 @@
 
         <div class="submit-content">
             <div class="g-recaptcha" data-sitekey="6Lel4Z4UAAAAAOa8LO1Q9mqKRUiMYl_00o5mXJrR">
-            </div><br class="mobile">
-            <button v-on:click="send" class="hover-scale" hidden>配對</button>
+            </div><br>
+            <button v-on:click="send" class="hover-scale real-btn send" hidden>配對</button>
+            <button type="submit" class="hover-scale fake-btn" style="background: #9cdbe8;">配對</button>
             <img v-show="is_loading" src="{{ asset('Frontstage/images/loading.svg') }}" alt="">
         </div>
     </div>
@@ -252,6 +253,8 @@
             },
             methods: {
                 async send() {
+                    this.actionStart()
+
                     switch (this.data.video) {
                         case 'option3':
                             await this.countByAcceleration();
@@ -263,17 +266,18 @@
                             await this.countByTime();
                             break;
                     }
+
                     await this.search(this.data)
                         .then(value => {
                             $('.search_answer').html(value);
                         })
                         .catch(error => {
-                            alert('請確認荷重與行程不可為空值');
+                            $('.no_result').show();
                         });
 
+                    this.actionFinished();
                 },
                 async search(data) {
-                    this.actionStart()
                     url = 'client-commodity';
 
                     await sendAjax('get', url, data).then(response => {
@@ -285,16 +289,16 @@
                         }
 
                     });
-
-                    this.actionFinished();
                 },
                 actionStart() {
                     this.is_loading = true;
-                    $('.hover-scale').hide();
+                    $('.no_result').hide();
+                    $('.has_result').hide();
+                    $('.real-btn').hide();
                 },
                 actionFinished() {
                     this.is_loading = false;
-                    $('.hover-scale').show();
+                    $('.real-btn').show();
                 },
                 async countByTime() {
                     let Stroke = this.data.distance / 1000
@@ -305,7 +309,8 @@
                     let highest_speed = temporary_acceleration * (MokuhyouJikan / 2)
                     if (SeigenSokudo < highest_speed) {
                         if (SeigenSokudo * MokuhyouJikan <= Stroke) {
-                            alert('不可能');
+                            // $('.no_result').show();
+                            // alert('不可能');
                         } else {
                             let Kasokudo = (SeigenSokudo * SeigenSokudo) / (SeigenSokudo * MokuhyouJikan -
                                 Stroke)
@@ -391,11 +396,13 @@
                 checkGrecaptcha = function() {
                     var cha_response = grecaptcha.getResponse();
                     if (cha_response.length == 0) {
-                        $('.hover-scale').hide();
                         $('.g-recaptcha').show();
+                        $('.real-btn').hide();
+                        $('.fake-btn').show();
                     } else {
-                        $('.hover-scale').show();
                         $('.g-recaptcha').hide();
+                        $('.real-btn').show();
+                        $('.fake-btn').hide();
                     }
                 };
                 checkGrecaptcha();
