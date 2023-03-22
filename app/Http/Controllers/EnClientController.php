@@ -183,4 +183,22 @@ class EnClientController extends Controller
 
         return view('Frontstage.en.product_detail', compact('banner', 'product', 'settings'));
     }
+
+    /**
+     * 產品搜尋
+     *
+     * @param Request $request
+     *
+     * @return View
+     */
+    public function search(Request $request): View
+    {
+        $products = $this->service->searchProduct($request->all());
+
+        return view('Frontstage.en.search_result', [
+            'products' => $this->product_transformer->transformCollection($products),
+            'banner' => $this->service->getBanner('product'),
+            'settings' => $this->service->getSettings()
+        ]);
+    }
 }

@@ -2,12 +2,13 @@
 
 namespace App\Http\Services;
 
-use App\Banner;
+
 use App\Http\Repositories\ClientRepository;
 use App\Http\Transformer\Banner\BannerTransformer;
-use App\Product;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Collection as SupportCollection;
 
 class ClientService
 {
@@ -55,5 +56,23 @@ class ClientService
     public function getSettings(): Collection
     {
         return $this->repository->getSettings()->keyBy('event');
+    }
+
+    /**
+     * 透過輸入的字串模糊搜尋產品
+     *
+     * @param array $param
+     *
+     * @return SupportCollection|Collection
+     */
+    public function searchProduct(array $param): Collection|SupportCollection
+    {
+        $name = Arr::get($param, 'search');
+
+        if (is_null($name)) {
+            return collect();
+        }
+
+        return $this->repository->searchProduct($name);
     }
 }

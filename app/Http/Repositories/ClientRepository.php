@@ -53,4 +53,16 @@ class ClientRepository
     {
         return GlobalSetting::query()->get();
     }
+
+    /**
+     * 透過輸入的字串模糊搜尋產品
+     *
+     * @param string $like_name
+     *
+     * @return Collection
+     */
+    public function searchProduct(string $like_name): Collection
+    {
+        return Product::query()->with('type')->where('name', 'like', "%$like_name%")->get();
+    }
 }

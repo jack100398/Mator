@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Helpers\TimeHelper;
 use App\Http\Services\ClientService;
 use App\Http\Services\ProductTypeService;
 use App\Http\Transformer\News\NewsTransformer;
@@ -183,5 +182,23 @@ class ClientController extends Controller
         $settings = $this->service->getSettings();
 
         return view('Frontstage.zh.product_detail', compact('banner', 'product', 'settings'));
+    }
+
+    /**
+     * 產品搜尋
+     *
+     * @param Request $request
+     *
+     * @return View
+     */
+    public function search(Request $request): View
+    {
+        $products = $this->service->searchProduct($request->all());
+
+        return view('Frontstage.zh.search_result', [
+            'products' => $this->product_transformer->transformCollection($products),
+            'banner' => $this->service->getBanner('product'),
+            'settings' => $this->service->getSettings()
+        ]);
     }
 }

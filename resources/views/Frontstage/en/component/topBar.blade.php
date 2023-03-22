@@ -32,7 +32,7 @@
                         </ul>
                     </div>
                 </li>
-                {{-- <li id="search"><img src="{{ asset('Frontstage/images/search.svg') }}" alt=""></li> --}}
+                <li id="search"><img src="{{ asset('Frontstage/images/search.svg') }}" alt=""></li>
             </ul>
         </nav>
     </div>
@@ -63,25 +63,38 @@
 
 <div id="mobile-menu-wrap" class="mobile">
     <div class="inner">
-        {{-- <div class="search-input">
-            <input type="search" placeholder="Search Keywords">
-            <button><img src="{{ asset('Frontstage/images/search.svg') }}" alt=""></button>
-        </div> --}}
+        <div class="search-input">
+            <input class="mobile_search_text" type="search" placeholder="Search Keywords">
+            <button onclick="mobileSearch()"><img src="{{ asset('Frontstage/images/search.svg') }}"
+                    alt=""></button>
+        </div>
         <ul id="mobile-menu">
-            <li><a href="{{ route('en-index') }}">關於欣茂達</a></li>
-            <li><a href="{{ route('en-news') }}">最新消息</a></li>
-            <li><a href="{{ route('en-product') }}">產品介紹</a></li>
-            <li><a href="{{ route('en-recommend') }}">篩選推薦</a></li>
-            <li><a href="{{ route('en-contact') }}">聯絡我們</a></li>
+            <li><a href="{{ route('en-about') }}">ABOUT US</a></li>
+            <li><a href="{{ route('en-news') }}">NEWS</a></li>
+            <li><a href="{{ route('en-product') }}">PRODUCT</a></li>
+            <li><a href="{{ route('en-recommend') }}">MATCHING</a></li>
+            <li><a href="{{ route('en-contact') }}">CONTACT US</a></li>
         </ul>
     </div>
 </div>
 
 <div id="search-content" class="animated fadeIn pc">
     <div class="search-input">
-        <h2 class="tk-century-gothic">SEARCH</h2>
-        <input type="search" placeholder="Search Keywords">
-        <button><img src="{{ asset('Frontstage/images/search.svg') }}" alt=""></button>
+        <input class="desktop_search_text" type="search" placeholder="Search Keywords">
+        <button onclick="desktopSearch()"><img src="{{ asset('Frontstage/images/search.svg') }}"
+                alt=""></button>
     </div>
     <a href="" id="search-close">CLOSE</a>
 </div>
+
+<script>
+    desktopSearch = function() {
+        var condition = $('.desktop_search_text').val();
+        window.location.href = `${document.location.origin}/en/search?search=${condition}`;
+    }
+
+    mobileSearch = function() {
+        var condition = $('.mobile_search_text').val();
+        window.location.href = `${document.location.origin}/en/search?search=${condition}`;
+    }
+</script>

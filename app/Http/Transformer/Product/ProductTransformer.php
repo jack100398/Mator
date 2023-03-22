@@ -13,6 +13,7 @@ class ProductTransformer extends Transformer
             'id' => $model->id,
             'name' => $model->name,
             'type_id' => $model->type_id,
+            'type' => $model->type,
             'acting' => $model->acting,
             'features' => $model->features,
             'remark' => $model->remark,

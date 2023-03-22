@@ -121,6 +121,7 @@ Route::prefix('zh')->group(function () {
     Route::get('article/{news}', [ClientController::class, 'article'])->name('article');
     Route::get('product-list', [ClientController::class, 'productList'])->name('product-list');
     Route::get('product-detail/{product}', [ClientController::class, 'productDetail'])->name('product-detail');
+    Route::get('search', [ClientController::class, 'search']);
 });
 
 Route::prefix('en')->group(function () {
@@ -133,6 +134,7 @@ Route::prefix('en')->group(function () {
     Route::get('article/{news}', [EnClientController::class, 'article'])->name('en-article');
     Route::get('product-list', [EnClientController::class, 'productList'])->name('en-product-list');
     Route::get('product-detail/{product}', [EnClientController::class, 'productDetail'])->name('en-product-detail');
+    Route::get('search', [EnClientController::class, 'search']);
 });
 
 
