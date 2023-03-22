@@ -69,6 +69,11 @@
             <div class="sidebar-heading">
                 網站設定
             </div>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('slider-image') }}">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>輪播設定</span></a>
+            </li>
 
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('setting-admin') }}">

@@ -7,9 +7,11 @@
 
 <body>
     @include('Frontstage.zh.component.topBar')
-    {{-- @if (Route::currentRouteName() !== 'index') --}}
-    @include('Frontstage.zh.component.banner')
-    {{-- @endif --}}
+    @if (!in_array(Route::currentRouteName(), ['index']))
+        @include('Frontstage.zh.component.banner')
+    @else
+        @include('Frontstage.zh.component.index_banner')
+    @endif
     @yield('content')
     @include('Frontstage.zh.component.footer')
 </body>

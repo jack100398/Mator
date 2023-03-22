@@ -19,6 +19,7 @@ use App\Http\Controllers\GlobalSettingController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductTypiesController;
+use App\Http\Controllers\SliderImageController;
 use App\Http\Controllers\ThirdLinkController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -47,6 +48,16 @@ Route::prefix('admin')->group(function () {
             Route::delete('/{type}', [ProductTypiesController::class, 'destroy']);
             Route::get('/', [ProductTypiesController::class, 'index'])->name('product-type');
             Route::post('/', [ProductTypiesController::class, 'store']);
+        });
+
+        Route::prefix('slider-image')->group(function () {
+            Route::get('/edit', [SliderImageController::class, 'edit'])->name('editSliderImagePage');
+            Route::get('/create', [SliderImageController::class, 'create'])->name('createSliderImagePage');
+            Route::get('/{item}', [SliderImageController::class, 'show']);
+            Route::patch('/{item}', [SliderImageController::class, 'update']);
+            Route::delete('/{item}', [SliderImageController::class, 'destroy']);
+            Route::get('/', [SliderImageController::class, 'index'])->name('slider-image');
+            Route::post('/', [SliderImageController::class, 'store']);
         });
 
         Route::prefix('product')->group(function () {

@@ -164,6 +164,8 @@ select{ border-radius: 0; outline: 0;}
     >img{ width: 100%; }
 }
 
+
+
 /*===============================================================================================
     -pc
 ===============================================================================================*/
@@ -234,6 +236,8 @@ select{ border-radius: 0; outline: 0;}
     }
     #search-content.active{ display: block;}
 
+    
+
     .product-slider{ padding: 100px 0 80px; margin: 0 -18px;
         .swiper-content{ padding: 0 18px;
             a{ display: block; border: 1px #ddd solid; border-bottom: 4px #3fbdd7 solid;
@@ -251,8 +255,8 @@ select{ border-radius: 0; outline: 0;}
                 }
             }
         }
-        .slick-prev{ display: inline-block; width: 26px; height: 55px; background: url(../images/btn-left.png) no-repeat; .background-size(26px 55px); border: 0; overflow: hidden; text-indent: 99px; position: absolute; left: -70px; top: 50%; .transform(translateY(-50%)); z-index: 999; outline: 0;}
-		.slick-next{ display: inline-block; width: 26px; height: 55px; background: url(../images/btn-right.png) no-repeat; .background-size(26px 55px); border: 0; overflow: hidden; text-indent: 99px; position: absolute; right: -70px; top: 50%; .transform(translateY(-50%)); z-index: 999; outline: 0;}
+        .slick-prev{ display: inline-block; width: 26px; height: 55px; background: url(../images/btn-left.png) no-repeat; .background-size(26px 55px); border: 0; overflow: hidden; text-indent: 99px; position: absolute; left: -20px; top: 50%; .transform(translateY(-50%)); z-index: 999; outline: 0;}
+		.slick-next{ display: inline-block; width: 26px; height: 55px; background: url(../images/btn-right.png) no-repeat; .background-size(26px 55px); border: 0; overflow: hidden; text-indent: 99px; position: absolute; right: -20px; top: 50%; .transform(translateY(-50%)); z-index: 999; outline: 0;}
     }
 
     .page-title{ text-align: center;
@@ -1026,6 +1030,13 @@ select{ border-radius: 0; outline: 0;}
         }
     }
     
+}
+
+@media @min1600{
+    .product-slider{ 
+        .slick-prev{left: -70px;}
+        .slick-next{right: -70px;}
+    }
 }
 
 /*===============================================================================================
