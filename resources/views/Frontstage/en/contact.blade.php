@@ -9,9 +9,8 @@
 
         <div class="contact">
             <div class="wrap">
-                <div class="steps" style="color: #fff;">親愛的顧客您好</div>
-                <p>非常感謝您！如果您有任何的問題或建議或對我們公司的產品及服務有任何疑問，請您不吝賜教
-                    將您的意見填寫於下列表單，我們會盡快處理並給您答覆！(*為必填項目)</p>
+                <div class="steps" style="color: #fff;">Dear customer</div>
+                <p>Thank you very much! If you have any questions or suggestions about our company's products and services, please feel free to let us know by filling out the form below. We will promptly address your concerns and provide you with an answer as soon as possible! (* indicates a required field)</p>
                 <div class="form">
                     <form action="javascript:;">
                         <div class="title"><span>*</span>主旨</div>
@@ -45,8 +44,8 @@
                             <textarea v-model="data.text"></textarea>
                         </div>
                         <div class="submit-content">
-                            <div class="tips">
-                                <label class="checkbox-container">本人已確認聯絡項目與內容，並同意本人對貴公司所為電子表示之效力與書面表示相同。
+                            <div class="tips" lang="en">
+                                <label class="checkbox-container">I confirm that I have completed the contact information and agree that my electronic representation is as effective as a written representation to your company.
                                     <input v-model="checker" type="checkbox">
                                     <span class="checkmark"></span>
                                 </label>

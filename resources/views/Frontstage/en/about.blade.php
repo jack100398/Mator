@@ -8,25 +8,25 @@
         <div class="about">
             <div class="wrap3">
                 <div class="top">
-                    <div class="flex-row">
+                    <div class="flex-row" lang="en">
                         <div class="col"><img src="{{ asset('Frontstage/images/about1.png') }}" alt=""></div>
                         <div class="col">
-                            <h2>營運方針</h2>
+                            <h2>Our Operational Policy</h2>
                             <ul>
                                 <li><img src="{{ asset('Frontstage/images/list_icon.png') }}"
-                                        alt=""><span>提供最佳服務，研發創新商品。</span></li>
+                                        alt=""><span>To provide the best service, we strive to develop innovative products that meet our customers' needs.</span></li>
                                 <li><img src="{{ asset('Frontstage/images/list_icon.png') }}"
-                                        alt=""><span>提供專業建議，建立良好合作關係。</span></li>
+                                        alt=""><span>We actively provide professional advice to our customers and aim to establish a cooperative relationship built on trust and mutual understanding.</span></li>
                                 <li><img src="{{ asset('Frontstage/images/list_icon.png') }}"
-                                        alt=""><span>致力於研發更多更新的產品，深耕與客戶關係。</span></li>
+                                        alt=""><span>We are committed to continuously developing new and innovative products, while also deepening our relationships with our customers.</span></li>
                             </ul>
                         </div>
                     </div>
                     <div class="flex-row">
                         <div class="col">
-                            <h2>欣茂達科技</h2>
-                            <p>在精密高科技產業的全球化發展之下，設備對於高精準定位的商品需求與日俱增。<br>
-                                對此，欣茂達不僅提供線性馬達及直驅馬達單品，更提供高精度定位模組，可大幅縮短設計開發時間，組裝快速又便利。</p>
+                            <h2>New Motech</h2>
+                            <p>With the global development of the precision high-tech industry, the demand for high-precision positioning products is increasing day by day.<br>
+                                In response to this, new-motech ltd not only provides linear motors and direct drive motors, but also offers high-precision positioning modules that greatly shorten design and development time while also being fast and convenient to assemble.</p>
                         </div>
                         <div class="col"><img src="{{ asset('Frontstage/images/about2.jpg') }}" alt=""></div>
                     </div>
@@ -36,36 +36,36 @@
 
         <div class="about-block2">
             <div class="wrap3">
-                <h2>經營理念</h2>
+                <h2>Our Company Philosophy</h2>
                 <div class="flex-row">
                     <div class="col">
-                        <h3>堅持</h3>
-                        <p>突破現況創造價值</p>
+                        <h3>Persistence</h3>
+                        <p>We believe in breaking through the status quo and persevering through challenges to achieve our goals.</p>
                     </div>
                     <div class="col">
-                        <h3>精進</h3>
-                        <p>不間斷的進步和改正，以持續發揮創造力</p>
+                        <h3>Refining</h3>
+                        <p>We believe in continuous improvement and refinement to foster ongoing creativity and growth.</p>
                     </div>
                     <div class="col">
-                        <h3>衝勁</h3>
-                        <p>保持正向積極的動力，永不退縮</p>
+                        <h3>Momentum</h3>
+                        <p>We maintain a positive momentum and never back down from a challenge.</p>
                     </div>
                     <div class="col">
-                        <h3>創新</h3>
-                        <p>前瞻思維，永懷夢想及志向</p>
+                        <h3>Innovation</h3>
+                        <p>We embrace forward-thinking ideas and ambitious dreams, always striving to innovate and create new value.</p>
                     </div>
                     <div class="col">
-                        <h3>抱負</h3>
-                        <p>貢獻一己之力量，為企業長遠的理想而努力</p>
+                        <h3>Ambition</h3>
+                        <p>We are committed to contributing our skills and expertise towards the long-term success of the company.</p>
                     </div>
                     <div class="col">
-                        <h3>獲利</h3>
-                        <p>在合作的基礎上創造與客戶間最大的利益</p>
+                        <h3>Profit</h3>
+                        <p>We strive to create the greatest benefit for our customers through collaborative partnerships and mutual success.</p>
                     </div>
                 </div>
                 <div class="bottom">
-                    <h3>誠信</h3>
-                    <p>以客戶的立場為出發點，提供最佳品質之商品</p>
+                    <h3>Integrity</h3>
+                    <p>We prioritize our customers' needs and work tirelessly to provide the highest quality products and services.</p>
                 </div>
             </div>
         </div>
@@ -83,22 +83,20 @@
 
         <div class="about-block4">
             <div class="wrap3">
-                <h2>公司願景、使命</h2>
+                <h2>Vision & Mission</h2>
                 <div class="flex-row">
                     <div class="col">
-                        <h3>願景</h3>
-                        <p>提供優質商品，增加設備商與其競爭對手的產品差異性<br class="pc">
-                            提升客戶競爭力</p>
+                        <h3>Vision</h3>
+                        <p>Our vision is to provide high-quality products that increase product differentiation for equipment manufacturers, while enhancing our customers' competitiveness.</p>
                     </div>
                     <div class="col">
-                        <h3>使命</h3>
-                        <p>成就客戶、創新為要、誠信負責；與客戶感同身受<br class="pc">
-                            完整售後服務</p>
+                        <h3>Mission</h3>
+                        <p>Our mission is to achieve customer satisfaction through innovation, honesty, and responsibility. We strive to empathize with our customers and provide complete after-sales service to ensure their continued success.</p>
                     </div>
                 </div>
                 <div class="contact-img">
                     <a href="{{ route('en-contact') }}"><img src="{{ asset('Frontstage/images/icon.png') }}"
-                            alt=""><span>與我們聯繫</span></a>
+                            alt=""><span>CONTACT US</span></a>
                 </div>
             </div>
         </div>

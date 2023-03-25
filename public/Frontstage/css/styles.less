@@ -784,7 +784,11 @@ select{ border-radius: 0; outline: 0;}
                     -ms-transform: rotate(45deg);
                     transform: rotate(45deg);
                   }
-            }    
+            }
+            .tips:lang(en){
+                width: 55%;
+                text-align: left;
+            }
         }
     }
     .wrap{ position: relative; 
@@ -969,6 +973,13 @@ select{ border-radius: 0; outline: 0;}
                 h2{ margin-right: 50px; margin-top: -5px;}
                 .col+.col{
                     img{ width: 26px;}
+                }
+            }
+            .flex-row:first-child:lang(en){ 
+                h2,ul{ display: block; }
+                h2{ margin-bottom: 50px;}
+                .col+.col{ max-width: 544px;
+                    li{ text-indent: -46px; margin-left: 46px; }
                 }
             }
             .flex-row+.flex-row{ margin-top: 80px;
