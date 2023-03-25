@@ -73,7 +73,6 @@
         <div class="about-block3">
             <div class="wrap3">
                 <div class="flex">
-                    <img src="{{ asset('Frontstage/images/youtube-base.png') }}" alt="">
                     <img src="{{ asset('Frontstage/images/about3-1.jpg') }}" alt="" class="img1">
                     <img src="{{ asset('Frontstage/images/about3-2.jpg') }}" alt="" class="img2">
                     <img src="{{ asset('Frontstage/images/about3-3.jpg') }}" alt="" class="img3">

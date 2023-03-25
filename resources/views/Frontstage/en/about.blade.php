@@ -13,20 +13,26 @@
                         <div class="col">
                             <h2>Our Operational Policy</h2>
                             <ul>
-                                <li><img src="{{ asset('Frontstage/images/list_icon.png') }}"
-                                        alt=""><span>To provide the best service, we strive to develop innovative products that meet our customers' needs.</span></li>
-                                <li><img src="{{ asset('Frontstage/images/list_icon.png') }}"
-                                        alt=""><span>We actively provide professional advice to our customers and aim to establish a cooperative relationship built on trust and mutual understanding.</span></li>
-                                <li><img src="{{ asset('Frontstage/images/list_icon.png') }}"
-                                        alt=""><span>We are committed to continuously developing new and innovative products, while also deepening our relationships with our customers.</span></li>
+                                <li><img src="{{ asset('Frontstage/images/list_icon.png') }}" alt=""><span>To
+                                        provide the best service, we strive to develop innovative products that meet our
+                                        customers' needs.</span></li>
+                                <li><img src="{{ asset('Frontstage/images/list_icon.png') }}" alt=""><span>We
+                                        actively provide professional advice to our customers and aim to establish a
+                                        cooperative relationship built on trust and mutual understanding.</span></li>
+                                <li><img src="{{ asset('Frontstage/images/list_icon.png') }}" alt=""><span>We are
+                                        committed to continuously developing new and innovative products, while also
+                                        deepening our relationships with our customers.</span></li>
                             </ul>
                         </div>
                     </div>
                     <div class="flex-row">
                         <div class="col">
                             <h2>New Motech</h2>
-                            <p>With the global development of the precision high-tech industry, the demand for high-precision positioning products is increasing day by day.<br>
-                                In response to this, new-motech ltd not only provides linear motors and direct drive motors, but also offers high-precision positioning modules that greatly shorten design and development time while also being fast and convenient to assemble.</p>
+                            <p>With the global development of the precision high-tech industry, the demand for
+                                high-precision positioning products is increasing day by day.<br>
+                                In response to this, new-motech ltd not only provides linear motors and direct drive motors,
+                                but also offers high-precision positioning modules that greatly shorten design and
+                                development time while also being fast and convenient to assemble.</p>
                         </div>
                         <div class="col"><img src="{{ asset('Frontstage/images/about2.jpg') }}" alt=""></div>
                     </div>
@@ -40,7 +46,8 @@
                 <div class="flex-row">
                     <div class="col">
                         <h3>Persistence</h3>
-                        <p>We believe in breaking through the status quo and persevering through challenges to achieve our goals.</p>
+                        <p>We believe in breaking through the status quo and persevering through challenges to achieve our
+                            goals.</p>
                     </div>
                     <div class="col">
                         <h3>Refining</h3>
@@ -52,20 +59,24 @@
                     </div>
                     <div class="col">
                         <h3>Innovation</h3>
-                        <p>We embrace forward-thinking ideas and ambitious dreams, always striving to innovate and create new value.</p>
+                        <p>We embrace forward-thinking ideas and ambitious dreams, always striving to innovate and create
+                            new value.</p>
                     </div>
                     <div class="col">
                         <h3>Ambition</h3>
-                        <p>We are committed to contributing our skills and expertise towards the long-term success of the company.</p>
+                        <p>We are committed to contributing our skills and expertise towards the long-term success of the
+                            company.</p>
                     </div>
                     <div class="col">
                         <h3>Profit</h3>
-                        <p>We strive to create the greatest benefit for our customers through collaborative partnerships and mutual success.</p>
+                        <p>We strive to create the greatest benefit for our customers through collaborative partnerships and
+                            mutual success.</p>
                     </div>
                 </div>
                 <div class="bottom">
                     <h3>Integrity</h3>
-                    <p>We prioritize our customers' needs and work tirelessly to provide the highest quality products and services.</p>
+                    <p>We prioritize our customers' needs and work tirelessly to provide the highest quality products and
+                        services.</p>
                 </div>
             </div>
         </div>
@@ -73,7 +84,6 @@
         <div class="about-block3">
             <div class="wrap3">
                 <div class="flex">
-                    <img src="{{ asset('Frontstage/images/youtube-base.png') }}" alt="">
                     <img src="{{ asset('Frontstage/images/about3-1.jpg') }}" alt="" class="img1">
                     <img src="{{ asset('Frontstage/images/about3-2.jpg') }}" alt="" class="img2">
                     <img src="{{ asset('Frontstage/images/about3-3.jpg') }}" alt="" class="img3">
@@ -87,11 +97,14 @@
                 <div class="flex-row">
                     <div class="col">
                         <h3>Vision</h3>
-                        <p>Our vision is to provide high-quality products that increase product differentiation for equipment manufacturers, while enhancing our customers' competitiveness.</p>
+                        <p>Our vision is to provide high-quality products that increase product differentiation for
+                            equipment manufacturers, while enhancing our customers' competitiveness.</p>
                     </div>
                     <div class="col">
                         <h3>Mission</h3>
-                        <p>Our mission is to achieve customer satisfaction through innovation, honesty, and responsibility. We strive to empathize with our customers and provide complete after-sales service to ensure their continued success.</p>
+                        <p>Our mission is to achieve customer satisfaction through innovation, honesty, and responsibility.
+                            We strive to empathize with our customers and provide complete after-sales service to ensure
+                            their continued success.</p>
                     </div>
                 </div>
                 <div class="contact-img">
