@@ -70,14 +70,16 @@
                         <div class="flex-row style2">
                             <div class="col">荷重</div>
                             <div class="col">
-                                <input type="range" min="0" max="10000" id="range" v-model="data.weight">
+                                <input type="range" min="0" max="10000" step="50" id="range"
+                                    v-model="data.weight">
                                 <input type="number" id="rangenumber" min="0" max="10000" v-model="data.weight">
                             </div>
                         </div>
                         <div class="flex-row style2">
                             <div class="col">行程</div>
                             <div class="col">
-                                <input type="range" min="0" max="10000" id="range2" v-model="data.distance">
+                                <input type="range" min="0" max="10000" step="50" id="range2"
+                                    v-model="data.distance">
                                 <input type="number" id="rangenumber2" min="0" max="10000"
                                     v-model="data.distance" placeholder="請輸入50的倍數數字">
                             </div>
