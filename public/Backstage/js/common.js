@@ -20,6 +20,10 @@ async function uploadImageByNote(file) {
 }
 
 function sendAjax(type = 'post', path, data = null) {
+    if (type === 'delete' && !confirm("是否確認刪除?")) {
+        return;
+    }
+
     var url = `${getAdminDomainUrl()}${path}`
 
     return new Promise((resolve, reject) => {
