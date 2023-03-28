@@ -36,8 +36,7 @@
                     </div>
                     <!-- Card Body -->
                     <div class="card-body">
-                        <input type="text" v-model="data.created_at" class="form-control" placeholder="請輸入貼文時間"
-                            aria-label="power" aria-describedby="basic-addon1">
+                        <input class="form-control" type="date" v-model="data.created_at">
                     </div>
                 </div>
 
