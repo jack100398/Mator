@@ -39,7 +39,7 @@ class ClientRepository
     public function getNews(): LengthAwarePaginator
     {
         return News::query()
-            ->orderBy('id')
+            ->orderBy('created_at')
             ->paginate(15);
     }
 

@@ -21,7 +21,7 @@ class NewsController extends Controller
 
     public function index()
     {
-        $news = News::query()->get();
+        $news = News::query()->orderBy('created_at')->get();
 
         return view('Backstage.News.index', [
             'page_categroy' => self::PAGE_CATEGORY,

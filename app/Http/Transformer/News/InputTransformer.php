@@ -14,7 +14,8 @@ class InputTransformer extends Transformer
             'type' => $model['type'],
             'introduction' => $model['introduction'],
             'image' => UrlHelper::formatInputUrl($model['image']),
-            'text' => $model['text']
+            'text' => $model['text'],
+            'created_at' => $model['created_at']
         ];
     }
 }
