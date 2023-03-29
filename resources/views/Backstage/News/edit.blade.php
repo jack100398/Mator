@@ -86,10 +86,22 @@
     <script src="{{ asset('Backstage/js/news.js') }}"></script>
     <script>
         $(document).ready(function() {
+            var gArrayFonts = ['標楷體', '新細明體', '微軟正黑體'];
             $('#summernote').summernote({
                 placeholder: '貼文內容',
                 tabsize: 2,
                 height: 600,
+                fontNames: gArrayFonts,
+                fontNamesIgnoreCheck: gArrayFonts,
+                toolbar: [
+                    ['style'],
+                    ['style', ['clear', 'bold', 'italic', 'underline']],
+                    ['fontname', ['fontname']],
+                    ['color', ['color']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['table', ['table']],
+                    ['view', ['codeview']],
+                ],
                 callbacks: {
                     onImageUpload: async function(files) {
                         console.log(files);
@@ -99,6 +111,7 @@
                 }
             });
         });
+
 
         const {
             createApp
