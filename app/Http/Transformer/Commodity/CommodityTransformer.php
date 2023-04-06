@@ -13,7 +13,7 @@ class CommodityTransformer extends Transformer
             'id' => $model['id'],
             'name' => $model['name'],
             'type' => $model['type'],
-            'resolution' => $model['resolution'],
+            'resolution' => floatval($model['resolution']),
             'rated_thrust' => $model['rated_thrust'],
             'acceleration_thrust' => $model['acceleration_thrust'],
             'rated_current' => $model['rated_current'],
