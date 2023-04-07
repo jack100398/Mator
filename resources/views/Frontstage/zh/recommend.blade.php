@@ -113,12 +113,12 @@
                             <span class="checkmark"></span>
                         </label>
                         <div class="input">
-                            <span>加速度時間</span>
+                            <span>加減速時間</span>
                             <input type="text" v-model="byAccelerationTime.time">
                             <span>msec</span>
                         </div>
                         <div class="input">
-                            <span>轉速時間</span>
+                            <span>轉速速度</span>
                             <input type="text" v-model="byAccelerationTime.speed">
                             <span>mm/sec</span>
                         </div>
@@ -185,7 +185,7 @@
                             </div>
                             <div class="col">
                                 <div class="sub-title">行程</div>
-                                <div class="num">@{{ result.travel }}@{{ result.pdf }}</div>
+                                <div class="num">@{{ result.travel }}</div>
                             </div>
                         </div>
                         <div v-show="result.pdf !== null" class="sub-title">PDF下載</div>

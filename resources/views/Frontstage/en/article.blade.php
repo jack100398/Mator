@@ -9,7 +9,9 @@
                 <p><span>{{ $news['type'] }}</span>
             </div>
             <div class="editor">
-                {!! $news['text'] !!}
+                <div class="article-text">
+                    {!! $news['text'] !!}
+                </div>
             </div>
             <div class="back"><a href="{{ route('news') }}" class="btn" style="color: #fff;">« 回列表</a></div>
         </div>
