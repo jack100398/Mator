@@ -258,19 +258,53 @@
                 <div class="card shadow mb-4">
                     <!-- Card Header - Dropdown -->
                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                        <h6 class="m-0 font-weight-bold text-primary">pdf</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">中文pdf</h6>
                     </div>
                     <!-- Card Body -->
                     <div class="card-body">
-                        <img v-show="data.pdf !== null" id="demo-img" class="img-fluid"
+                        <img id="demo-img" v-show="data.pdf !== null && data.pdf !== ''" class="img-fluid"
                             style="max-width: 50px;height:50px" src="{{ asset('Frontstage/images/pdf.svg') }}">
-                        <input id="pdf" class="file" type="file" accept=".pdf" multiple
-                            data-min-file-count="1">
+                    </div>
+                    <div class="card-body">
+                        <h4>檔案網址</h4>
+                        <input type="text" v-model="data.pdf" class="form-control" placeholder="中文站檔案網址"
+                            aria-label="power" aria-describedby="basic-addon1">
+                        <h4>檔案名稱</h4>
+                        <input type="text" v-model="data.pdf_name" class="form-control" placeholder="中文站檔案名稱"
+                            aria-label="power" aria-describedby="basic-addon1">
+                    </div>
+                    <hr>
+                    <div class="card-body">
+                        <h3>檔案上傳</h3>
+                        <input id="pdf" class="file" type="file" accept=".pdf">
                         <button type="submit" class="btn btn-primary pull-right" v-on:click="upload('pdf')">上傳</button>
                     </div>
-                    <div class="card-body" v-show="data.pdf !== null">
-                        <input v-show="data.pdf !== null" type="text" v-model="data.pdf" class="form-control"
-                            placeholder="" aria-label="power" aria-describedby="basic-addon1">
+                </div>
+
+                <div class="card shadow mb-4">
+                    <!-- Card Header - Dropdown -->
+                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-primary">英文站pdf</h6>
+                    </div>
+                    <!-- Card Body -->
+                    <div class="card-body">
+                        <img id="demo-img" v-show="data.en_pdf !== null && data.en_pdf !== ''" class="img-fluid"
+                            style="max-width: 50px;height:50px" src="{{ asset('Frontstage/images/pdf.svg') }}">
+                    </div>
+                    <div class="card-body">
+                        <h4>檔案網址</h4>
+                        <input type="text" v-model="data.en_pdf" class="form-control" placeholder="英文站檔案網址"
+                            aria-label="power" aria-describedby="basic-addon1">
+                        <h4>檔案名稱</h4>
+                        <input type="text" v-model="data.en_pdf_name" class="form-control" placeholder="英文站檔案名稱"
+                            aria-label="power" aria-describedby="basic-addon1">
+                    </div>
+                    <hr>
+                    <div class="card-body">
+                        <h3>檔案上傳</h3>
+                        <input id="en_pdf" class="file" type="file" accept=".pdf">
+                        <button type="submit" class="btn btn-primary pull-right"
+                            v-on:click="upload('en_pdf')">上傳</button>
                     </div>
                 </div>
             </div>
@@ -316,6 +350,7 @@
                         picture_four: null, //附圖
                         linear_ruler: 0, //直線尺形式(0:增量,1:絕對)
                         pdf: null,
+                        en_pdf: null,
                         horizontal_load: null,
                         vertical_load: null,
                     },

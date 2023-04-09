@@ -153,17 +153,17 @@
                         <img :src="result.picture_one" alt="">
                         <div class="flex-row">
                             <div class="col">
-                                <a class="fancybox" href="{{ asset('Frontstage/images/result_img2.jpg') }}">
+                                <a class="fancybox" :href="result.picture_two">
                                     <img :src="result.picture_two" alt="">
                                 </a>
                             </div>
                             <div class="col">
-                                <a class="fancybox" href="{{ asset('Frontstage/images/result_img2.jpg') }}">
+                                <a class="fancybox" :href="result.picture_three">
                                     <img :src="result.picture_three" alt="">
                                 </a>
                             </div>
                             <div class="col">
-                                <a class="fancybox" href="{{ asset('Frontstage/images/result_img2.jpg') }}">
+                                <a class="fancybox" :href="result.picture_four">
                                     <img :src="result.picture_four" alt="">
                                 </a>
                             </div>
@@ -190,7 +190,7 @@
                         </div>
                         <div v-show="result.pdf !== null" class="sub-title">PDF下載</div>
                         <div v-show="result.pdf !== null" class="download">
-                            <a :href="result.pdf" :download="result.name + '.pdf'"><img
+                            <a :href="result.pdf" :download="result.pdf_name + '.pdf'"><img
                                     src="{{ asset('Frontstage/images/pdf.svg') }}" alt="pdf檔案"
                                     title="pdf檔案"><span>PDF檔名在這點擊後下載</span></a>
                         </div>

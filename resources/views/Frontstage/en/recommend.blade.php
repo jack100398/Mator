@@ -153,17 +153,17 @@
                         <img :src="result.picture_one" alt="">
                         <div class="flex-row">
                             <div class="col">
-                                <a class="fancybox" href="{{ asset('Frontstage/images/result_img2.jpg') }}">
+                                <a class="fancybox" :href="result.picture_two">
                                     <img :src="result.picture_two" alt="">
                                 </a>
                             </div>
                             <div class="col">
-                                <a class="fancybox" href="{{ asset('Frontstage/images/result_img2.jpg') }}">
+                                <a class="fancybox" :href="result.picture_three">
                                     <img :src="result.picture_three" alt="">
                                 </a>
                             </div>
                             <div class="col">
-                                <a class="fancybox" href="{{ asset('Frontstage/images/result_img2.jpg') }}">
+                                <a class="fancybox" :href="result.picture_four">
                                     <img :src="result.picture_four" alt="">
                                 </a>
                             </div>
@@ -185,12 +185,12 @@
                             </div>
                             <div class="col">
                                 <div class="sub-title">JOURNEY</div>
-                                <div class="num">@{{ result.travel }}@{{ result.pdf }}</div>
+                                <div class="num">@{{ result.travel }}</div>
                             </div>
                         </div>
-                        <div v-show="result.pdf !== null" class="sub-title">DOWNLOAD PDF</div>
-                        <div v-show="result.pdf !== null" class="download">
-                            <a :href="result.pdf" :download="result.name + '.pdf'"><img
+                        <div v-show="result.en_pdf !== null" class="sub-title">DOWNLOAD PDF</div>
+                        <div v-show="result.en_pdf !== null" class="download">
+                            <a :href="result.en_pdf" :download="result.en_pdf_name + '.pdf'"><img
                                     src="{{ asset('Frontstage/images/pdf.svg') }}" alt="pdf檔案"
                                     title="pdf檔案"><span>PDF檔名在這點擊後下載</span></a>
                         </div>
