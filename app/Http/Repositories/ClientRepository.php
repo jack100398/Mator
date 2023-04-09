@@ -6,6 +6,7 @@ use App\Banner;
 use App\GlobalSetting;
 use App\News;
 use App\Product;
+use App\ProductType;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Pagination\LengthAwarePaginator;
 
@@ -29,6 +30,18 @@ class ClientRepository
             ->orderBy('id')
             ->where('type_id', $type_id)
             ->paginate(15);
+    }
+
+    /**
+     * 獲得指定站台的產品類別
+     *
+     * @param string $site
+     *
+     * @return Collection
+     */
+    public function getProductTypesBySite(string $site = 'zh'): Collection
+    {
+        return ProductType::query()->where('site', $site)->get();
     }
 
     /**

@@ -39,6 +39,18 @@ class ClientService
     }
 
     /**
+     * 獲得指定站台的產品類別
+     *
+     * @param string $site
+     *
+     * @return Collection
+     */
+    public function getProductTypesBySite(string $site = 'zh'): Collection
+    {
+        return $this->repository->getProductTypesBySite($site);
+    }
+
+    /**
      * 獲得分頁後的最新消息
      *
      * @return LengthAwarePaginator

@@ -9,7 +9,7 @@
                             <div class="img"><img src="{{ $type['index_image'] }}" alt=""></div>
                             <div class="text">
                                 <h3>{{ $type['name'] }}</h3>
-                                <p>{{ $type['en_remark'] }}</p>
+                                <p>{{ $type['remark'] }}</p>
                             </div>
                         </a>
                     </div>

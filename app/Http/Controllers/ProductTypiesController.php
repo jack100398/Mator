@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Services\ClientService;
 use App\Http\Transformer\ProductType\InputTransformer;
 use App\Http\Transformer\ProductType\ProductTypeTransformer;
 use App\ProductType;
@@ -16,18 +17,24 @@ class ProductTypiesController extends Controller
 
     public function __construct(
         protected ProductTypeTransformer $transformer,
-        protected InputTransformer $input_transformer
+        protected InputTransformer $input_transformer,
+        protected ClientService $client_service
     ) {
     }
 
-    public function index(): View
+    public function index(Request $request): View
     {
-        $typies = ProductType::query()->get();
+        if (!is_null($request->site)) {
+            $typies = $this->client_service->getProductTypesBySite($request->site);
+        } else {
+            $typies = ProductType::query()->get();
+        }
 
         return view('Backstage.ProductTypies.index', [
             'page_categroy' => self::PAGE_CATEGORY,
             'page_title'    => self::PAGE_TITLE,
-            'items'       => $this->transformer->transformCollection($typies)
+            'items'         => $this->transformer->transformCollection($typies),
+            'site'          => $request->site
         ]);
     }
 

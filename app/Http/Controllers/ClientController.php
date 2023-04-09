@@ -39,7 +39,7 @@ class ClientController extends Controller
      */
     public function index(): View
     {
-        $product_typies = $this->product_type_service->getAll();
+        $product_typies = $this->service->getProductTypesBySite();
         $slider_images = SliderImage::query()->where('disabled', true)->get();
 
         return view('Frontstage.zh.index', [
@@ -113,10 +113,12 @@ class ClientController extends Controller
      */
     public function product(): View
     {
+        $product_types = $this->service->getProductTypesBySite();
+
         return view('Frontstage.zh.product', [
             'banner' => $this->service->getBanner('product'),
             'third_links' => ThirdLink::query()->get(),
-            'product_typies' => $this->product_type_transformer->transformCollection(ProductType::query()->get()),
+            'product_typies' => $this->product_type_transformer->transformCollection($product_types),
             'settings' => $this->service->getSettings()
         ]);
     }
@@ -149,7 +151,7 @@ class ClientController extends Controller
         $data = $request->all();
         $type_id = $data['id'];
 
-        $types = ProductType::query()->get();
+        $types = $this->service->getProductTypesBySite();
         $current_type = $types->filter(fn ($type) => $type->id == $request->id)->first();
         $products = $this->service->getProductsByType($type_id, Arr::get($data, 'page', 1));
 
