@@ -40,7 +40,7 @@
             </div>
 
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('product-type', ['site' => 'zh']) }}">
+                <a class="nav-link" href="{{ route('product-type') }}">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>產品類別</span></a>
             </li>
