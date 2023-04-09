@@ -12,7 +12,7 @@
                             <div class="inner">
                                 <div class="img">
                                     <img style="width: 360px" src="{{ $new['image'] }}" alt="">
-                                    <a href="{{ route('article', ['news' => $new['id']]) }}">
+                                    <a href="{{ route('en-article', ['news' => $new['id']]) }}">
                                         <i class="fa fa-align-left"></i>
                                     </a>
                                 </div>
@@ -21,7 +21,7 @@
                                     <p>{{ $new['introduction'] }}</p>
                                     <div class="bottom">
                                         <div class="date">{{ $new['created_at'] }}</div>
-                                        <a href="{{ route('article', ['news' => $new['id']]) }}">READ MORE</a>
+                                        <a href="{{ route('en-article', ['news' => $new['id']]) }}">READ MORE</a>
                                     </div>
                                 </div>
                             </div>
