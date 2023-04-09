@@ -15,7 +15,7 @@
                         <select class="form-control" v-model="data.type_id">
                             <option value="0" disabled selected>請選擇</option>
                             @foreach ($product_typies as $type)
-                                <option value="{{ $type['id'] }}">{{ $type['name'] }}</option>
+                                <option value="{{ $type['id'] }}">{{ $type['admin_select_name'] }}</option>
                             @endforeach
                         </select>
                     </div>

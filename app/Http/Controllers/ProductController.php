@@ -23,14 +23,15 @@ class ProductController extends Controller
     ) {
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $product = Product::query()->get();
+        $product = $this->type_service->getProductsBySite($request->site);
 
         return view('Backstage.Product.index', [
             'page_categroy' => self::PAGE_CATEGORY,
             'page_title'    => self::PAGE_TITLE,
-            'items'       => $this->transformer->transformCollection($product),
+            'items'         => $this->transformer->transformCollection($product),
+            'site'          => $request->site
         ]);
     }
 

@@ -27,8 +27,16 @@ class ProductTypeService
      *
      * @return Collection
      */
-    public function getProducts(): COllection
+    public function getProducts(): Collection
     {
         return $this->repository->getProducts();
+    }
+
+    /**
+     * 獲得站台產品
+     */
+    public function getProductsBySite(?string $site)
+    {
+        return $this->repository->getProductsBySite($site);
     }
 }
