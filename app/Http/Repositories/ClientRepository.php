@@ -47,11 +47,14 @@ class ClientRepository
     /**
      * 獲得分頁後的最新消息
      *
+     * @param string $site
+     * 
      * @return LengthAwarePaginator
      */
-    public function getNews(): LengthAwarePaginator
+    public function getNews(string $site): LengthAwarePaginator
     {
         return News::query()
+            ->where('site', $site)
             ->orderBy('created_at')
             ->paginate(15);
     }

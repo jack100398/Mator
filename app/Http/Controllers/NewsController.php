@@ -19,14 +19,18 @@ class NewsController extends Controller
     ) {
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $news = News::query()->orderBy('created_at')->get();
+        $news = News::query()->when(
+            !is_null($request->site),
+            fn ($query) => $query->where('site', $request->site)
+        )->orderBy('created_at')->get();
 
         return view('Backstage.News.index', [
             'page_categroy' => self::PAGE_CATEGORY,
             'page_title'    => self::PAGE_TITLE,
-            'items'       => $this->transformer->transformCollection($news),
+            'items'         => $this->transformer->transformCollection($news),
+            'site'          => $request->site
         ]);
     }
 

@@ -70,7 +70,7 @@ class EnClientController extends Controller
      */
     public function news(): View
     {
-        $news = $this->service->getNews();
+        $news = $this->service->getNews('en');
 
         return view('Frontstage.en.news', [
             'banner' => $this->service->getBanner('news', 'en'),

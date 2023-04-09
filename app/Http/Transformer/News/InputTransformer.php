@@ -12,6 +12,7 @@ class InputTransformer extends Transformer
         return [
             'title' => $model['title'],
             'type' => $model['type'],
+            'site'  => $model['site'],
             'introduction' => $model['introduction'],
             'image' => UrlHelper::formatInputUrl($model['image']),
             'text' => $model['text'],

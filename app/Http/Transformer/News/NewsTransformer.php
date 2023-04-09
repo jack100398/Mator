@@ -13,6 +13,7 @@ class NewsTransformer extends Transformer
         return [
             'id' => $model['id'],
             'title' => $model['title'],
+            'site'  => $model['site'],
             'type' => $model['type'],
             'introduction' => $model['introduction'],
             'image' => UrlHelper::formatOutPutUrl($model['image']),

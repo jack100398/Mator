@@ -53,11 +53,13 @@ class ClientService
     /**
      * 獲得分頁後的最新消息
      *
+     * @param string $site
+     *
      * @return LengthAwarePaginator
      */
-    public function getNews(): LengthAwarePaginator
+    public function getNews(string $site = 'zh'): LengthAwarePaginator
     {
-        return $this->repository->getNews();
+        return $this->repository->getNews($site);
     }
 
     /**

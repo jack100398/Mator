@@ -17,6 +17,8 @@
                     </div>
                 </div>
 
+                @include('Backstage.component.edit_side_selector')
+
                 <div class="card shadow mb-4">
                     <!-- Card Header - Dropdown -->
                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
@@ -99,7 +101,11 @@
                     ['fontname', ['fontname']],
                     ['color', ['color']],
                     ['para', ['ul', 'ol', 'paragraph']],
-                    ['table', ['table']],
+                    ['table', ['table']], //插入表格 
+                    ['hr', ['hr']], //插入水平線  
+                    ['link', ['link']], //插入連結  
+                    ['picture', ['picture']], //插入圖片  
+                    ['video', ['video']], //插入視訊
                     ['view', ['codeview']],
                 ],
                 callbacks: {

@@ -7,7 +7,7 @@
         </a>
         <br>
         <br>
-
+        @include('Backstage.component.index_side_selector', ['route' => 'news-admin'])
         <div class="row">
             <div class="col-xl-12 col-lg-12">
                 @foreach ($items as $item)

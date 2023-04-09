@@ -13,6 +13,7 @@ class News extends Model
         'text',
         'introduction',
         'created_at',
+        'site'
     ];
 
     protected $cast = [
@@ -21,6 +22,7 @@ class News extends Model
         'image' => 'string',
         'text' => 'string',
         'introduction' => 'string',
-        'created_at' => 'datetime'
+        'created_at' => 'datetime',
+        'site' => 'string'
     ];
 }
