@@ -200,7 +200,7 @@
                 <div class="card shadow mb-4">
                     <!-- Card Header - Dropdown -->
                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                        <h6 class="m-0 font-weight-bold text-primary">產品圖片</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">產品圖片 (寬720*高280)</h6>
                     </div>
                     <!-- Card Body -->
                     <div class="card-body">
@@ -214,7 +214,7 @@
                 <div class="card shadow mb-4">
                     <!-- Card Header - Dropdown -->
                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                        <h6 class="m-0 font-weight-bold text-primary">F-V曲線圖</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">F-V曲線圖 (寬900*高670)</h6>
                     </div>
                     <!-- Card Body -->
                     <div class="card-body">
@@ -228,7 +228,7 @@
                 <div class="card shadow mb-4">
                     <!-- Card Header - Dropdown -->
                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                        <h6 class="m-0 font-weight-bold text-primary">重複定位精準度</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">重複定位精準度 (寬900*高670)</h6>
                     </div>
                     <!-- Card Body -->
                     <div class="card-body">
@@ -242,7 +242,7 @@
                 <div class="card shadow mb-4">
                     <!-- Card Header - Dropdown -->
                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                        <h6 class="m-0 font-weight-bold text-primary">加速度與荷重關係圖</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">加速度與荷重關係圖 (寬900*高670)</h6>
                     </div>
                     <!-- Card Body -->
                     <div class="card-body">
