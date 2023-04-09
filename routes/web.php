@@ -106,9 +106,8 @@ Route::prefix('admin')->group(function () {
         Route::prefix('create-page')->group(function () {
             Route::get('link', 'ThirdLinkController@create')->name('createThirdLinkPage');
         });
-
-        Route::get('client-commodity', 'CommodityController@search');
     });
+    Route::get('client-commodity', 'CommodityController@search');
 });
 
 Route::prefix('zh')->group(function () {
