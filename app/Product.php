@@ -20,7 +20,8 @@ class Product extends Model
         'video_url2',
         'video_url3',
         'video_url4',
-        'pdf'
+        'pdf',
+        'pdf_name'
     ];
 
     protected $cast = [
@@ -37,6 +38,7 @@ class Product extends Model
         'video_url3' => 'string',
         'video_url4' => 'string',
         'pdf' => 'string',
+        'pdf_name' => 'string',
     ];
 
     public function Type(): BelongsTo

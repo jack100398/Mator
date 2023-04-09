@@ -26,6 +26,7 @@ class ProductDetailTransformer extends Transformer
                 UrlHelper::formatOutPutUrl($model['video_url4']),
             ])->filter()->toArray(),
             'pdf' => UrlHelper::formatOutPutUrl($model['pdf']),
+            'pdf_name' => $model['pdf_name'],
         ];
     }
 }

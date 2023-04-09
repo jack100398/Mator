@@ -23,6 +23,7 @@ class InputTransformer extends Transformer
             'video_url3' => UrlHelper::formatInputUrl($model['video_url3']),
             'video_url4' => UrlHelper::formatInputUrl($model['video_url4']),
             'pdf' => UrlHelper::formatInputUrl($model['pdf']),
+            'pdf_name' => $model['pdf_name'],
         ];
     }
 }

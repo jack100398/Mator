@@ -14,7 +14,7 @@
                     <p>{{ $product['remark'] }}</p>
                     <div class="bottom-btn flex-row">
                         @if ($product['pdf'] !== null)
-                            <a href="{{ $product['pdf'] }}" download="{{ $product['name'] }}.pdf"
+                            <a href="{{ $product['pdf'] }}" download="{{ $product['pdf_name'] }}.pdf"
                                 class="col hover-scale">PDF
                                 檔案下載</a>
                         @endif

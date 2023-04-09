@@ -79,14 +79,21 @@
                     </div>
                     <!-- Card Body -->
                     <div class="card-body">
-                        <img v-show="data.pdf !== null" id="demo-img" class="img-fluid" style="max-width: 50px;height:50px"
-                            src="{{ asset('Frontstage/images/pdf.svg') }}">
-                        <input id="pdf" class="file" type="file" accept=".pdf" multiple data-min-file-count="1">
-                        <button type="submit" class="btn btn-primary pull-right" v-on:click="upload('pdf')">上傳</button>
+                        <img v-show="data.pdf !== null && data.pdf !== ''" id="demo-img" class="img-fluid"
+                            style="max-width: 50px;height:50px" src="{{ asset('Frontstage/images/pdf.svg') }}">
+
                     </div>
-                    <div class="card-body" v-show="data.pdf !== null">
+                    <div class="card-body">
+                        pdf連結
                         <input v-show="data.pdf !== null" type="text" v-model="data.pdf" class="form-control"
                             placeholder="" aria-label="power" aria-describedby="basic-addon1">
+                        pdf名稱
+                        <input v-show="data.pdf !== null" type="text" v-model="data.pdf_name" class="form-control"
+                            placeholder="" aria-label="power" aria-describedby="basic-addon1">
+                    </div>
+                    <div class="card-body">
+                        <input id="pdf" class="file" type="file" accept=".pdf" multiple data-min-file-count="1">
+                        <button type="submit" class="btn btn-primary pull-right" v-on:click="upload('pdf')">上傳</button>
                     </div>
                 </div>
 
@@ -200,6 +207,7 @@
                         video_url3: null,
                         video_url4: null,
                         pdf: null,
+                        pdf_name: null,
                         acting: null
                     },
                 }
