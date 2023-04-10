@@ -11,7 +11,7 @@
         <div class="row">
             <div class="col-xl-12 col-lg-12">
                 @foreach ($items as $item)
-                    <div class="card shadow mb-4 ml-0 col-xl-4 col-lg-4" style="float:left;height:220px">
+                    <div class="card shadow mb-4 ml-0 col-xl-4 col-lg-4" style="float:left;height:260px">
                         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                             <h6 class="m-0 font-weight-bold text-primary">{{ $item['name'] }}</h6>
                         </div>
@@ -19,7 +19,7 @@
                         <div class="card-body">
                             <div class="card shadow mb-4">
                                 <div class="card-body">
-                                    <img id="demo-img" class="img-fluid" style="max-width: 40%;height:40%;"
+                                    <img id="demo-img" class="img-fluid" style="max-width: 35%;height:35%;"
                                         src="{{ $item['picture_one'] }}">
                                 </div>
                             </div>

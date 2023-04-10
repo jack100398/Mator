@@ -176,18 +176,6 @@
                                 class="form-control" placeholder="請輸入熱抗" aria-label="power"
                                 aria-describedby="basic-addon1">
                         </div>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon1">水平最大荷重</span>
-                            </div>
-                            <input type="number" v-model="data.horizontal_load" class="form-control"
-                                placeholder="請輸入水平最大荷重" aria-label="power" aria-describedby="basic-addon1">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon1">壁掛(垂直)最大荷重</span>
-                            </div>
-                            <input type="number" v-model="data.vertical_load" class="form-control"
-                                placeholder="請輸入壁掛最大荷重" aria-label="power" aria-describedby="basic-addon1">
-                        </div>
                         <div class="form-group">
                             <label for="exampleFormControlTextarea1">備註</label>
                             <textarea v-model="data.remark" class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
@@ -255,7 +243,7 @@
                         id: {{ $id }},
                         name: null,
                         type: null,
-                        resolution: null, //解析度
+                        resolution: 0.0001, //解析度
                         rated_thrust: null, //額定推力
                         acceleration_thrust: null, //加速推力
                         rated_current: null, //額定電流
