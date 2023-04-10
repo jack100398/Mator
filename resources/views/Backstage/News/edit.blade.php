@@ -96,11 +96,11 @@
                 fontNames: gArrayFonts,
                 fontNamesIgnoreCheck: gArrayFonts,
                 toolbar: [
-                    ['style'],
                     ['style', ['clear', 'bold', 'italic', 'underline']],
                     ['fontname', ['fontname']],
                     ['color', ['color']],
                     ['para', ['ul', 'ol', 'paragraph']],
+                    ['fontsize', ['fontsize']], //字型大小    
                     ['table', ['table']], //插入表格 
                     ['hr', ['hr']], //插入水平線  
                     ['link', ['link']], //插入連結  
