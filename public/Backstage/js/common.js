@@ -83,9 +83,11 @@ function ajaxUploadFile(type = 'post', path, data) {
             contentType: false,
             cache: false,
             success: function (res) {
+                alert('上傳成功');
                 resolve(res);
             },
             error: function (err) {
+                alert('檔案過大或非預期異常,請確認檔案大小或聯繫系統管理員')
                 console.log(err);
             }
         });

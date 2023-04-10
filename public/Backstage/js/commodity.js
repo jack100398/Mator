@@ -1,24 +1,44 @@
-async function dropCommodities(id) {
-    url = 'commodity/' + id;
+const route = 'commodity/';
+
+const home = "/admin/commodity"
+
+async function drop(id) {
+    url = route + id;
 
     await sendAjax('delete', url, null);
-    await getCommodities();
+
+    location.reload();
 }
+
+async function getItem(id) {
+    return await sendAjax('get', route + id);
+}
+
+async function createModel(data) {
+    await sendAjax('post', route, data)
+        .then(value => {
+            alert('新增成功');
+            window.location.href = home
+        })
+        .catch(error => {
+            alert('修改失敗,請確認資訊使否皆已填入');
+        });
+}
+
+async function updateModel(data) {
+    await sendAjax('patch', route + data['id'], data)
+        .then(value => {
+            alert('修改成功');
+            window.location.href = home
+        })
+        .catch(error => {
+            alert('修改失敗,請確認資訊使否皆已填入');
+        });
+}
+
 
 async function search(data) {
     url = 'client-commodity';
 
     return await sendAjax('get', url, data);
 }
-
-async function getCommodities() {
-    $('#commodity_cards').html();
-    let html = await sendAjax('get', 'commodities', null);
-    $('#commodity_cards').html(html);
-}
-
-async function getCommodity(id) {
-    return await sendAjax('get', 'commodity/' + id);
-}
-
-getCommodities();

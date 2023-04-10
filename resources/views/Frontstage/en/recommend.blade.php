@@ -72,7 +72,8 @@
                             <div class="col">
                                 <input type="range" min="0" max="10000" step="50" id="range"
                                     v-model="data.weight">
-                                <input type="number" id="rangenumber" min="0" max="10000" v-model="data.weight">
+                                <input style="width:30%" type="number" id="rangenumber" min="0" max="10000"
+                                    v-model="data.weight">KG
                             </div>
                         </div>
                         <div class="flex-row style2">
@@ -81,7 +82,7 @@
                                 <input type="range" min="0" max="10000" step="50" id="range2"
                                     v-model="data.distance">
                                 <input type="number" id="rangenumber2" min="0" max="10000"
-                                    v-model="data.distance" placeholder="請輸入50的倍數數字">
+                                    v-model="data.distance" placeholder="請輸入50的倍數數字">mm
                             </div>
                         </div>
                     </div>
@@ -190,7 +191,7 @@
                         </div>
                         <div v-show="result.en_pdf !== null" class="sub-title">DOWNLOAD PDF</div>
                         <div v-show="result.en_pdf !== null" class="download">
-                            <a :href="result.en_pdf" :download="result.en_pdf_name + '.pdf'"><img
+                            <a :href="result.en_pdf" :download="result.en_pdf_name + '.' + result.en_pdf_ext"><img
                                     src="{{ asset('Frontstage/images/pdf.svg') }}" alt="pdf檔案"
                                     title="pdf檔案"><span>PDF檔名在這點擊後下載</span></a>
                         </div>

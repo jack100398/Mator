@@ -36,10 +36,6 @@ Route::prefix('admin')->group(function () {
         Route::apiResource('banner', 'BannerController', ['names' => ['index' => 'banner']]);
         Route::get('banner/edit/{banner}', 'BannerController@edit');
 
-        Route::apiResource('/commodity', 'CommodityController', ['names' => ['index' => 'commodity']]);
-
-        Route::get('commodities', 'CommodityController@getCommodities');
-
         Route::prefix('product-type')->group(function () {
             Route::get('/edit', [ProductTypiesController::class, 'edit'])->name('editProductTypePage');
             Route::get('/create', [ProductTypiesController::class, 'create'])->name('createProductTypePage');
@@ -80,6 +76,16 @@ Route::prefix('admin')->group(function () {
             Route::post('/', [NewsController::class, 'store']);
         });
 
+        Route::prefix('commodity')->group(function () {
+            Route::get('/edit', [CommodityController::class, 'edit'])->name('editCommodityPage');
+            Route::get('/create', [CommodityController::class, 'create'])->name('createCommodityPage');
+            Route::get('/{commodity}', [CommodityController::class, 'show']);
+            Route::patch('/{commodity}', [CommodityController::class, 'update']);
+            Route::delete('/{commodity}', [CommodityController::class, 'destroy']);
+            Route::get('/', [CommodityController::class, 'index'])->name('commodity');
+            Route::post('/', [CommodityController::class, 'store']);
+        });
+
         Route::prefix('settings')->group(function () {
             Route::get('/edit', [GlobalSettingController::class, 'edit'])->name('editSettingPage');
             Route::get('/{setting}', [GlobalSettingController::class, 'show']);
@@ -95,10 +101,7 @@ Route::prefix('admin')->group(function () {
 
         Route::apiResource('third', 'ThirdLinkController', ['names' => ['index' => 'third']]);
 
-        Route::apiResource('/commodity', 'CommodityController', ['names' => ['index' => 'commodity']]);
-
         Route::prefix('edit-page')->group(function () {
-            Route::get('commodity', [CommodityController::class, 'edit'])->name('editCommodityPage');
             Route::get('link', [ThirdLinkController::class, 'edit'])->name('editLinkPage');
             Route::get('banner', [BannerController::class, 'edit'])->name('editBannerPage');
         });
@@ -107,7 +110,7 @@ Route::prefix('admin')->group(function () {
             Route::get('link', 'ThirdLinkController@create')->name('createThirdLinkPage');
         });
     });
-    Route::get('client-commodity', 'CommodityController@search');
+    Route::get('client-commodity', [CommodityController::class, 'search']);
 });
 
 Route::prefix('zh')->group(function () {

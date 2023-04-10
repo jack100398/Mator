@@ -72,7 +72,8 @@
                             <div class="col">
                                 <input type="range" min="0" max="10000" step="50" id="range"
                                     v-model="data.weight">
-                                <input type="number" id="rangenumber" min="0" max="10000" v-model="data.weight">
+                                <input style="width:30%" type="number" id="rangenumber" min="0" max="10000"
+                                    v-model="data.weight">KG
                             </div>
                         </div>
                         <div class="flex-row style2">
@@ -80,8 +81,8 @@
                             <div class="col">
                                 <input type="range" min="0" max="10000" step="50" id="range2"
                                     v-model="data.distance">
-                                <input type="number" id="rangenumber2" min="0" max="10000"
-                                    v-model="data.distance" placeholder="請輸入50的倍數數字">
+                                <input style="width:30%" type="number" id="rangenumber2" min="0" max="10000"
+                                    v-model="data.distance" placeholder="請輸入50的倍數數字">mm
                             </div>
                         </div>
                     </div>
@@ -118,7 +119,7 @@
                             <span>msec</span>
                         </div>
                         <div class="input">
-                            <span>轉速速度</span>
+                            <span>運轉速度</span>
                             <input type="text" v-model="byAccelerationTime.speed">
                             <span>mm/sec</span>
                         </div>
@@ -190,7 +191,7 @@
                         </div>
                         <div v-show="result.pdf !== null" class="sub-title">PDF下載</div>
                         <div v-show="result.pdf !== null" class="download">
-                            <a :href="result.pdf" :download="result.pdf_name + '.pdf'"><img
+                            <a :href="result.pdf" :download="result.pdf_name + '.' + result.pdf_ext"><img
                                     src="{{ asset('Frontstage/images/pdf.svg') }}" alt="pdf檔案"
                                     title="pdf檔案"><span>PDF檔名在這點擊後下載</span></a>
                         </div>

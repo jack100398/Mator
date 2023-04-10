@@ -11,18 +11,17 @@
         </div>
         <div class="row">
             <!-- Area Chart -->
-            <div class="col-xl-8 col-lg-7">
+            <div class="col-xl-12 col-lg-12">
                 <div class="card shadow mb-4">
                     <!-- Card Header - Dropdown -->
                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                         <h6 class="m-0 font-weight-bold text-primary">產品資訊</h6>
                     </div>
                     <!-- Card Body -->
-                    <input type="hidden" class="defaultToken" v-model="data.id">
                     <div class="card-body">
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon1">型號</span>
+                                <span class="input-group-text" id="basic-addon1">*型號</span>
                             </div>
                             <input type="text" v-model="data.name" class="form-control" placeholder="請輸入型號"
                                 aria-label="name" aria-describedby="basic-addon1">
@@ -34,7 +33,7 @@
                         </div>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon1">解析度</span>
+                                <span class="input-group-text" id="basic-addon1">*解析度</span>
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="radio" name="resolution" id="inlineRadio1"
                                         checked v-model="data.resolution" value="0.0001">
@@ -47,7 +46,7 @@
                                 </div>
                             </div>
                             <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon1">直線尺型式</span>
+                                <span class="input-group-text" id="basic-addon1">*直線尺型式</span>
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="radio" name="linear_ruler" id="inlineRadio1"
                                         checked v-model="data.linear_ruler" value="0">
@@ -106,19 +105,19 @@
                         </div>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon1">水平最大荷重</span>
+                                <span class="input-group-text" id="basic-addon1">*水平最大荷重</span>
                             </div>
                             <input type="number" v-model="data.horizontal_load" class="form-control"
                                 placeholder="請輸入水平最大荷重" aria-label="power" aria-describedby="basic-addon1">
                             <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon1">壁掛(垂直)最大荷重</span>
+                                <span class="input-group-text" id="basic-addon1">*壁掛(垂直)最大荷重</span>
                             </div>
                             <input type="number" v-model="data.vertical_load" class="form-control"
                                 placeholder="請輸入壁掛最大荷重" aria-label="power" aria-describedby="basic-addon1">
                         </div>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon1">行程(雙滑軌)</span>
+                                <span class="input-group-text" id="basic-addon1">*行程(雙滑軌)</span>
                             </div>
                             <input type="number" v-model="data.travel" class="form-control" placeholder="請輸入行程"
                                 aria-label="power" aria-describedby="basic-addon1">
@@ -150,28 +149,28 @@
                         </div>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon1">導抗</span>
+                                <span class="input-group-text" id="basic-addon1">*逆起電力定数 （V/m/s）</span>
                             </div>
                             <input type="number" v-model="data.Siemens" class="form-control" placeholder="請輸入導抗"
                                 aria-label="power" aria-describedby="basic-addon1">
                             <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon1">電阻值</span>
+                                <span class="input-group-text" id="basic-addon1">*電阻值</span>
                             </div>
                             <input type="number" v-model="data.ohm" class="form-control" placeholder="請輸入電阻值"
                                 aria-label="power" aria-describedby="basic-addon1">
                             <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon1">推力定數</span>
+                                <span class="input-group-text" id="basic-addon1">*推力定數</span>
                             </div>
                             <input type="number" v-model="data.force_constant" id="commodity-power"
                                 class="form-control" placeholder="請輸入推力定數" aria-label="power"
                                 aria-describedby="basic-addon1">
                             <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon1">可動子重量(公斤力)</span>
+                                <span class="input-group-text" id="basic-addon1">*可動子重量(公斤力)</span>
                             </div>
                             <input type="number" v-model="data.kgf" id="commodity-power" class="form-control"
                                 placeholder="請輸入可動子重量" aria-label="power" aria-describedby="basic-addon1">
                             <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon1">熱抗</span>
+                                <span class="input-group-text" id="basic-addon1">*熱抗</span>
                             </div>
                             <input type="number" v-model="data.heat_resistance" id="commodity-power"
                                 class="form-control" placeholder="請輸入熱抗" aria-label="power"
@@ -196,121 +195,51 @@
                     </div>
                 </div>
             </div>
-            <!-- Pie Chart -->
-            <div class="col-xl-4 col-lg-5">
-                <div class="card shadow mb-4">
-                    <!-- Card Header - Dropdown -->
-                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                        <h6 class="m-0 font-weight-bold text-primary">產品圖片 (寬720*高280)</h6>
-                    </div>
-                    <!-- Card Body -->
-                    <div class="card-body">
-                        <img id="demo-img" class="img-fluid" style="max-width: 50%;height:auto;"
-                            :src="data.picture_one">
-                        <input id="picture_one" class="file" type="file" multiple data-min-file-count="1">
-                        <button type="submit" class="btn btn-primary pull-right"
-                            v-on:click="upload('picture_one')">上傳</button>
-                    </div>
-                </div>
-                <div class="card shadow mb-4">
-                    <!-- Card Header - Dropdown -->
-                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                        <h6 class="m-0 font-weight-bold text-primary">F-V曲線圖 (寬900*高670)</h6>
-                    </div>
-                    <!-- Card Body -->
-                    <div class="card-body">
-                        <img id="demo-img" class="img-fluid" style="max-width: 50%;height:auto;"
-                            :src="data.picture_two">
-                        <input id="picture_two" class="file" type="file" multiple data-min-file-count="1">
-                        <button type="submit" class="btn btn-primary pull-right"
-                            v-on:click="upload('picture_two')">上傳</button>
-                    </div>
-                </div>
-                <div class="card shadow mb-4">
-                    <!-- Card Header - Dropdown -->
-                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                        <h6 class="m-0 font-weight-bold text-primary">重複定位精準度 (寬900*高670)</h6>
-                    </div>
-                    <!-- Card Body -->
-                    <div class="card-body">
-                        <img id="demo-img" class="img-fluid" style="max-width: 50%;height:auto;"
-                            :src="data.picture_three">
-                        <input id="picture_three" class="file" type="file" multiple data-min-file-count="1">
-                        <button type="submit" class="btn btn-primary pull-right"
-                            v-on:click="upload('picture_three')">上傳</button>
-                    </div>
-                </div>
-                <div class="card shadow mb-4">
-                    <!-- Card Header - Dropdown -->
-                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                        <h6 class="m-0 font-weight-bold text-primary">加速度與荷重關係圖 (寬900*高670)</h6>
-                    </div>
-                    <!-- Card Body -->
-                    <div class="card-body">
-                        <img id="demo-img" class="img-fluid" style="max-width: 50%;height:auto;"
-                            :src="data.picture_four">
-                        <input id="picture_four" class="file" type="file" multiple data-min-file-count="1">
-                        <button type="submit" class="btn btn-primary pull-right"
-                            v-on:click="upload('picture_four')">上傳</button>
-                    </div>
-                </div>
 
-                <div class="card shadow mb-4">
-                    <!-- Card Header - Dropdown -->
-                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                        <h6 class="m-0 font-weight-bold text-primary">中文pdf</h6>
-                    </div>
-                    <!-- Card Body -->
-                    <div class="card-body">
-                        <img id="demo-img" v-show="data.pdf !== null && data.pdf !== ''" class="img-fluid"
-                            style="max-width: 50px;height:50px" src="{{ asset('Frontstage/images/pdf.svg') }}">
-                    </div>
-                    <div class="card-body">
-                        <h4>檔案網址</h4>
-                        <input type="text" v-model="data.pdf" class="form-control" placeholder="中文站檔案網址"
-                            aria-label="power" aria-describedby="basic-addon1">
-                        <h4>檔案名稱</h4>
-                        <input type="text" v-model="data.pdf_name" class="form-control" placeholder="中文站檔案名稱"
-                            aria-label="power" aria-describedby="basic-addon1">
-                    </div>
-                    <hr>
-                    <div class="card-body">
-                        <h3>檔案上傳</h3>
-                        <input id="pdf" class="file" type="file" accept=".pdf">
-                        <button type="submit" class="btn btn-primary pull-right" v-on:click="upload('pdf')">上傳</button>
-                    </div>
-                </div>
 
-                <div class="card shadow mb-4">
-                    <!-- Card Header - Dropdown -->
-                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                        <h6 class="m-0 font-weight-bold text-primary">英文站pdf</h6>
-                    </div>
-                    <!-- Card Body -->
-                    <div class="card-body">
-                        <img id="demo-img" v-show="data.en_pdf !== null && data.en_pdf !== ''" class="img-fluid"
-                            style="max-width: 50px;height:50px" src="{{ asset('Frontstage/images/pdf.svg') }}">
-                    </div>
-                    <div class="card-body">
-                        <h4>檔案網址</h4>
-                        <input type="text" v-model="data.en_pdf" class="form-control" placeholder="英文站檔案網址"
-                            aria-label="power" aria-describedby="basic-addon1">
-                        <h4>檔案名稱</h4>
-                        <input type="text" v-model="data.en_pdf_name" class="form-control" placeholder="英文站檔案名稱"
-                            aria-label="power" aria-describedby="basic-addon1">
-                    </div>
-                    <hr>
-                    <div class="card-body">
-                        <h3>檔案上傳</h3>
-                        <input id="en_pdf" class="file" type="file" accept=".pdf">
-                        <button type="submit" class="btn btn-primary pull-right"
-                            v-on:click="upload('en_pdf')">上傳</button>
-                    </div>
-                </div>
+
+            <div class="col-xl-12 col-lg-12">
+                @include('Backstage.component.commodity_pic', [
+                    'title' => '產品圖片 (寬720*高280)',
+                    'vue_name' => 'data.picture_one',
+                    'name' => 'picture_one',
+                ])
+
+                @include('Backstage.component.commodity_pic', [
+                    'title' => 'F-V曲線圖 (寬900*高670)',
+                    'vue_name' => 'data.picture_two',
+                    'name' => 'picture_two',
+                ])
+
+                @include('Backstage.component.commodity_pic', [
+                    'title' => '重複定位精準度 (寬900*高670)',
+                    'vue_name' => 'data.picture_three',
+                    'name' => 'picture_three',
+                ])
+
+                @include('Backstage.component.commodity_pic', [
+                    'title' => '加速度與荷重關係圖 (寬900*高670)',
+                    'vue_name' => 'data.picture_four',
+                    'name' => 'picture_four',
+                ])
+
+                @include('Backstage.component.file_uploader', [
+                    'title' => '中文站pdf',
+                    'vue_name' => 'data.pdf',
+                    'name' => 'pdf',
+                ])
+
+                @include('Backstage.component.file_uploader', [
+                    'title' => '英文站pdf',
+                    'vue_name' => 'data.en_pdf',
+                    'name' => 'en_pdf',
+                ])
+
             </div>
         </div>
         <div class="row justify-content-end">
-            <button type="button" class="btn btn-success" v-on:click="edit">修改</button>
+            <button v-show="data.id > 0" type="button" class="btn btn-success" v-on:click="update">修改</button>
+            <button v-show="data.id === 0" type="button" class="btn btn-primary" v-on:click="create">建立</button>
         </div>
     </div>
     <script src="{{ asset('Backstage/js/commodity.js') }}"></script>
@@ -357,14 +286,18 @@
                 }
             },
             mounted: async function() {
-                await this.getCommodity();
+                if (this.data.id !== 0) {
+                    await this.getItem();
+                }
             },
             methods: {
                 async upload(item) {
-                    this.data[item] = window._asset + (await uploadImage(item));
+                    var url = document.location.origin + '/' + await uploadImage(item);
+
+                    this.data[item] = url;
                 },
-                async getCommodity() {
-                    await getCommodity(this.data.id)
+                async getItem() {
+                    await getItem(this.data.id)
                         .then(res => {
                             this.data = res;
                         })
@@ -372,16 +305,12 @@
                             alert('發生錯誤,請聯繫系統管理員');
                         })
                 },
-                async edit(id) {
-                    await sendAjax('patch', 'commodity/' + this.data.id, this.data)
-                        .then(value => {
-                            getCommodities();
-                            alert('修改成功');
-                            window.location.href = "{{ route('commodity') }}"
-                        })
-                        .catch(error => {
-                            alert('修改失敗,請確認資訊使否皆已填入');
-                        });
+                async update(id) {
+                    updateModel(this.data)
+                },
+
+                async create() {
+                    createModel(this.data)
                 },
             }
         }).mount('#app')

@@ -12,6 +12,10 @@ use Illuminate\View\View;
 
 class CommodityController extends Controller
 {
+    protected const PAGE_CATEGORY = '商品';
+
+    protected const PAGE_TITLE = '商品管理';
+
     public function __construct(
         protected CommodityService $service,
         protected CommodityTransformer $transformer,
@@ -21,12 +25,18 @@ class CommodityController extends Controller
 
     public function index()
     {
-        return view('Backstage.Commodity.commodity');
+        $commodities = Commodity::query()->get();
+
+        return view('Backstage.Commodity.index', [
+            'page_categroy' => self::PAGE_CATEGORY,
+            'page_title'    => self::PAGE_TITLE,
+            'items'         => $this->transformer->transformCollection($commodities),
+        ]);
     }
 
     public function show(Commodity $commodity)
     {
-        return $this->transformer->transform($commodity);
+        return response()->json($this->transformer->transform($commodity));
     }
 
     /**
@@ -37,7 +47,16 @@ class CommodityController extends Controller
      */
     public function edit(Request $request): View
     {
-        return view('Backstage.Commodity.editCommodity', ['id' => $request->id]);
+        return view('Backstage.Commodity.edit', ['id' => $request->id]);
+    }
+
+    public function create()
+    {
+        return view('Backstage.Commodity.edit', [
+            'page_categroy' => self::PAGE_CATEGORY,
+            'page_title'    => self::PAGE_TITLE,
+            'id'       => 0
+        ]);
     }
 
     public function update(Commodity $commodity, Request $request)
