@@ -42,7 +42,7 @@
                 <div class="num">{{ $travel }}</div>
             </div>
         </div>
-        <div class="sub-title">PDF下載</div>
+        <div class="sub-title">檔案下載</div>
         <div class="download">
             <a href=""><img src="{{ asset('Frontstage/images/pdf.svg') }}" alt="pdf檔案"
                     title="pdf檔案"><span>PDF檔名在這點擊後下載</span></a>

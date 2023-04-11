@@ -77,7 +77,7 @@
                             </div>
                         </div>
                         <div class="flex-row style2">
-                            <div class="col">JOURNEY</div>
+                            <div class="col">JOURNEY<small>100mm/unit</small></div>
                             <div class="col">
                                 <input type="range" min="0" max="10000" step="50" id="range2"
                                     v-model="data.distance">

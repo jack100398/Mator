@@ -77,7 +77,7 @@
                             </div>
                         </div>
                         <div class="flex-row style2">
-                            <div class="col">行程</div>
+                            <div class="col">行程<br><small>100mm/單位</small></div>
                             <div class="col">
                                 <input type="range" min="0" max="10000" step="50" id="range2"
                                     v-model="data.distance">
@@ -189,7 +189,7 @@
                                 <div class="num">@{{ result.travel }}</div>
                             </div>
                         </div>
-                        <div v-show="result.pdf !== null" class="sub-title">PDF下載</div>
+                        <div v-show="result.pdf !== null" class="sub-title">檔案下載</div>
                         <div v-show="result.pdf !== null" class="download">
                             <a :href="result.pdf" :download="result.pdf_name + '.' + result.pdf_ext"><img
                                     src="{{ asset('Frontstage/images/pdf.svg') }}" alt="pdf檔案"
