@@ -16,10 +16,10 @@
                             <h6 class="m-0 font-weight-bold text-primary">{{ $item['name'] }}</h6>
                         </div>
                         <!-- Card Body -->
-                        <div class="card-body">
+                        <div class="card-body" style="height:200px">
                             <div class="card shadow mb-4">
-                                <div class="card-body">
-                                    <img id="demo-img" class="img-fluid" style="max-width: 35%;height:35%;"
+                                <div class="card-body" style="height:100px">
+                                    <img id="demo-img" class="img-fluid" style="max-width: 50%;height:100%;"
                                         src="{{ $item['picture_one'] }}">
                                 </div>
                             </div>
@@ -38,5 +38,5 @@
 
         </div>
     </div>
-    <script src="{{ asset('Backstage/js/product.js') }}"></script>
+    <script src="{{ asset('Backstage/js/commodity.js') }}"></script>
 @endsection
