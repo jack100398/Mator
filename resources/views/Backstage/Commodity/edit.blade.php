@@ -267,7 +267,9 @@
                         picture_four: null, //附圖
                         linear_ruler: 0, //直線尺形式(0:增量,1:絕對)
                         pdf: null,
+                        pdf_name: 'file_name',
                         en_pdf: null,
+                        en_pdf_name: 'file_name',
                         horizontal_load: null,
                         vertical_load: null,
                     },

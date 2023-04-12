@@ -225,7 +225,7 @@
                         video_url3: null,
                         video_url4: null,
                         pdf: null,
-                        pdf_name: null,
+                        pdf_name: 'file_name',
                         acting: null
                     },
                 }
@@ -239,7 +239,6 @@
             methods: {
                 async upload(item) {
                     var url = document.location.origin + '/' + await uploadImage(item);
-
                     this.data[item] = url;
                 },
                 async getItem() {
