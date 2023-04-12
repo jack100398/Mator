@@ -212,13 +212,13 @@
                 ])
 
                 @include('Backstage.component.file_uploader', [
-                    'title' => '中文站pdf',
+                    'title' => '中文站檔案',
                     'vue_name' => 'data.pdf',
                     'name' => 'pdf',
                 ])
 
                 @include('Backstage.component.file_uploader', [
-                    'title' => '英文站pdf',
+                    'title' => '英文站檔案',
                     'vue_name' => 'data.en_pdf',
                     'name' => 'en_pdf',
                 ])

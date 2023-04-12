@@ -193,7 +193,7 @@
                         <div v-show="result.pdf !== null" class="download">
                             <a :href="result.pdf" :download="result.pdf_name + '.' + result.pdf_ext"><img
                                     src="{{ asset('Frontstage/images/pdf.svg') }}" alt="pdf檔案"
-                                    title="pdf檔案"><span>PDF檔名在這點擊後下載</span></a>
+                                    title="檔案下載"><span>@{{ result.pdf_name + '.' + result.pdf_ext }} 在這點擊後下載</span></a>
                         </div>
                     </div>
                 </div>

@@ -75,24 +75,24 @@
                 <div class="card shadow mb-4">
                     <!-- Card Header - Dropdown -->
                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                        <h6 class="m-0 font-weight-bold text-primary">pdf</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">檔案</h6>
                     </div>
                     <!-- Card Body -->
                     <div class="card-body">
                         <img v-show="data.pdf !== null && data.pdf !== ''" id="demo-img" class="img-fluid"
                             style="max-width: 50px;height:50px" src="{{ asset('Frontstage/images/pdf.svg') }}">
-
                     </div>
                     <div class="card-body">
-                        pdf連結
-                        <input v-show="data.pdf !== null" type="text" v-model="data.pdf" class="form-control"
-                            placeholder="" aria-label="power" aria-describedby="basic-addon1">
-                        pdf名稱
-                        <input v-show="data.pdf !== null" type="text" v-model="data.pdf_name" class="form-control"
-                            placeholder="" aria-label="power" aria-describedby="basic-addon1">
+                        檔案連結
+                        <input type="text" v-model="data.pdf" class="form-control" placeholder="" aria-label="power"
+                            aria-describedby="basic-addon1">
+                        <hr>
+                        檔案名稱
+                        <input type="text" v-model="data.pdf_name" class="form-control" placeholder="" aria-label="power"
+                            aria-describedby="basic-addon1">
                     </div>
                     <div class="card-body">
-                        <input id="pdf" class="file" type="file" accept=".pdf" multiple data-min-file-count="1">
+                        <input id="pdf" class="file" type="file" multiple data-min-file-count="1">
                         <button type="submit" class="btn btn-primary pull-right" v-on:click="upload('pdf')">上傳</button>
                     </div>
                 </div>
@@ -149,17 +149,6 @@
                 <div class="card shadow mb-4">
                     <!-- Card Header - Dropdown -->
                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                        <h6 class="m-0 font-weight-bold text-primary">特色說明</h6>
-                    </div>
-                    <!-- Card Body -->
-                    <div class="card-body">
-                        <textarea v-model="data.features" class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
-                    </div>
-                </div>
-
-                <div class="card shadow mb-4">
-                    <!-- Card Header - Dropdown -->
-                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                         <h6 class="m-0 font-weight-bold text-primary">備註說明</h6>
                     </div>
                     <!-- Card Body -->
@@ -168,17 +157,16 @@
                     </div>
                 </div>
 
-                {{-- <div class="card shadow mb-4">
+                <div class="card shadow mb-4">
                     <!-- Card Header - Dropdown -->
                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                        <h6 class="m-0 font-weight-bold text-primary">簡介</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">特色說明</h6>
                     </div>
                     <!-- Card Body -->
                     <div class="card-body">
-                        <textarea v-model="data.introduction" class="form-control"id="exampleFormControlTextarea1" rows="5"></textarea>
+                        <textarea v-model="data.features" class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
                     </div>
-                </div> --}}
-
+                </div>
             </div>
         </div>
         <div class="row justify-content-end">

@@ -15,7 +15,7 @@
                     <div class="bottom-btn flex-row">
                         @if ($product['pdf'] !== null)
                             <a href="{{ $product['pdf'] }}" download="{{ $product['pdf_name'] }}.pdf"
-                                class="col hover-scale">PDF
+                                class="col hover-scale">
                                 檔案下載</a>
                         @endif
                         <a href="javascript:history.back()" class="col hover-scale">
