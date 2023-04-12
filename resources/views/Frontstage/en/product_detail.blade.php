@@ -24,7 +24,7 @@
             </div>
             <div class="steps">產品說明</div>
             <div class="editor">
-                <img src="{{ asset($product['chart_image']) }}" alt="">
+                {!! $product['introduction'] !!}
             </div>
             <div class="steps">產品實績</div>
             <div class="p-video flex-row">
