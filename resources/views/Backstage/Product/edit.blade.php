@@ -149,11 +149,12 @@
                 <div class="card shadow mb-4">
                     <!-- Card Header - Dropdown -->
                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                        <h6 class="m-0 font-weight-bold text-primary">備註說明</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">備註說明(簡介)</h6>
                     </div>
                     <!-- Card Body -->
                     <div class="card-body">
-                        <textarea v-model="data.remark" class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+                        <textarea v-model="data.remark" class="form-control" id="exampleFormControlTextarea1" rows="5"
+                            placeholder="該類別簡易介紹，簡單70字數內即可，讓瀏覽者更加了解該分類內容產品，至多兩排文字介紹，每排約35個字數..."></textarea>
                     </div>
                 </div>
 
@@ -163,8 +164,7 @@
                         <h6 class="m-0 font-weight-bold text-primary">特色說明</h6>
                     </div>
                     <!-- Card Body -->
-                    <div class="card-body">
-                        <textarea v-model="data.features" class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+                    <div id="summernote">
                     </div>
                 </div>
             </div>
@@ -176,6 +176,36 @@
     </div>
     <script src="{{ asset('Backstage/js/product.js') }}"></script>
     <script>
+        $(document).ready(function() {
+            var gArrayFonts = ['標楷體', '新細明體', '微軟正黑體'];
+            $('#summernote').summernote({
+                placeholder: '特色說明',
+                tabsize: 2,
+                height: 300,
+                fontNames: gArrayFonts,
+                fontNamesIgnoreCheck: gArrayFonts,
+                toolbar: [
+                    ['style', ['clear', 'bold', 'italic', 'underline']],
+                    ['fontname', ['fontname']],
+                    ['color', ['color']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['fontsize', ['fontsize']], //字型大小    
+                    ['table', ['table']], //插入表格 
+                    ['hr', ['hr']], //插入水平線  
+                    ['link', ['link']], //插入連結  
+                    ['picture', ['picture']], //插入圖片  
+                    ['video', ['video']], //插入視訊
+                    ['view', ['codeview']],
+                ],
+                callbacks: {
+                    onImageUpload: async function(files) {
+                        var url = document.location.origin + '/' + await uploadImageByNote(files[0]);
+                        $('#summernote').summernote('insertImage', url, 'newimage');
+                    },
+                }
+            });
+        });
+
         const {
             createApp
         } = Vue
@@ -203,6 +233,7 @@
             mounted: async function() {
                 if (this.data.id !== 0) {
                     await this.getItem();
+                    $('#summernote').summernote('code', this.data.features);
                 }
             },
             methods: {
@@ -221,10 +252,12 @@
                         })
                 },
                 async update(id) {
+                    this.data.text = $('#summernote').summernote('code');
                     updateModel(this.data)
                 },
 
                 async create() {
+                    this.data.text = $('#summernote').summernote('code');
                     createModel(this.data)
                 },
             }
