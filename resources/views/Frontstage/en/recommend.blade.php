@@ -77,11 +77,11 @@
                             </div>
                         </div>
                         <div class="flex-row style2">
-                            <div class="col">JOURNEY<small>100mm/unit</small></div>
+                            <div class="col">JOURNEY<br><small>100mm/unit</small></div>
                             <div class="col">
                                 <input type="range" min="0" max="10000" step="50" id="range2"
                                     v-model="data.distance">
-                                <input type="number" id="rangenumber2" min="0" max="10000"
+                                <input style="width:30%" type="number" id="rangenumber2" min="0" max="10000"
                                     v-model="data.distance" placeholder="請輸入50的倍數數字">mm
                             </div>
                         </div>
