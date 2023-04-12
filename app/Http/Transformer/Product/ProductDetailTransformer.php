@@ -27,6 +27,7 @@ class ProductDetailTransformer extends Transformer
             ])->filter()->toArray(),
             'pdf' => UrlHelper::formatOutPutUrl($model['pdf']),
             'pdf_name' => $model['pdf_name'],
+            'pdf_ext' => pathinfo(UrlHelper::formatOutPutUrl($model['pdf']), PATHINFO_EXTENSION),
         ];
     }
 }

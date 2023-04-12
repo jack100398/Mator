@@ -9,17 +9,16 @@
                     <h1>{{ $product['type'] }}</h1>
                     <div class="type">{{ $product['name'] }}</div>
                     <h2>特色說明</h2>
-                    <p>{{ $product['features'] }}</p>
+                    <p>{!! $product['features'] !!}</p>
                     <h2>備註說明</h2>
                     <p>{{ $product['remark'] }}</p>
                     <div class="bottom-btn flex-row">
                         @if ($product['pdf'] !== null)
-                            <a href="{{ $product['pdf'] }}" download="{{ $product['pdf_name'] }}.pdf"
-                                class="col hover-scale">PDF
-                                檔案下載</a>
+                            <a href="{{ $product['pdf'] }}" download="{{ $product['pdf_name'] }}.{{ $product['pdf_ext'] }}"
+                                class="col hover-scale">{{ $product['pdf_name'] }}.{{ $product['pdf_ext'] }} Download</a>
                         @endif
                         <a href="javascript:history.back()" class="col hover-scale">
-                            < 返回上一頁</a>
+                            < Previous Page</a>
                     </div>
                 </div>
             </div>

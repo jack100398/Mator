@@ -252,12 +252,12 @@
                         })
                 },
                 async update(id) {
-                    this.data.text = $('#summernote').summernote('code');
+                    this.data.features = $('#summernote').summernote('code');
                     updateModel(this.data)
                 },
 
                 async create() {
-                    this.data.text = $('#summernote').summernote('code');
+                    this.data.features = $('#summernote').summernote('code');
                     createModel(this.data)
                 },
             }
