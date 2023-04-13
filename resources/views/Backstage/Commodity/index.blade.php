@@ -13,7 +13,7 @@
                 @foreach ($items as $item)
                     <div class="card shadow mb-4 ml-0 col-xl-4 col-lg-4" style="float:left;height:260px">
                         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                            <h6 class="m-0 font-weight-bold text-primary">{{ $item['name'] }}</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">{{ $item['name'] }} - {{ $item['type'] }}</h6>
                         </div>
                         <!-- Card Body -->
                         <div class="card-body" style="height:200px">

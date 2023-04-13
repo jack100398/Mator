@@ -37,7 +37,8 @@ class CommodityService
             $force_constant = $commodity->force_constant * $commodity->force_constant;
             $need_time = ($data['acceleration_time'] * 2 + $data['constant_time']) / 1000;
             // dd($commodity->heat_resistance, $commodity->kgf, $commodity->ohm, $commodity->force_constant,$need_time , $data['total_time'] );
-            $heat_up = $commodity->heat_resistance * $weight_param * $commodity->ohm / $force_constant / $need_time * $data['total_time'];
+            // dd($commodity->heat_resistance, $weight_param, $commodity->ohm, $force_constant, $need_time, $data['total_time']);
+            $heat_up = $commodity->heat_resistance * $weight_param * $commodity->ohm / $force_constant / max($need_time, 1) * max($data['total_time'], 1);
             $commodity->setAttribute('heat_up', $heat_up);
 
             //需要電流  = 加速度 * (荷重 + 可動子重量) / 推力定數
