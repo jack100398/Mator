@@ -67,7 +67,7 @@
                     alt=""></button>
         </div>
         <ul id="mobile-menu">
-            <li><a href="{{ route('index') }}">關於欣茂達</a></li>
+            <li><a href="{{ route('about') }}">關於欣茂達</a></li>
             <li><a href="{{ route('news') }}">最新消息</a></li>
             <li><a href="{{ route('product') }}">產品介紹</a></li>
             <li><a href="{{ route('recommend') }}">篩選推薦</a></li>
