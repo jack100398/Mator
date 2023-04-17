@@ -31,7 +31,7 @@ class CustomerMail extends Mailable
      */
     public function build()
     {
-        return $this->from('newMotech@com.tw')
+        return $this->from('sales@new-motech.com')
             ->subject($this->data['title'])
             ->view('Mails.CustomerMail')
             ->with([
