@@ -30,7 +30,7 @@
                 </div>
             </div>
             <div class="pager">
-                <a href="{{ $news->previousPageUrl() ?? 'javascript:void(0)' }}" class="page-prev">上一頁</a>
+                <a href="{{ $news->previousPageUrl() ?? 'javascript:void(0)' }}" class="page-prev">PREV</a>
 
                 <a href="{{ $news->path() }}" class=" {{ $news->onFirstPage() ? 'current' : '' }}">1</a>
                 @for ($i = 2; $i <= $news->lastPage(); $i++)
@@ -38,7 +38,7 @@
                     <a class=" {{ $news->currentPage() == $i ? 'current' : '' }}"
                         href="{{ $news->path() }}?page={{ $i }}">{{ $i }}</a>
                 @endfor
-                <a href="{{ $news->nextPageUrl() ?? 'javascript:void(0)' }}" class="page-next">下一頁</a>
+                <a href="{{ $news->nextPageUrl() ?? 'javascript:void(0)' }}" class="page-next">NEXT</a>
             </div>
         </div>
     </div>

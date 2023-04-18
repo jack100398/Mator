@@ -8,9 +8,9 @@
                     <div class="sub-title">{{ $product['acting'] }}</div>
                     <h1>{{ $product['type'] }}</h1>
                     <div class="type">{{ $product['name'] }}</div>
-                    <h2>特色說明</h2>
+                    <h2>FEATURE</h2>
                     <p>{!! $product['features'] !!}</p>
-                    <h2>備註說明</h2>
+                    <h2>REMARK</h2>
                     <p>{{ $product['remark'] }}</p>
                     <div class="bottom-btn flex-row">
                         @if ($product['pdf'] !== null)
@@ -22,11 +22,11 @@
                     </div>
                 </div>
             </div>
-            <div class="steps">產品說明</div>
+            <div class="steps">DESCRIPTION</div>
             <div class="editor">
                 {!! $product['introduction'] !!}
             </div>
-            <div class="steps">產品實績</div>
+            <div class="steps">APPLICATION</div>
             <div class="p-video flex-row">
                 @foreach ($product['video_urls'] as $url)
                     <div class="col">

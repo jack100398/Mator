@@ -53,14 +53,14 @@
                         <div class="flex-row">
                             <div class="col">POSTURE</div>
                             <div class="col">
-                                <label class="radio-container"><img src="{{ asset('Frontstage/images/fliter2.jpg') }}"
+                                <label class="radio-container"><img src="{{ asset('Frontstage/images/fliter2en.jpg') }}"
                                         alt="">
                                     <input type="radio" name="radio3" v-model="data.direction" value="1">
                                     <span class="checkmark"></span>
                                 </label>
                             </div>
                             <div class="col">
-                                <label class="radio-container"><img src="{{ asset('Frontstage/images/fliter3.jpg') }}"
+                                <label class="radio-container"><img src="{{ asset('Frontstage/images/fliter3en.jpg') }}"
                                         alt="">
                                     <input type="radio" name="radio3" v-model="data.direction" value="0">
                                     <span class="checkmark"></span>
@@ -98,12 +98,12 @@
                             <span class="checkmark"></span>
                         </label>
                         <div class="input">
-                            <span>目標時間</span>
+                            <span>Target time</span>
                             <input type="text" v-model="byTime.time">
                             <span>msec</span>
                         </div>
                         <div class="input">
-                            <span>限制速度</span>
+                            <span>Speed limit</span>
                             <input type="text" v-model="byTime.speed">
                             <span>mm/sec</span>
                         </div>
@@ -114,12 +114,12 @@
                             <span class="checkmark"></span>
                         </label>
                         <div class="input">
-                            <span>加速度時間</span>
+                            <span>Acceleration</span>
                             <input type="text" v-model="byAccelerationTime.time">
                             <span>msec</span>
                         </div>
                         <div class="input">
-                            <span>轉速時間</span>
+                            <span>Rotational</span>
                             <input type="text" v-model="byAccelerationTime.speed">
                             <span>mm/sec</span>
                         </div>
@@ -130,12 +130,12 @@
                             <span class="checkmark"></span>
                         </label>
                         <div class="input">
-                            <span>加速度</span>
+                            <span>Acceleration</span>
                             <input type="text" v-model="byAcceleration.acceleration">
                             <span>G</span>
                         </div>
                         <div class="input">
-                            <span>到達速度</span>
+                            <span>Achieved</span>
                             <input type="text" v-model="byAcceleration.speed">
                             <span>mm/sec</span>
                         </div>

@@ -11,7 +11,7 @@
             <div class="editor">
                 {!! $news['text'] !!}
             </div>
-            <div class="back"><a href="{{ route('news') }}" class="btn" style="color: #fff;">« 回列表</a></div>
+            <div class="back"><a href="{{ route('news') }}" class="btn" style="color: #fff;">« BACK LIST</a></div>
         </div>
     </div>
 @endsection

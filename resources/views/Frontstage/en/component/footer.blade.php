@@ -10,7 +10,7 @@
             <li><a href="{{ route('en-contact') }}">CONTACT US</a></li>
         </ul>
         <div class="links">
-            <span class="company">欣茂達科技股份有限公司</span>
+            <span class="company">NEWMOTECH CO., LTD.</span>
             <a href="{{ $settings['line']['value'] }}" class="line">
                 <img src="{{ asset('Frontstage/images/line.png') }}" alt="">
             </a>
@@ -21,7 +21,7 @@
         <div class="info">
             <span>
                 <img src="{{ asset('Frontstage/images/location.svg') }}" alt="">
-                <i>11469台北市內湖區行善路58號4樓之2</i>
+                <i>4F.-2, No. 58, Xingshan Rd., Neihu Dist., Taipei City 11469, Taiwan (R.O.C.)</i>
             </span>
             <span>
                 <img src="{{ asset('Frontstage/images/phone.svg') }}" alt="">
@@ -36,7 +36,7 @@
 </footer>
 
 <div class="copy-right">
-    <span>Copyright © 2021 All Rights Reserved. Design by</span><a href=""><img
+    <span>Copyright © 2022 All Rights Reserved. Design by</span><a href="https://www.ecmd.com.tw/" target="_blank" rel="noopener noreferrer nofollow"><img
             src="{{ asset('Frontstage/images/designer.png') }}" alt=""></a>
 </div>
 

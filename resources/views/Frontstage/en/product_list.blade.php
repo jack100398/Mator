@@ -49,7 +49,7 @@
                             </div>
                         </div>
                         <div class="pager">
-                            <a href="{{ $products->previousPageUrl() ?? 'javascript:void(0)' }}" class="page-prev">上一頁</a>
+                            <a href="{{ $products->previousPageUrl() ?? 'javascript:void(0)' }}" class="page-prev">PREV</a>
 
                             <a href="{{ $products->path() }}"
                                 class=" {{ $products->onFirstPage() ? 'current' : '' }}">1</a>
@@ -58,7 +58,7 @@
                                 <a class=" {{ $products->currentPage() == $i ? 'current' : '' }}"
                                     href="{{ $products->path() }}&page={{ $i }}">{{ $i }}</a>
                             @endfor
-                            <a href="{{ $products->nextPageUrl() ?? 'javascript:void(0)' }}" class="page-next">下一頁</a>
+                            <a href="{{ $products->nextPageUrl() ?? 'javascript:void(0)' }}" class="page-next">NEXT</a>
                         </div>
                     </div>
                 </div>

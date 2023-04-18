@@ -13,19 +13,19 @@
                 <p>Thank you very much! If you have any questions or suggestions about our company's products and services, please feel free to let us know by filling out the form below. We will promptly address your concerns and provide you with an answer as soon as possible! (* indicates a required field)</p>
                 <div class="form">
                     <form action="javascript:;">
-                        <div class="title"><span>*</span>主旨</div>
+                        <div class="title"><span>*</span>Subject</div>
                         <div class="block"><input v-model="data.title" type="text"></div>
                         <div class="flex-row">
                             <div class="col">
-                                <div class="title"><span>*</span>姓名</div>
+                                <div class="title"><span>*</span>Name</div>
                                 <div class="block gender">
                                     <input v-model="data.name" type="text">
                                     <div class="gender-select">
-                                        <label class="radio-container">先生
+                                        <label class="radio-container">Male
                                             <input v-model="data.sex" type="radio" name="radio1" value="1">
                                             <span class="checkmark"></span>
                                         </label>
-                                        <label class="radio-container">小姐
+                                        <label class="radio-container">Female
                                             <input v-model="data.sex" type="radio" name="radio1" value="0">
                                             <span class="checkmark"></span>
                                         </label>
@@ -33,13 +33,13 @@
                                 </div>
                             </div>
                             <div class="col">
-                                <div class="title"><span>*</span>聯絡電話</div>
+                                <div class="title"><span>*</span>Phone</div>
                                 <div class="block"><input v-model="data.phone" type="text"></div>
                             </div>
                         </div>
-                        <div class="title"><span>*</span>Mail</div>
+                        <div class="title"><span>*</span>Email</div>
                         <div class="block"><input v-model="data.mail" type="email"></div>
-                        <div class="title"><span>*</span>諮詢內容</div>
+                        <div class="title"><span>*</span>Message</div>
                         <div class="block">
                             <textarea v-model="data.text"></textarea>
                         </div>
@@ -75,11 +75,11 @@
             </div>
             <div class="company-info">
                 <a href="" class="logo"><img src="{{ asset('Frontstage/images/logo.png') }}" alt=""></a>
-                <h2>欣茂達科技股份有限公司</h2>
+                <h2>NEWMOTECH CO., LTD.</h2>
                 <div class="info">
                     <span>
                         <img src="{{ asset('Frontstage/images/location.svg') }}" alt="">
-                        <i>11469台北市內湖區行善路58號4樓之2</i>
+                        <i>4F.-2, No. 58, Xingshan Rd., Neihu Dist., Taipei City 11469, Taiwan (R.O.C.)</i>
                     </span>
                     <span>
                         <img src="{{ asset('Frontstage/images/phone.svg') }}" alt="">
@@ -141,12 +141,12 @@
                         this.is_loading = true;
                         await sendApiAjax('post', 'send_mail', this.data)
                             .then(value => {
-                                alert('發送成功');
+                                alert('Send success!');
                                 window.location.href = window.location.href
                             })
                             .catch(error => {
                                 console.log(error.responseJSON.errors);
-                                alert('發送失敗, 請確認資訊是否全部輸入或者稍後再嘗試');
+                                alert('Send failed, please ensure all information is entered or try again later.');
                             });
                         this.is_loading = false;
                     }

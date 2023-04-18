@@ -36,7 +36,7 @@
 </footer>
 
 <div class="copy-right">
-    <span>Copyright © 2021 All Rights Reserved. Design by</span><a href=""><img
+    <span>Copyright © 2021 All Rights Reserved. Design by</span><a href="https://www.ecmd.com.tw/" target="_blank" rel="noopener noreferrer nofollow"><img
             src="{{ asset('Frontstage/images/designer.png') }}" alt=""></a>
 </div>
 
