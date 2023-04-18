@@ -56,7 +56,7 @@ class CommodityService
 
             return $commodity;
         })->filter(function (Commodity $commodity) {
-            return $commodity->heat_up <= 50 && $commodity->need_voltage <= 85;
+            return $commodity->heat_up <= 100 && $commodity->need_voltage <= 85;
         });
     }
 
@@ -83,7 +83,7 @@ class CommodityService
         $is_time_value = $data['video'] == 'option1' ? 1 : -1;
         $is_direction_value = $data['direction'] == 0 ? 1 : 0;
 
-        return 9.8 * ($data['acceleration'] + 0.1 + ($is_time_value * $is_direction_value));
+        return 9.8 * ($data['acceleration'] + 0.05 + ($is_time_value * $is_direction_value));
     }
 
     /**
