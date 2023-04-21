@@ -146,8 +146,18 @@
                                 window.location.href = window.location.href
                             })
                             .catch(error => {
-                                console.log(error.responseJSON.errors);
-                                alert('發送失敗, 請確認資訊是否全部輸入或者稍後再嘗試');
+                                let fail_string = '發送失敗\n';
+                                let string_map = {
+                                    'title': '請確認主旨是否正確',
+                                    'name': '請確認姓名是否正確',
+                                    'phone': '請確認手機號碼是否正確',
+                                    'mail': '請確認電子信箱是否正確',
+                                    'text': '請確認諮詢內容是否正確寫入',
+                                };
+                                Object.entries(error.responseJSON.errors).forEach(element => {
+                                    fail_string += '\n' + string_map[element[0]];
+                                });
+                                alert(fail_string);
                             });
                         this.is_loading = false;
                     }

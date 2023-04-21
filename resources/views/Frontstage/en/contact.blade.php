@@ -10,7 +10,9 @@
         <div class="contact">
             <div class="wrap">
                 <div class="steps" style="color: #fff;">Dear customer</div>
-                <p>Thank you very much! If you have any questions or suggestions about our company's products and services, please feel free to let us know by filling out the form below. We will promptly address your concerns and provide you with an answer as soon as possible! (* indicates a required field)</p>
+                <p>Thank you very much! If you have any questions or suggestions about our company's products and services,
+                    please feel free to let us know by filling out the form below. We will promptly address your concerns
+                    and provide you with an answer as soon as possible! (* indicates a required field)</p>
                 <div class="form">
                     <form action="javascript:;">
                         <div class="title"><span>*</span>Subject</div>
@@ -45,7 +47,9 @@
                         </div>
                         <div class="submit-content">
                             <div class="tips" lang="en">
-                                <label class="checkbox-container">I confirm that I have completed the contact information and agree that my electronic representation is as effective as a written representation to your company.
+                                <label class="checkbox-container">I confirm that I have completed the contact information
+                                    and agree that my electronic representation is as effective as a written representation
+                                    to your company.
                                     <input v-model="checker" type="checkbox">
                                     <span class="checkmark"></span>
                                 </label>
@@ -145,8 +149,18 @@
                                 window.location.href = window.location.href
                             })
                             .catch(error => {
-                                console.log(error.responseJSON.errors);
-                                alert('Send failed, please ensure all information is entered or try again later.');
+                                let fail_string = 'send fail\n';
+                                let string_map = {
+                                    'title': 'pleace check title is success',
+                                    'name': 'pleace check name is success',
+                                    'phone': 'pleace check phone is success',
+                                    'mail': 'pleace check mail is success',
+                                    'text': 'pleace check Message is success',
+                                };
+                                Object.entries(error.responseJSON.errors).forEach(element => {
+                                    fail_string += '\n' + string_map[element[0]];
+                                });
+                                alert(fail_string);
                             });
                         this.is_loading = false;
                     }
