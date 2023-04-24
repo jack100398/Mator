@@ -28,7 +28,7 @@ Route::post('send_mail', function (Request $request) {
         'title' => 'required',
         'name' => 'required',
         'sex' => 'required',
-        'phone' => 'required|numeric|min:10',
+        'phone' => 'required',
         'mail' => 'required|email',
         'text' => 'required|string',
     ]);
