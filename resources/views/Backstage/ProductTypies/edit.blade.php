@@ -40,9 +40,9 @@
                     <!-- Card Body -->
                     <div class="card-body">
                         <img id="demo-img" class="img-fluid" style="max-width: 50%;height:auto;" :src="data.index_image">
-                        <input id="index-image" class="file" type="file" multiple data-min-file-count="1">
+                        <input id="index_image" class="file" type="file" multiple data-min-file-count="1">
                         <button type="submit" class="btn btn-primary pull-right"
-                            v-on:click="upload('index-image')">上傳</button>
+                            v-on:click="upload('index_image')">上傳</button>
                     </div>
                 </div>
 
