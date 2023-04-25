@@ -76,6 +76,12 @@
             </li>
 
             <li class="nav-item">
+                <a class="nav-link" href="{{ route('index-silder') }}">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>首頁內文輪播設定</span></a>
+            </li>
+
+            <li class="nav-item">
                 <a class="nav-link" href="{{ route('setting-admin') }}">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>連結設定</span></a>

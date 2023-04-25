@@ -16,6 +16,7 @@ use App\Http\Controllers\ClientController;
 use App\Http\Controllers\CommodityController;
 use App\Http\Controllers\EnClientController;
 use App\Http\Controllers\GlobalSettingController;
+use App\Http\Controllers\IndexSilderController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductTypiesController;
@@ -54,6 +55,16 @@ Route::prefix('admin')->group(function () {
             Route::delete('/{item}', [SliderImageController::class, 'destroy']);
             Route::get('/', [SliderImageController::class, 'index'])->name('slider-image');
             Route::post('/', [SliderImageController::class, 'store']);
+        });
+
+        Route::prefix('index-silder')->group(function () {
+            Route::get('/edit', [IndexSilderController::class, 'edit'])->name('editIndexSilderPage');
+            Route::get('/create', [IndexSilderController::class, 'create'])->name('createIndexSilderPage');
+            Route::get('/{item}', [IndexSilderController::class, 'show']);
+            Route::patch('/{item}', [IndexSilderController::class, 'update']);
+            Route::delete('/{item}', [IndexSilderController::class, 'destroy']);
+            Route::get('/', [IndexSilderController::class, 'index'])->name('index-silder');
+            Route::post('/', [IndexSilderController::class, 'store']);
         });
 
         Route::prefix('product')->group(function () {

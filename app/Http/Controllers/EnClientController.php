@@ -9,9 +9,10 @@ use App\Http\Transformer\Product\ProductDetailTransformer;
 use App\Http\Transformer\Product\ProductTransformer;
 use App\Http\Transformer\ProductType\ProductTypeTransformer;
 use App\Http\Transformer\SliderImage\SliderImageTransformer;
+use App\Http\Transformer\IndexSilder\IndexSilderTransformer;
+use App\IndexSilder;
 use App\News;
 use App\Product;
-use App\ProductType;
 use App\SliderImage;
 use App\ThirdLink;
 use Illuminate\Http\Request;
@@ -27,7 +28,8 @@ class EnClientController extends Controller
         protected ProductTypeService $product_type_service,
         protected ProductDetailTransformer $product_detail_transformer,
         protected NewsTransformer $news_transformer,
-        protected SliderImageTransformer $slider_image_transformer
+        protected SliderImageTransformer $slider_image_transformer,
+        protected IndexSilderTransformer $index_silder_transformer
     ) {
         $this->service = $service;
     }
@@ -41,12 +43,14 @@ class EnClientController extends Controller
     {
         $product_typies = $this->service->getProductTypesBySite('en');
         $slider_images = SliderImage::query()->where('disabled', true)->get();
+        $index_slider = IndexSilder::query()->where('disabled', true)->get();
 
         return view('Frontstage.en.index', [
             'settings' => $this->service->getSettings(),
             'banner' => $this->service->getBanner('index', 'en'),
             'slider_images' => $this->slider_image_transformer->transformCollection($slider_images),
-            'product_tyipes' => $this->product_type_transformer->transformCollection($product_typies)
+            'product_tyipes' => $this->product_type_transformer->transformCollection($product_typies),
+            'index_slider' => $this->index_silder_transformer->transformCollection($index_slider)
         ]);
     }
 
