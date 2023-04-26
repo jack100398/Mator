@@ -48,5 +48,9 @@
                 </div>
             @endif
         </div>
+        <div class="back">
+            <a href="javascript:history.back()" class="col hover-scale">
+                < Previous Page</a>
+        </div>
     </div>
 @endsection
