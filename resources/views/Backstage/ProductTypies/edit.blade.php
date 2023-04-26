@@ -71,6 +71,7 @@
                         <input id="type_banner" class="file" type="file" multiple data-min-file-count="1">
                         <button type="submit" class="btn btn-primary pull-right"
                             v-on:click="upload('type_banner')">上傳</button>
+                        <button type="button" class="btn btn-danger" v-on:click="data.type_banner = null">移除圖片</button>
                     </div>
                 </div>
 
