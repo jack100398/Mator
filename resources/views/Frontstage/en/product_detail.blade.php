@@ -8,10 +8,14 @@
                     <div class="sub-title">{{ $product['acting'] }}</div>
                     <h1>{{ $product['type'] }}</h1>
                     <div class="type">{{ $product['name'] }}</div>
-                    <h2>FEATURE</h2>
-                    <p>{!! $product['features'] !!}</p>
-                    <h2>REMARK</h2>
-                    <p>{{ $product['remark'] }}</p>
+                    @if ($product['features'] != '')
+                        <h2>FEATURE</h2>
+                        <p>{!! $product['features'] !!}</p>
+                    @endif
+                    @if ($product['remark'] != '')
+                        <h2>REMARK</h2>
+                        <p>{{ $product['remark'] }}</p>
+                    @endif
                     <div class="bottom-btn flex-row">
                         @if ($product['pdf'] !== null)
                             <a href="{{ $product['pdf'] }}" download="{{ $product['pdf_name'] }}.{{ $product['pdf_ext'] }}"
@@ -22,23 +26,27 @@
                     </div>
                 </div>
             </div>
-            <div class="steps">DESCRIPTION</div>
-            <div class="editor">
-                {!! $product['introduction'] !!}
-            </div>
-            <div class="steps">APPLICATION</div>
-            <div class="p-video flex-row">
-                @foreach ($product['video_urls'] as $url)
-                    <div class="col">
-                        <div class="youtube">
-                            <img src="{{ asset('Frontstage/images/youtube-base.png') }}" alt="">
-                            <iframe src="{{ $url }}" frameborder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                allowfullscreen></iframe>
+            @if ($product['introduction'] != '')
+                <div class="steps">DESCRIPTION</div>
+                <div class="editor">
+                    {!! $product['introduction'] !!}
+                </div>
+            @endif
+            @if (count($product['video_urls']) > 0)
+                <div class="steps">APPLICATION</div>
+                <div class="p-video flex-row">
+                    @foreach ($product['video_urls'] as $url)
+                        <div class="col">
+                            <div class="youtube">
+                                <img src="{{ asset('Frontstage/images/youtube-base.png') }}" alt="">
+                                <iframe src="{{ $url }}" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    allowfullscreen></iframe>
+                            </div>
                         </div>
-                    </div>
-                @endforeach
-            </div>
+                    @endforeach
+                </div>
+            @endif
         </div>
     </div>
 @endsection
