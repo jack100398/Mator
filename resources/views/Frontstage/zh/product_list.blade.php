@@ -14,7 +14,7 @@
             <div class="plist">
                 <div class="flex-row">
                     <div class="col left">
-                        <h2 class="tk-century-gothic">PRODUCT CATAGORY</h2>
+                        <h2 class="tk-century-gothic">PRODUCT CATEGORY</h2>
                         <ul>
                             @foreach ($product_typies as $type)
                                 @if ($type['id'] == $current_type['id'])

@@ -18,7 +18,7 @@
                                 <li><img src="{{ asset('Frontstage/images/list_icon.png') }}"
                                         alt=""><span>提供專業建議，建立良好合作關係。</span></li>
                                 <li><img src="{{ asset('Frontstage/images/list_icon.png') }}"
-                                        alt=""><span>致力於研發更多更新的產品，深耕與客戶關係。</span></li>
+                                        alt=""><span>致力研發更多更新產品，深耕與客戶關係。</span></li>
                             </ul>
                         </div>
                     </div>
