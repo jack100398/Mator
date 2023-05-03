@@ -372,24 +372,32 @@
 
         $(document).ready(function() {
 
-            const rangeInputs = document.querySelectorAll('input[type="range"]')
-            const numberInput = document.querySelector('input[type="number"]')
+            const range1 = document.getElementById("range");
+            const range2 = document.getElementById("range2");
+            const rangeNumber1 = document.getElementById("rangenumber");
+            const rangeNumber2 = document.getElementById("rangenumber2");
+
+            range1.addEventListener("input", handleInputChange);
+            range2.addEventListener("input", handleInputChange);
+            rangeNumber1.addEventListener("input", handleInputChange);
+            rangeNumber2.addEventListener("input", handleInputChange);
 
             function handleInputChange(e) {
-                let target = e.target
-                if (e.target.type !== 'range') {
-                    target = document.getElementById('range')
+                let target = e.target;
+                if (target.id === "range") {
+                    rangeNumber1.value = target.value;
+                    target.style.backgroundSize = (target.value - target.min) * 100 / (target.max - target.min) + "% 100%";
+                } else if (target.id === "range2") {
+                    rangeNumber2.value = target.value;
+                    target.style.backgroundSize = (target.value - target.min) * 100 / (target.max - target.min) + "% 100%";
+                } else if (target.id === "rangenumber") {
+                    range1.value = target.value;
+                    range1.style.backgroundSize = (target.value - range1.min) * 100 / (range1.max - range1.min) + "% 100%";
+                } else if (target.id === "rangenumber2") {
+                    range2.value = target.value;
+                    range2.style.backgroundSize = (target.value - range2.min) * 100 / (range2.max - range2.min) + "% 100%";
                 }
-                const min = target.min
-                const max = target.max
-                const val = target.value
-
-                target.style.backgroundSize = (val - min) * 100 / (max - min) + '% 100%'
             }
-            rangeInputs.forEach(input => {
-                input.addEventListener('input', handleInputChange)
-            })
-            numberInput.addEventListener('input', handleInputChange)
 
             $('.result-close').click(function() {
                 $('.fliter-result').hide();
