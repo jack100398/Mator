@@ -9,7 +9,7 @@
                 <img src="{{ $recommend_banner['desktop_url'] }}" alt="" class="pc">
                 <img src="{{ $recommend_banner['mobile_url'] }}" alt="" class="mobile">
             </div>
-            <div class="steps">STEP 1 / PAIRING SCREENING</div>
+            <div class="steps">STEP 1 / MATCHING FILTER</div>
             <div class="fliter">
                 <div class="flex-row">
                     <div class="col">
@@ -34,9 +34,9 @@
                             </div>
                         </div>
                         <div class="flex-row">
-                            <div class="col">FORM</div>
+                            <div class="col">LINEAR SCALE</div>
                             <div class="col">
-                                <label class="radio-container">INCREASE
+                                <label class="radio-container">INCREMENTAL
                                     <input type="radio" name="radio2" v-model="data.linear_ruler" value="0">
                                     <span class="checkmark"></span>
                                 </label>
@@ -51,7 +51,7 @@
                     </div>
                     <div class="col">
                         <div class="flex-row">
-                            <div class="col">POSTURE</div>
+                            <div class="col">DIRECTION</div>
                             <div class="col">
                                 <label class="radio-container"><img src="{{ asset('Frontstage/images/fliter2en.jpg') }}"
                                         alt="">
@@ -68,7 +68,7 @@
                             </div>
                         </div>
                         <div class="flex-row style2">
-                            <div class="col">LOAD</div>
+                            <div class="col">PAYLOAD</div>
                             <div class="col">
                                 <input type="range" min="0" max="10000" step="50" id="range"
                                     v-model="data.weight">
@@ -77,18 +77,18 @@
                             </div>
                         </div>
                         <div class="flex-row style2">
-                            <div class="col">JOURNEY<br><small>100mm/unit</small></div>
+                            <div class="col">STROKE<br><small>100mm/unit</small></div>
                             <div class="col">
                                 <input type="range" min="0" max="10000" step="50" id="range2"
                                     v-model="data.distance">
                                 <input style="width:30%" type="number" id="rangenumber2" min="0" max="10000"
-                                    v-model="data.distance" placeholder="請輸入50的倍數數字">mm
+                                    v-model="data.distance" placeholder="Please input a number that is a multiple of 50.">mm
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="steps">STEP 2 / CHOOSE A CONVERSION</div>
+            <div class="steps">STEP 2 / ENTER MOTION SPECIFICATION</div>
             <div class="fliter2">
                 <div class="flex-row">
                     <div class="col">
@@ -109,7 +109,7 @@
                         </div>
                     </div>
                     <div class="col">
-                        <label class="radio-container">Determined by acceleration time
+                        <label class="radio-container">By acceleration time
                             <input type="radio" name="radio4" v-model="data.video" value="option2">
                             <span class="checkmark"></span>
                         </label>
@@ -125,7 +125,7 @@
                         </div>
                     </div>
                     <div class="col">
-                        <label class="radio-container">Determined by acceleration
+                        <label class="radio-container">By acceleration
                             <input type="radio" name="radio4" v-model="data.video" value="option3">
                             <span class="checkmark"></span>
                         </label>
@@ -173,19 +173,19 @@
                     <div class="col">
                         <div class="sub-title">MODEL</div>
                         <h2>@{{ result.name }}</h2>
-                        <div class="sub-title">PRODUCT CATAGORY</div>
+                        <div class="sub-title">PRODUCT CATEGORY</div>
                         <h2>@{{ result.type }}</h2>
                         <div class="flex-row">
                             <div class="col">
-                                <div class="sub-title">RETED THRUST</div>
+                                <div class="sub-title">RATED THRUST</div>
                                 <div class="num">@{{ result.rated_thrust }}</div>
                             </div>
                             <div class="col">
-                                <div class="sub-title">HORIZONTAL MAX LOAD (KG)</div>
+                                <div class="sub-title">HORIZONTAL MAX PAYLOAD (KG)</div>
                                 <div class="num">@{{ result.horizontal_load }}</div>
                             </div>
                             <div class="col">
-                                <div class="sub-title">JOURNEY</div>
+                                <div class="sub-title">STROKE</div>
                                 <div class="num">@{{ result.travel }}</div>
                             </div>
                         </div>
@@ -210,7 +210,7 @@
 
         <div class="submit-content">
             <div class="g-recaptcha" data-sitekey="6Lel4Z4UAAAAAOa8LO1Q9mqKRUiMYl_00o5mXJrR">
-            </div><br>
+            </div><br class="mobile"><br class="mobile">
             <button v-on:click="send" class="hover-scale real-btn send" hidden>MATCHING</button>
             <button type="submit" class="hover-scale fake-btn" style="background: #9cdbe8;">MATCHING</button>
             <img v-show="is_loading" src="{{ asset('Frontstage/images/loading.svg') }}" alt="">

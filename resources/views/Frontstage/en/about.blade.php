@@ -30,7 +30,7 @@
                             <h2>New Motech</h2>
                             <p>With the global development of the precision high-tech industry, the demand for
                                 high-precision positioning products is increasing day by day.<br>
-                                In response to this, new-motech ltd not only provides linear motors and direct drive motors,
+                                In response to this, New Motech not only provides linear motors and direct drive motors,
                                 but also offers high-precision positioning modules that greatly shorten design and
                                 development time while also being fast and convenient to assemble.</p>
                         </div>
