@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\UrlHelper;
 use App\Http\Services\ClientService;
 use App\Http\Services\ProductTypeService;
 use App\Http\Transformer\IndexSilder\IndexSilderTransformer;
@@ -45,12 +46,18 @@ class ClientController extends Controller
         $slider_images = SliderImage::query()->where('disabled', true)->get();
         $index_slider = IndexSilder::query()->where('disabled', true)->get();
 
+        $is_video = $index_slider->filter(fn ($silder) => $silder['type'] == 2)->count() > 0;
+        $video_url = $is_video ? UrlHelper::formatOutPutUrl($index_slider->filter(fn ($silder) => $silder['type'] == 2)->first()['url'])
+            : 'https://www.youtube.com/embed/C1IP05_Hk0Y?list=PLGyv6kOJhxI_FB7C3WLLjO2LUmIus4G88';
+
         return view('Frontstage.zh.index', [
             'settings' => $this->service->getSettings(),
             'banner' => $this->service->getBanner('index'),
             'slider_images' => $this->slider_image_transformer->transformCollection($slider_images),
             'product_tyipes' => $this->product_type_transformer->transformCollection($product_typies),
-            'index_slider' => $this->index_silder_transformer->transformCollection($index_slider)
+            'index_slider' => $this->index_silder_transformer->transformCollection($index_slider),
+            'is_video' => $is_video,
+            'video_url' => "{$video_url}",
         ]);
     }
 

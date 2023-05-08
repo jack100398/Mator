@@ -31,28 +31,29 @@
                     <img src="{{ asset('Frontstage/images/index_block1.jpg') }}" alt="">
                 </div>
                 <div class="col">
-                    @if ($index_slider->filter(fn($silder) => $silder['type'] === '2')->count() > 0)
-                        <div class="youtube">
-                            <img src="{{ asset('Frontstage/images/youtube-base.png') }}" alt="">
-                            <iframe
-                                src="{{ $index_slider->filter(fn($silder) => $silder['type'] === '2')->first()['url'] }}"
-                                title="2020年5月14日(1)" frameborder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                allowfullscreen></iframe>
-                        </div>
-                    @elseif ($index_slider->filter(fn($silder) => $silder['type'] === '1')->count() > 0)
-                        <div class="index-block1-slider flexslider no-direction">
-                            <ul class="slides">
-                                @foreach ($index_slider->filter(fn($silder) => $silder['type'] === '1') as $item)
-                                    <li>
-                                        <a href="{{ $item['link'] }}">
-                                            <img src="{{ $item['url'] }}" alt="">
-                                        </a>
-                                    </li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
+                    <!-- 圖片輪播-->
+                    <div class="index-block1-slider flexslider no-direction"
+                        style="display: {{ $is_video ? 'none' : '' }};">
+                        <ul class="slides">
+                            @foreach ($index_slider->filter(fn($silder) => $silder['type'] == 1) as $item)
+                                <li>
+                                    <a href="{{ $item['link'] }}">
+                                        <img src="{{ $item['url'] }}" alt="">
+                                    </a>
+                                </li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    <!-- 圖片輪播-->
+                    <!-- youtube -->
+                    <div class="youtube" style="display: {{ $is_video ? '' : 'none' }};">
+                        <img src="{{ asset('Frontstage/images/youtube-base.png') }}" alt="">
+                        <iframe src="{{ $video_url }}" title="2020年5月14日(1)" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen></iframe>
+                    </div>
+                    <!-- youtube -->
+
                 </div>
             </div>
         </div>
