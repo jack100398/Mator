@@ -34,7 +34,7 @@
                 <div v-show="data.type === '1'" class="card shadow mb-4">
                     <!-- Card Header - Dropdown -->
                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                        <h6 class="m-0 font-weight-bold text-primary">圖片</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">圖片 (寬700*高422)</h6>
                     </div>
                     <!-- Card Body -->
                     <div class="card-body">
@@ -99,9 +99,9 @@
             },
             methods: {
                 async upload(item) {
-                    var url = document.location.origin + '/' + await uploadImage(item);
-
-                    this.data[item] = url;
+                    var url = await uploadImageWithSizeLimit(item, this.data[item]);
+                    console.log(url);
+                    this.data[item] = url ? url : this.data[item];
                 },
                 async getItem() {
                     await getItem(this.data.id)

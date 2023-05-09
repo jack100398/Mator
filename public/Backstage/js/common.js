@@ -11,6 +11,29 @@ async function uploadImage(element_id) {
     return await ajaxUploadFile('post', 'upload', form)
 }
 
+async function uploadImageWithSizeLimit(element_id, origin, height = 422, width = 700) {
+    let element = document.getElementById(element_id);
+    var img = element.files[0];
+    let image = new Image()
+    return new Promise((resolve, reject) => {
+        image.onload = () => resolve(image.height)
+        image.onerror = reject
+        image.src = window.URL.createObjectURL(img)
+    }).then(async () => {
+        if (!(image.width == width || image.height == height)) {
+            alert(`圖片寬需為 ` + width + ` 圖片高需為` + height + '\n目前圖片寬為 ' + image.width + ` 目前圖片高為 ` + image.height + '\n請修改後再嘗試');
+
+            return origin;
+        } else {
+            var form = new FormData();
+            form.append("img", img);
+            form.append("_token", "{{ csrf_token() }}");
+
+            return document.location.origin + '/' + await ajaxUploadFile('post', 'upload', form)
+        }
+    })
+}
+
 async function uploadImageByNote(file) {
     var img = file;
     var form = new FormData();
