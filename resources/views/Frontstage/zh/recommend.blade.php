@@ -51,7 +51,7 @@
                     </div>
                     <div class="col">
                         <div class="flex-row">
-                            <div class="col">姿勢</div>
+                            <div class="col">安裝方向</div>
                             <div class="col">
                                 <label class="radio-container"><img src="{{ asset('Frontstage/images/fliter2.jpg') }}"
                                         alt="">
@@ -88,7 +88,7 @@
                     </div>
                 </div>
             </div>
-            <div class="steps">步驟二 / 選擇換算</div>
+            <div class="steps">步驟二 / 選擇運動條件</div>
             <div class="fliter2">
                 <div class="flex-row">
                     <div class="col">
@@ -204,13 +204,13 @@
             <div class="wrap">
                 <div id="result-close" class="result-close"><img src="{{ asset('Frontstage/images/close.png') }}"
                         alt=""></div>
-                <div class="steps" style="color: #fff;">沒有符合條件的產品</div>
+                <div class="steps" style="color: #fff;">無符合條件產品<br/>更多產品資訊請與我們聯絡</div>
             </div>
         </div>
 
         <div class="submit-content">
             <div class="g-recaptcha" data-sitekey="6Lel4Z4UAAAAAOa8LO1Q9mqKRUiMYl_00o5mXJrR">
-            </div><br>
+            </div><br class="mobile"><br class="mobile">
             <button v-on:click="send" class="hover-scale real-btn send" hidden>配對</button>
             <button type="submit" class="hover-scale fake-btn" style="background: #9cdbe8;">配對</button>
             <img v-show="is_loading" src="{{ asset('Frontstage/images/loading.svg') }}" alt="">

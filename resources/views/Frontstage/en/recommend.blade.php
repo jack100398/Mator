@@ -114,12 +114,12 @@
                             <span class="checkmark"></span>
                         </label>
                         <div class="input">
-                            <span>Acceleration</span>
+                            <span>Acceleration Time</span>
                             <input type="text" v-model="byAccelerationTime.time">
                             <span>msec</span>
                         </div>
                         <div class="input">
-                            <span>Rotational</span>
+                            <span>Speed</span>
                             <input type="text" v-model="byAccelerationTime.speed">
                             <span>mm/sec</span>
                         </div>
@@ -135,7 +135,7 @@
                             <span>G</span>
                         </div>
                         <div class="input">
-                            <span>Achieved</span>
+                            <span>Achieved Speed</span>
                             <input type="text" v-model="byAcceleration.speed">
                             <span>mm/sec</span>
                         </div>
@@ -204,7 +204,7 @@
             <div class="wrap">
                 <div id="result-close" class="result-close"><img src="{{ asset('Frontstage/images/close.png') }}"
                         alt=""></div>
-                <div class="steps" style="color: #fff;">No eligible products</div>
+                <div class="steps" style="color: #fff;">No suitable products online.<br/>Please contact us for more product information.</div>
             </div>
         </div>
 
