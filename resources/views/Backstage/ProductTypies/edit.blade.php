@@ -22,7 +22,7 @@
                 <div class="card shadow mb-4">
                     <!-- Card Header - Dropdown -->
                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                        <h6 class="m-0 font-weight-bold text-primary">類別圖示</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">類別圖示 (圖片使用像素：寬670*高390 / 解析度72dpi)</h6>
                     </div>
                     <!-- Card Body -->
                     <div class="card-body">
@@ -35,7 +35,7 @@
                 <div class="card shadow mb-4">
                     <!-- Card Header - Dropdown -->
                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                        <h6 class="m-0 font-weight-bold text-primary">首頁圖示</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">首頁圖示 (圖片使用像素：寬670*高390 / 解析度72dpi)</h6>
                     </div>
                     <!-- Card Body -->
                     <div class="card-body">
@@ -49,7 +49,7 @@
                 <div class="card shadow mb-4">
                     <!-- Card Header - Dropdown -->
                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                        <h6 class="m-0 font-weight-bold text-primary">上Banner</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">上Banner (圖片使用像素：1400*高480 / 解析度72dpi)</h6>
                     </div>
                     <!-- Card Body -->
                     <div class="card-body">
@@ -63,7 +63,7 @@
                 <div class="card shadow mb-4">
                     <!-- Card Header - Dropdown -->
                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                        <h6 class="m-0 font-weight-bold text-primary">中Banner</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">中Banner (圖片使用像素：寬1130*高無限制 / 解析度72dpi)</h6>
                     </div>
                     <!-- Card Body -->
                     <div class="card-body">

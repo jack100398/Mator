@@ -8,7 +8,7 @@
                 <div class="card shadow mb-4">
                     <!-- Card Header - Dropdown -->
                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                        <h6 class="m-0 font-weight-bold text-primary">電腦版</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">電腦版 (圖片使用像素：寬1920*高630 / 解析度72dpi)</h6>
                     </div>
                     <!-- Card Body -->
                     <div class="card-body">
@@ -22,7 +22,7 @@
                 <div class="card shadow mb-4">
                     <!-- Card Header - Dropdown -->
                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                        <h6 class="m-0 font-weight-bold text-primary">手機版</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">手機版 (圖片使用像素：寬1024 *高600 / 解析度72dpi)</h6>
                     </div>
                     <!-- Card Body -->
                     <div class="card-body">
