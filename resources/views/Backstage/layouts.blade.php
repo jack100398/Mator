@@ -10,10 +10,11 @@
     <div id="wrapper">
         @include('Backstage.component.sideBar')
         <div id="content-wrapper" class="d-flex flex-column">
-
-            @include('Backstage.component.topBar')
-            <div class="container-fluid">
-                @yield('content')
+            <div id="content">
+                @include('Backstage.component.topBar')
+                <div class="container-fluid">
+                    @yield('content')
+                </div>
             </div>
             @include('Backstage.component.footer')
         </div>

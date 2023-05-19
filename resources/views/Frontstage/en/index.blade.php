@@ -68,7 +68,7 @@
                     <h2 class="tk-century-gothic">MATCHING</h2>
                     <p>To facilitate you to find suitable products more effectively<br>
                         We provide a quick search system! </p>
-                    <a href="{{ route('en-recommend') }}" class="btn style2">智慧配對</a>
+                    <a href="{{ route('en-recommend') }}" class="btn style2">SMART MATCHING</a>
                 </div>
             </div>
         </div>

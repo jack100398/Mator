@@ -19,7 +19,7 @@
                 <div class="card shadow mb-4">
                     <!-- Card Header - Dropdown -->
                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                        <h6 class="m-0 font-weight-bold text-primary">Banner</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">Banner (圖片使用像素：寬260*高105 / 解析度72dpi)</h6>
                     </div>
                     <!-- Card Body -->
                     <div class="card-body">
