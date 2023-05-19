@@ -30,10 +30,15 @@ Route::prefix('admin')->group(function () {
     Auth::routes();
 
     Route::get('/', function () {
-        return redirect()->route('commodity');
+        //這兩種寫法都能用
+
+        // return redirect(url('/admin/banner'));
+        return redirect()->route('back-stage-index');
     });
 
     Route::middleware(['auth'])->group(function () {
+        Route::get('dash-board', fn () => view('Backstage.index'))->name('back-stage-index');
+
         Route::apiResource('banner', 'BannerController', ['names' => ['index' => 'banner']]);
         Route::get('banner/edit/{banner}', 'BannerController@edit');
 

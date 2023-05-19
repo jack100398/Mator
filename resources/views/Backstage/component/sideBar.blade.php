@@ -2,7 +2,10 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('commodity') }}">
+
+            <!-- 站內路徑可用 url('/admin/banner') / url('/zh/index')  -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center"
+                href="{{ route('back-stage-index') }}">
                 <div class="sidebar-brand-text mx-3">New - Motech</div>
             </a>
 
@@ -11,7 +14,9 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="{{ route('commodity') }}">
+
+                <!-- 站內路徑可用 url('/admin/banner') / url('/zh/index')  -->
+                <a class="nav-link" href="{{ route('back-stage-index') }}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>DashBoard</span></a>
             </li>
