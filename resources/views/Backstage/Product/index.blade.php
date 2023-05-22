@@ -12,41 +12,37 @@
 
         <div class="row">
             @foreach ($types as $items)
-                <div class="col-xl-12 col-lg-12 mb-4">
+                <div class="col-12 mb-4">
                     <h6 class="m-3 font-weight-bold text-primary">
                         分類：{{ $items->first()['type_site'] }}{{ $items->first()['type_name'] }}
                     </h6>
+                    <div class="row">
+                        @foreach ($items as $item)
+                            <div class="card shadow m-3 col-xs-12 col-md-4 col-lg-3 col-xxl-2">
+                                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold text-primary">{{ $item['name'] }}</h6>
+                                </div>
+                                <!-- Card Body -->
+                                <div class="card-body">
+                                    <div class="card shadow mb-4" style="height: 70%">
+                                        <div class="card-body">
+                                            <img id="demo-img" class="img-fluid" style="max-width: 100%;height:100%;"
+                                                src="{{ $item['image'] }}">
+                                        </div>
+                                    </div>
 
-                    @foreach ($items as $item)
-                        <div class="card shadow mb-4 mr-0 col-xl-3 col-lg-3" style="float:left;height:230px">
-                            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                <h6 class="m-0 font-weight-bold text-primary">{{ $item['name'] }}</h6>
 
-                                {{-- <div class="row justify-content-end">
-                                    優先級：{{ $item['sort'] }}
-                                </div> --}}
-                            </div>
-                            <!-- Card Body -->
-                            <div class="card-body">
-                                <div class="card shadow mb-4">
-                                    <div class="card-body">
-                                        <img id="demo-img" class="img-fluid" style="max-width: 10%;height:10%;"
-                                            src="{{ $item['image'] }}">
+                                    <div class="row justify-content-end">
+                                        <a href="{{ route('editProductPage', ['id' => $item['id']]) }}">
+                                            <button type="submit" class="btn btn-primary">修改</button>
+                                        </a>
+                                        <button onclick="drop({{ $item['id'] }})" type="submit"
+                                            class="btn btn-danger">刪除</button>
                                     </div>
                                 </div>
-
-
-                                <div class="row justify-content-end">
-                                    <a href="{{ route('editProductPage', ['id' => $item['id']]) }}">
-                                        <button type="submit" class="btn btn-primary">修改</button>
-                                    </a>
-                                    <button onclick="drop({{ $item['id'] }})" type="submit"
-                                        class="btn btn-danger">刪除</button>
-                                </div>
                             </div>
-                        </div>
-                    @endforeach
-
+                        @endforeach
+                    </div>
                 </div>
             @endforeach
 
