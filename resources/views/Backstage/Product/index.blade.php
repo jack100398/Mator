@@ -18,13 +18,13 @@
                     </h6>
 
                     @foreach ($items as $item)
-                        <div class="card shadow mb-4 mr-0 col-xl-3 col-lg-3" style="float:left;height:260px">
+                        <div class="card shadow mb-4 mr-0 col-xl-3 col-lg-3" style="float:left;height:230px">
                             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                                 <h6 class="m-0 font-weight-bold text-primary">{{ $item['name'] }}</h6>
 
-                                <div class="row justify-content-end">
+                                {{-- <div class="row justify-content-end">
                                     優先級：{{ $item['sort'] }}
-                                </div>
+                                </div> --}}
                             </div>
                             <!-- Card Body -->
                             <div class="card-body">
