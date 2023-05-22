@@ -24,6 +24,17 @@
                 <div class="card shadow mb-4">
                     <!-- Card Header - Dropdown -->
                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-primary">優先級</h6>
+                    </div>
+                    <!-- Card Body -->
+                    <div class="card-body">
+                        <input id="number" class="form-control" type="number" v-model="data.sort" />
+                    </div>
+                </div>
+
+                <div class="card shadow mb-4">
+                    <!-- Card Header - Dropdown -->
+                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                         <h6 class="m-0 font-weight-bold text-primary">代理商</h6>
                     </div>
                     <!-- Card Body -->
@@ -225,6 +236,7 @@
                 return {
                     data: {
                         id: {{ $id }},
+                        sort: 0,
                         type_id: 0,
                         image: null,
                         features: null,

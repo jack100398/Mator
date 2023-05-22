@@ -16,6 +16,7 @@ class InputTransformer extends Transformer
             'image' => UrlHelper::formatInputUrl($model['image']),
             'video' => $model['video'],
             'remark' => $model['remark'],
+            'sort' => $model['sort'],
             'site' => $model['site'],
             'index_image' => UrlHelper::formatInputUrl($model['index_image']),
         ];

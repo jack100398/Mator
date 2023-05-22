@@ -16,7 +16,8 @@ class ProductType extends Model
         'video',
         'remark',
         'index_image',
-        'site'
+        'site',
+        'sort',
     ];
 
     protected $cast = [
@@ -27,6 +28,7 @@ class ProductType extends Model
         'video' => 'string',
         'remark' => 'string',
         'index_image' => 'string',
-        'site' => 'string'
+        'site' => 'string',
+        'sort'
     ];
 }

@@ -26,11 +26,12 @@ class ProductController extends Controller
     public function index(Request $request)
     {
         $product = $this->type_service->getProductsBySite($request->site);
+        $products = $this->transformer->transformCollection($product);
 
         return view('Backstage.Product.index', [
             'page_categroy' => self::PAGE_CATEGORY,
             'page_title'    => self::PAGE_TITLE,
-            'items'         => $this->transformer->transformCollection($product),
+            'types'         => $products->groupBy('type_id'),
             'site'          => $request->site
         ]);
     }

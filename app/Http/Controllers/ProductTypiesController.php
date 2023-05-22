@@ -27,13 +27,15 @@ class ProductTypiesController extends Controller
         if (!is_null($request->site)) {
             $typies = $this->client_service->getProductTypesBySite($request->site);
         } else {
-            $typies = ProductType::query()->get();
+            $typies = ProductType::query()->orderBy('site')->orderBy('sort')->orderBy('id')->get();
         }
+
+        $typies = $this->transformer->transformCollection($typies);
 
         return view('Backstage.ProductTypies.index', [
             'page_categroy' => self::PAGE_CATEGORY,
             'page_title'    => self::PAGE_TITLE,
-            'items'         => $this->transformer->transformCollection($typies),
+            'typies'         => $typies->groupBy('site'),
             'site'          => $request->site
         ]);
     }

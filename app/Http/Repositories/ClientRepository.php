@@ -27,6 +27,7 @@ class ClientRepository
     public function getProductsByType(int $type_id): LengthAwarePaginator
     {
         return Product::query()
+            ->orderBy('sort')
             ->orderBy('id')
             ->where('type_id', $type_id)
             ->paginate(15);
@@ -41,7 +42,11 @@ class ClientRepository
      */
     public function getProductTypesBySite(string $site = 'zh'): Collection
     {
-        return ProductType::query()->where('site', $site)->get();
+        return ProductType::query()
+            ->where('site', $site)
+            ->orderBy('sort')
+            ->orderBy('id')
+            ->get();
     }
 
     /**

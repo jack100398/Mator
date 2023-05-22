@@ -21,7 +21,8 @@ class Product extends Model
         'video_url3',
         'video_url4',
         'pdf',
-        'pdf_name'
+        'pdf_name',
+        'sort'
     ];
 
     protected $cast = [
@@ -39,6 +40,7 @@ class Product extends Model
         'video_url4' => 'string',
         'pdf' => 'string',
         'pdf_name' => 'string',
+        'sort' => 'integer'
     ];
 
     public function Type(): BelongsTo

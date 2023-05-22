@@ -17,7 +17,7 @@ class ProductTypeRepository
      */
     public function getAll(): Collection
     {
-        return ProductType::query()->get();
+        return ProductType::query()->orderByDesc('site')->orderBy('sort')->get();
     }
 
     /**
@@ -36,10 +36,14 @@ class ProductTypeRepository
     public function getProductsBySite(?string $site)
     {
         return Product::query()
+            ->with('Type')
             ->when(
                 !is_null($site),
                 fn (Builder $query) =>
                 $query->whereHas('Type', fn ($q) => $q->where('site', $site))
-            )->get();
+            )
+            ->orderBy('sort')
+            ->get()
+            ->sortBy('Type.sort');
     }
 }

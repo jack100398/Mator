@@ -17,6 +17,7 @@ class InputTransformer extends Transformer
             'features' => $model['features'],
             'remark' => $model['remark'],
             'introduction' => $model['introduction'],
+            'sort' => $model['sort'],
             'chart_image' => UrlHelper::formatInputUrl($model['chart_image']),
             'video_url1' => UrlHelper::formatInputUrl($model['video_url1']),
             'video_url2' => UrlHelper::formatInputUrl($model['video_url2']),
