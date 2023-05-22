@@ -52,7 +52,7 @@ class ProductController extends Controller
     {
         $data = $this->input_transformer->transform($request->all());
 
-        return response()->json(Product::query()->create($data));
+        return response()->json(Product::query()->create($data)->Type->site);
     }
 
 
@@ -78,9 +78,10 @@ class ProductController extends Controller
     public function update(Request $request, Product $product)
     {
         $data = $this->input_transformer->transform($request->all());
-        return response()->json($product->update($data));
-    }
+        $product->update($data);
 
+        return response()->json($product->Type->site);
+    }
 
     public function destroy(Product $product)
     {
