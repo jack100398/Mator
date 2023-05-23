@@ -184,6 +184,9 @@
                     <!-- Card Header - Dropdown -->
                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                         <h6 class="m-0 font-weight-bold text-primary">產品說明</h6>
+                        <h6 class="m-0 font-weight-bold text-danger">
+                            請勿直接複製WORD與網站的文字到網站編輯器 ; 請貼入記事本後，再從記事本複製純文字貼入文字編輯器。
+                        </h6>
                     </div>
                     <!-- Card Body -->
                     <div id="summernote">
