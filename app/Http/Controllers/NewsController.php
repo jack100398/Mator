@@ -24,7 +24,7 @@ class NewsController extends Controller
         $news = News::query()->when(
             !is_null($request->site),
             fn ($query) => $query->where('site', $request->site)
-        )->orderBy('created_at')->get();
+        )->orderBy('created_at', 'desc')->get();
 
         return view('Backstage.News.index', [
             'page_categroy' => self::PAGE_CATEGORY,

@@ -60,7 +60,7 @@ class ClientRepository
     {
         return News::query()
             ->where('site', $site)
-            ->orderBy('created_at')
+            ->orderBy('created_at', 'desc')
             ->paginate(15);
     }
 
