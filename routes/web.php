@@ -111,8 +111,9 @@ Route::prefix('admin')->group(function () {
 
         //api
         Route::post('/upload', function () {
-            $imageURL = request()->file('img')->store('public');
-            return 'storage/' . substr($imageURL, 7);
+            $imageURL = request()->file('img')->store('upload_images');
+
+            return $imageURL;
         });
 
         Route::apiResource('third', 'ThirdLinkController', ['names' => ['index' => 'third']]);
